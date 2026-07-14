@@ -1357,7 +1357,7 @@ table.casetab{width:100%;border-collapse:separate;border-spacing:0;min-width:980
 
 /* ===== ÉTAPE 0 v2 ===== */
 .s0wrap{margin:14px 18px}
-.s0top{border:1.5px solid #f4c3ad;border-radius:14px;background:linear-gradient(180deg,#fffaf7,#fef2eb);padding:14px 16px;margin-bottom:12px}
+.s0top{border:1.5px solid #f4c3ad;border-radius:14px;background:linear-gradient(180deg,#fffaf7,#fef2eb);padding:14px 16px;margin-bottom:12px}body.analyse-mode-global[data-v276-active-stage="position"] .s0top{display:none!important}
 .s0head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 /* v304 (Lot 4) — bandeau de statut permanent, visible dans tous les modes (y compris Consulter) */
 .persistent-status{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch;margin:10px 0 4px}
@@ -1699,7 +1699,7 @@ body.locked-global #anchor-0{background:#eaf0fa;border:1px solid #bdcfe8;border-
 @media print{
   @page{size:A4 portrait;margin:14mm 12mm 16mm}
   html,body{background:#fff!important;color:#111827!important;font-size:10.5pt;line-height:1.35}
-  .appbar,.tabs,.foot,.toast,.projectpeek,.pp-fab,#btnPeekCase,.casebar,.modebar,.breadcrumb,.warnbar,.s0modes,.s0fctrls,.s0addrow,.s0globaladd,.s0masked,.not-hd .iterbtn,.no-print{display:none!important}
+  .appbar,.tabs,.foot,.toast,.projectpeek,.pp-fab,#btnPeekCase,.casebar,.modebar,.breadcrumb,.warnbar,.s0modes,.s0fctrls,.s0addrow,.s0globaladd,.s0masked,.not-hd .iterbtn,.no-print,.tpl-insert-btn{display:none!important}
   .print-banner{display:block!important;border-bottom:2.5pt solid var(--orange);padding:0 0 7mm;margin:0 0 7mm;break-after:avoid}
   .print-banner .pb-kicker{font-family:"Archivo",Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.35pt;font-size:8.5pt;color:var(--orange-d);margin-bottom:2mm}
   .print-banner .pb-title{font-family:"Archivo",Arial,sans-serif;font-weight:800;font-size:16pt;color:var(--navy);line-height:1.15}
@@ -10029,7 +10029,7 @@ body.edit-mode-global #tool [aria-disabled="true"]{
   box-shadow:0 6px 14px -9px rgba(20,54,108,.55);
 }
 .gs-chip.typology.symbolic{background:#14366c;}
-.gs-chip.typology.connexionist,.gs-chip.typology.vision{background:#3a7bc8;}
+.gs-chip.typology.connexionist,.gs-chip.typology.connectionist,.gs-chip.typology.vision{background:#3a7bc8;}
 .gs-chip.typology.gen{background:#7c3aed;}
 .gs-chip.typology.hybrid{background:#e0511e;}
 .gs-chip.typology.rl,.gs-chip.typology.agent{background:#c2440f;}
@@ -12022,6 +12022,9 @@ tr.sectrow.e3{display:none!important;}
 .new-iter-footer .nif-hint{font-size:12px;color:#4c607e;line-height:1.4;flex:1 1 220px;min-width:180px}
 .rv-edit-discreet{margin-left:10px;background:none;border:none;color:#94a3b8;font-size:11px;text-decoration:underline;cursor:pointer;padding:2px 4px}
 .rv-edit-discreet:hover{color:#5d6c83}
+.tpl-3b-btn{display:inline-flex;align-items:center;margin-top:10px;background:#5543b8;border:1px solid #5543b8;color:#fff;font-size:12.5px;font-weight:600;border-radius:8px;padding:8px 15px;cursor:pointer;line-height:1.2;box-shadow:0 1px 3px rgba(85,67,184,.28)}
+.tpl-3b-btn:hover{background:#463596;border-color:#463596;color:#fff;box-shadow:0 2px 6px rgba(85,67,184,.35)}
+.tpl-3b-btn:active{transform:translateY(1px);box-shadow:0 1px 2px rgba(85,67,184,.25)}
 .rv-edit-overlay{position:fixed;inset:0;background:rgba(15,23,42,.32);display:flex;align-items:center;justify-content:center;z-index:99999}
 .rv-edit-card{background:#fff;border:1px solid #dbe4f0;border-radius:14px;padding:18px 20px;max-width:420px;margin:16px;box-shadow:0 18px 50px -20px rgba(20,54,108,.5)}
 .rv-edit-card h4{margin:0 0 8px;font-size:14px;color:#14366c;font-weight:700}
@@ -12217,13 +12220,13 @@ body.v276-locked-edit #anchor-0 .tag{
             </button>
 
 <div class="schema-row0">
-            <button type="button" class="schema-sidebox" data-step-desc="0" title="Afficher la description de l’étape 0">
+            <button type="button" class="schema-sidebox" data-step-desc="0f" title="Afficher la description : ce que fait le SIA et son périmètre">
               <span><b>Ce que fait le SIA et son périmètre</b> : activité, processus, système, équipement ou fonction concerné.</span>
             </button>
             <button type="button" class="schema-centerpill" data-step-desc="0" title="Afficher la description de l’étape 0">
               <span class="n">0.</span><span class="t">Préciser le cas d'usage orienté métier</span>
             </button>
-            <button type="button" class="schema-sidebox" data-step-desc="0" title="Afficher la description de l’étape 0">
+            <button type="button" class="schema-sidebox" data-step-desc="0s" title="Afficher la description : système sociotechnique et composants d’IA">
               <span><b>Système sociotechnique et composants d’IA</b> : acteurs, organisation, interactions humain–SIA ; typologie, technologies, données, autonomie / autorité.</span>
             </button>
           </div>
@@ -14320,6 +14323,7 @@ body.v276-locked-edit #anchor-0 #btnNewIterationV271{
         <button class="mini o" id="btnNew2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Ajouter</button>
         <button class="mini" id="btnDup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Dupliquer</button>
         <button class="mini" id="btnImportWork" title="Importer le fichier de travail du répertoire défini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Importer</button>
+        <button class="mini" id="btnExportCase" title="Exporter le cas d’usage en cours (fichier réimportable)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21V9"/><path d="m7 14 5-5 5 5"/><path d="M5 3h14"/></svg>Exporter</button>
         <button class="mini danger" id="btnDel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Supprimer</button>
       </div>
     </div>
@@ -14406,6 +14410,7 @@ body.v276-locked-edit #anchor-0 #btnNewIterationV271{
     <div class="notation" id="anchor-notation">
       <div class="not-hd"><span class="t">Notation finale — <span>cotation par itération &amp; décision</span></span>
         <button type="button" class="mini o iterbtn" id="btnIter" onclick="return addIteration();"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>Ajouter une itération (horodatée)</button>
+        <button type="button" class="mini iterbtn" id="btnToggleIters" style="display:none"></button>
       </div>
       <div class="tablewrap notwrap" style="padding:0"><table class="nottab">
         <thead>
@@ -14614,14 +14619,14 @@ const CRIT = {
    ["Exemplaire","Incertitudes signalées à l'opérateur ; interaction conçue pour la vigilance."]]},
  "3a":{nm:"Position sur l'acceptabilité",mut:"synthèse argumentée des étapes 0–2",sec:3,L:[
    ["Non acceptable en l'état","Point bloquant : à écarter ou repenser fondamentalement."],
-   ["Acceptable sous conditions strictes","Acceptable uniquement avec des mesures d'accompagnement fortes."],
-   ["Acceptable avec réserves mineures","Acceptable moyennant quelques garde-fous."],
+   ["Bilan bénéfice–risque acceptable sous réserve de mesures de maîtrise nécessaires","L'acceptabilité dépend du respect de mesures de maîtrise indispensables. Leur absence, leur inefficacité ou leur perte remet en cause l'acceptabilité du cas d'usage."],
+   ["Bilan bénéfice–risque acceptable avec mesures de maîtrise complémentaires","Le bilan reste acceptable. Les mesures complémentaires renforcent les marges de maîtrise. Leur absence ou leur perte peut conduire à réexaminer la position au niveau 2, sans conduire directement à une position non acceptable."],
    ["Pleinement acceptable","Position favorable, sans réserve significative."]]},
  "3b":{nm:"Pérennité & révision",mut:"maintien dans le temps",sec:3,L:[
-   ["Non maîtrisée","Évolution non maîtrisée ; conditions d'acceptation non tenables (court terme)."],
-   ["Menacée","Maintien incertain ; révision rapprochée nécessaire (moyen terme)."],
-   ["Maîtrisée","Conditions de maintien définies, perfectibles (optimisable)."],
-   ["Assurée","Pérennité et critères de révision clairement établis (exemplaire)."]]},
+   ["Non maîtrisée","Conditions de maintien absentes ou inopérantes ; pérennité non assurée (court terme)."],
+   ["Menacée","Conditions de maintien partielles ou peu efficaces ; encadrement strict et révision rapprochée nécessaires, retrait possible (moyen terme)."],
+   ["Maîtrisée","Conditions de maintien pertinentes et effectives ; à surveiller dans le temps."],
+   ["Assurée","Conditions de maintien pertinentes, effectives et éprouvées ; critères de révision clairement établis."]]},
 };
 const ORDER=["1a","1b","1c","2a","2b","2c","2d","3a","3b"];
 const SCORE_DIMS=["1a","1b","1c","2a","2b","2c","2d"];
@@ -14674,15 +14679,15 @@ function ensureTrust(c){
 const AUTO_REFS={
   easa:{name:"EASA — aviation européenne",levels:[
     {k:"0",t:"Niveau 0 — Aucun recours à l'IA",d:"La fonction est réalisée sans composant IA."},
-    {k:"1",t:"Niveau 1 — Augmentation / assistance humaine",d:"Le SIA augmente ou assiste l'humain, qui conserve la maîtrise de l'interprétation et de la décision (EASA 1A / 1B)."},
-    {k:"2",t:"Niveau 2 — Coopération et collaboration humain-IA",d:"Équipe humain-IA : coopération (2A) ou collaboration (2B) structurée vers un objectif partagé."},
-    {k:"3",t:"Niveau 3 — Automatisation avancée",d:"Automatisation avancée à supervision humaine réduite (3A), pouvant aller jusqu'à l'IA autonome (3B)."}]},
-  nrc:{name:"CANUKUS — nucléaire (CA · UK · US)",levels:[
-    {k:"0",t:"Niveau 0 — Aucun recours à l'IA",d:"La fonction est réalisée sans composant IA."},
-    {k:"1",t:"Insight (éclairage de la décision)",d:"L'IA éclaire ou augmente la décision humaine ; l'humain décide. Forte implication humaine."},
-    {k:"2",t:"Collaboration (humain–IA)",d:"Coopération / collaboration humain–IA ; la décision reste sous maîtrise humaine."},
-    {k:"3",t:"Operation (opération supervisée)",d:"L'IA conduit des opérations dont la sortie est supervisée ou vérifiable par l'humain avant action."},
-    {k:"4",t:"Full Autonomy (autonomie complète)",d:"L'IA opère avec peu ou pas de supervision humaine (indépendance machine)."}]},
+    {k:"1",t:"Niveau 1 — Augmentation / assistance humaine",d:"Le SIA augmente ou assiste l'humain ; l'interprétation et la décision restent humaines (EASA 1A/1B)."},
+    {k:"2",t:"Niveau 2 — Coopération et collaboration humain-IA",d:"Coopération et collaboration structurées (human-AI teaming) : le SIA propose analyses, recommandations ou actions (EASA 2A/2B)."},
+    {k:"3",t:"Niveau 3 — Automatisation avancée (3A) pouvant aller jusqu'à l'IA autonome (3B)",d:"Automatisation avancée à supervision réduite (3A) ; la sous-catégorie 3B correspond à l'IA autonome."}]},
+  nrc:{name:"CANUKUS — nucléaire, CA · UK · US",levels:[
+    {k:"0",t:"Niveau 0 — Pas d'autonomie fonctionnelle",d:"Aucune fonction autonome pour le cas considéré."},
+    {k:"1",t:"Niveau 1 — Insight (éclairage de la décision)",d:"Fournit un éclairage à la décision ; forte implication humaine."},
+    {k:"2",t:"Niveau 2 — Collaboration (humain–IA)",d:"L'humain et l'IA travaillent conjointement ; jugement humain conservé."},
+    {k:"3",t:"Niveau 3 — Operation (opération supervisée)",d:"Le SIA opère sous supervision humaine, avec traçabilité et validation."},
+    {k:"4",t:"Niveau 4 — Full Autonomy (autonomie complète)",d:"Indépendance machine complète, répondant à des situations non anticipées."}]},
   interne:{name:"Référentiel interne à définir",internal:true},
   autre:{name:"Autre référentiel / à préciser",internal:true}
 };
@@ -15581,44 +15586,8 @@ function defaultCriterionTrust(){
   });
   return o;
 }
-function ensureCriterionTrust(c){
-  if(!c.criterionTrust)c.criterionTrust=defaultCriterionTrust();
-  ["2a","2b","2c","2d"].forEach(id=>{
-    if(!c.criterionTrust[id])c.criterionTrust[id]={};
-    CONF_TRUST_LABELS.forEach(([k])=>{
-      if(!c.criterionTrust[id][k])c.criterionTrust[id][k]={level:0,importance:"normale",just:""};
-      if(!c.criterionTrust[id][k].importance)c.criterionTrust[id][k].importance="normale";
-      if(c.criterionTrust[id][k].just===undefined)c.criterionTrust[id][k].just="";
-    });
-  });
-}
-function criterionTrustPanelHtml(id){
-  const labels=CONF_TRUST_LABELS.map(([k,l])=>`<div class="ctrow" data-ctrow="${id}-${k}">
-    <div class="ctmain">
-      <b>${l}</b>
-      <span>${CONF_TRUST_HINTS[id][k]||""}</span>
-    </div>
-    <div class="ctctrl">
-      <input type="range" min="0" max="4" step="1" value="0" data-ct-level="${id}:${k}">
-      <output data-ct-out="${id}:${k}">Non renseigné</output>
-      <select data-ct-importance="${id}:${k}" title="Importance du repère pour ce critère">
-        <option value="normale">Importance normale</option>
-        <option value="forte">Importance forte</option>
-      </select>
-    </div>
-    <textarea data-ct-just="${id}:${k}" placeholder="Justification courte pour ${l.toLowerCase()}…"></textarea>
-  </div>`).join("");
-  return `<details class="criterion-trust" data-ct-panel="${id}">
-    <summary>Repères de confiance appliqués à ${id}</summary>
-    <div class="ctedit">
-      <div class="cthelp">Renseigner uniquement les repères utiles. Si un repère important est faible, il peut faire baisser la note du critère ; si tous les repères sont solides, ils peuvent justifier une note plus favorable.</div>
-      ${labels}
-    </div>
-    <div class="ctread" data-ct-read="${id}"></div>
-    <div class="ctresult" data-ct-result="${id}"></div>
-    <button type="button" class="ctapply" data-ct-apply="${id}">Appliquer l’effet proposé à ${id}</button>
-  </details>`;
-}
+function ensureCriterionTrust(c){ /* sous-cotation désactivée : ne plus initialiser criterionTrust */ }
+function criterionTrustPanelHtml(id){ return ''; /* sous-cotation supprimée : remplacée par le bloc « Questions d'analyse » */ }
 
 function trustLevelLabel(v){
   v=+v||0;
@@ -15681,60 +15650,9 @@ function syncNotationFromGrid(){
   });
 }
 
-function renderCriterionTrustAll(){
-  const c=activeCase();if(!c)return;ensureCriterionTrust(c);
-  ["2a","2b","2c","2d"].forEach(id=>renderCriterionTrust(id));
-}
-function renderCriterionTrust(id){
-  const c=activeCase();if(!c)return;ensureCriterionTrust(c);
-  const d=c.criterionTrust[id]||{};
-  CONF_TRUST_LABELS.forEach(([k])=>{
-    const item=d[k]||{level:0,importance:"normale",just:""};
-    const lvl=$(`[data-ct-level="${id}:${k}"]`), out=$(`[data-ct-out="${id}:${k}"]`), imp=$(`[data-ct-importance="${id}:${k}"]`), jus=$(`[data-ct-just="${id}:${k}"]`);
-    if(lvl)lvl.value=item.level||0;
-    if(out){out.textContent=trustLevelLabel(item.level);out.className="ctout l"+(item.level||0);}
-    if(imp)imp.value=item.importance||"normale";
-    if(jus)jus.value=item.just||"";
-  });
-
-  const cur=(safeActiveIter(c).levels||{})[id]||0;
-  const prop=computeCriterionTrustProposal(c,id,cur);
-  const filled=CONF_TRUST_LABELS.map(([k,l])=>({k,l,...(d[k]||{})})).filter(x=>+x.level>0);
-  const read=$(`[data-ct-read="${id}"]`);
-  if(read){
-    if(!filled.length){
-      read.innerHTML=`<div class="ctread-empty">Aucun repère de confiance renseigné pour ${id}.</div>`;
-    }else{
-      read.innerHTML=`<div class="ctread-list">`+filled.map(x=>`
-        <div class="ctread-item l${+x.level||0}">
-          <div class="ctread-top"><b>${esc(x.l)}</b><span>${esc(trustLevelLabel(x.level))}${x.importance==="forte"?" · importance forte":""}</span></div>
-          ${x.just?`<p>${esc(x.just)}</p>`:""}
-        </div>`).join("")+`</div>`;
-    }
-  }
-
-  const r=$(`[data-ct-result="${id}"]`);
-  if(r){
-    const cls=effectClass(prop.delta);
-    r.className="ctresult "+cls;
-    const targetTxt=cur?levelShort(prop.target||cur):"à déterminer après cotation du critère";
-    const sign=prop.delta>0?"+1":prop.delta<0?String(prop.delta):"0";
-    r.innerHTML=`
-      <div class="ctres-head">
-        <span class="ctres-title">Résultat des repères de confiance</span>
-        <span class="cteffect ${cls}">${esc(effectLabel(prop.delta))}</span>
-      </div>
-      <div class="ctres-grid">
-        <div><b>Note actuelle du critère</b><span>${esc(levelShort(cur))}</span></div>
-        <div><b>Effet calculé</b><span>${esc(sign)} cran</span></div>
-        <div><b>Note proposée</b><span>${esc(targetTxt)}</span></div>
-      </div>
-      <p>${esc(prop.msg)}</p>
-    `;
-  }
-}
-function effectClass(delta){ return delta>0?"up":delta<0?"down":""; }
-function effectLabel(delta){ return delta>0?"Renforce la confiance":delta<0?"Affaiblit la confiance":"Effet neutre"; }
+function renderCriterionTrustAll(){ /* sous-cotation supprimée */ }
+function renderCriterionTrust(id){ /* sous-cotation supprimée */ }
+/* ancien renderCriterionTrust (sous-cotation) supprimé */
 function levelShort(v){ v=+v||0; return v?("Niveau "+v):"—"; }
 
 
@@ -15743,6 +15661,14 @@ const STEP_VERBATIM={
   "0": {
     "title": "Étape 0 — Préciser le cas d’usage orienté métier",
     "text": "Cette étape initiale de la démarche consiste à préciser :\n\n- les missions du SIA : le service attendu, la finalité, les objectifs ;\n- le contexte métier d’utilisation du SIA : contexte d’emploi du SIA et de ses composants dans leur environnement opérationnel et organisationnel (conception, exploitation, maintenance, démantèlement, démonstration de sûreté, expertise) ;\n- les contours du SIA :\n- les composants d’IA constitutifs du SIA et leurs capacités intrinsèques ;\n- les technologies IA utilisées par ces composants : IA symbolique, IA connexionniste, IA hybride ;\n- les données utilisées par ces composants : nature, origine, caractère figé ou évolutif…\n- les niveaux d’autonomie et d’autorité attribués aux composants IA : cette dimension cadre les interactions entre le SIA et ses utilisateurs, en matière de prise de décision (décision assistée, augmentée, supervisée, autonome, automatique) et les modalités de coopération induites entre le SIA et l’ensemble des parties prenantes concernées. Les niveaux d’autonomie et d’autorité attribués aux composants IA, déterminent les modalités de contrôle de l’humain sur le SIA à mettre en place. Ce point sera notamment dimensionnant au moment de l’évaluation de la performance de l’utilisation du SIA.\nCe premier niveau de description peut être suffisant pour initier l’analyse. Toutefois, un questionnement complémentaire pourra être nécessaire (et donc réitéré avec des éléments plus précis) pour utiliser les critères qui guident la suite de l’analyse. Plus le contour fonctionnel et technologique du SIA sera précis, plus l’analyse dans le cadre proposé sera ancrée dans la réalité opérationnelle et plus ses résultats seront pertinents."
+  },
+  "0f": {
+    "title": "Étape 0 — Ce que fait le SIA et son périmètre",
+    "text": "Ce que fait le SIA et son périmètre : activité, processus, système, équipement ou fonction concerné.\n\nIl s’agit de préciser :\n\n- les missions du SIA : le service attendu, la finalité, les objectifs ;\n- le contexte métier d’utilisation du SIA : contexte d’emploi du SIA et de ses composants dans leur environnement opérationnel et organisationnel (conception, exploitation, maintenance, démantèlement, démonstration de sûreté, expertise) ;\n- le périmètre fonctionnel : l’activité, le processus, le système, l’équipement ou la fonction sur lesquels porte l’usage du SIA.\n\nPlus le contour fonctionnel du SIA sera précis, plus l’analyse dans le cadre proposé sera ancrée dans la réalité opérationnelle et plus ses résultats seront pertinents."
+  },
+  "0s": {
+    "title": "Étape 0 — Système sociotechnique et composants d’IA",
+    "text": "Système sociotechnique et composants d’IA : acteurs, organisation, interactions humain–SIA ; typologie, technologies, données, autonomie / autorité.\n\nIl s’agit de préciser les contours du SIA :\n\n- les composants d’IA constitutifs du SIA et leurs capacités intrinsèques ;\n- les technologies IA utilisées par ces composants : IA symbolique, IA connexionniste, IA hybride ;\n- les données utilisées par ces composants : nature, origine, caractère figé ou évolutif… ;\n- les niveaux d’autonomie et d’autorité attribués aux composants IA : cette dimension cadre les interactions entre le SIA et ses utilisateurs, en matière de prise de décision (décision assistée, augmentée, supervisée, autonome, automatique) et les modalités de coopération induites entre le SIA et l’ensemble des parties prenantes concernées. Les niveaux d’autonomie et d’autorité attribués aux composants IA déterminent les modalités de contrôle de l’humain sur le SIA à mettre en place. Ce point sera notamment dimensionnant au moment de l’évaluation de la performance de l’utilisation du SIA.\n\nCe premier niveau de description peut être suffisant pour initier l’analyse. Toutefois, un questionnement complémentaire pourra être nécessaire (et donc réitéré avec des éléments plus précis) pour utiliser les critères qui guident la suite de l’analyse."
   },
   "2": {
     "title": "Étape 2 — Evaluer le niveau de confiance apporté par le SIA",
@@ -15913,7 +15839,7 @@ function closeCriterionDescription(){
     s.ids.forEach(id=>{const c=CRIT[id];const r=document.createElement("tr");r.className="crit-row";r.dataset.crit=id;r.id=`anchor-crit-${id}`;
       let h=`<td class="crit"><button type="button" class="cc crit-ref" data-crit-desc="${id}" title="Afficher la définition du critère"><span class="tag">${id}</span><span class="nm">${c.nm}<span class="mut">${c.mut}</span></span></button></td>`;
       c.L.forEach((L,i)=>h+=`<td class="wlvl l${i+1}" data-level="${i+1}"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span class="v">${L[0]}</span><span class="ex">${L[1]}</span></td>`);
-      h+=`<td class="just"><textarea data-comment="${id}" placeholder="Décision argumentée, justification, commentaire…"></textarea>${["2a","2b","2c","2d"].includes(id)?criterionTrustPanelHtml(id):""}</td>`;
+      h+=`<td class="just"><textarea data-comment="${id}" placeholder="Décision argumentée, justification, commentaire…"></textarea></td>`;
       r.innerHTML=h;tb.appendChild(r);});
   });
 })();
@@ -17637,7 +17563,7 @@ function buildSiaDecompositionSynopsis(c){
     const badge=o.level?("N"+esc(String(o.level).replace(/^N/,""))):"N?";
     const title=L?esc(L.t):(o.level?"Niveau "+esc(o.level):"Niveau non précisé");
     const ref=o.ref?esc(refLabel(o.ref)):"";
-    return `<div class="gs-levelmini"><span class="gs-levelmini-badge" style="display:inline-block;padding:1px 7px;border-radius:6px;background:var(--navy,#1F3864);color:#fff;font-weight:700;font-size:11px;margin-right:6px">${badge}</span><b>${title}</b>${ref?` <span style="color:#64748b;font-size:11px">${ref}</span>`:""}${o.just?`<div class="md-body ctrl-just" style="margin-top:3px;color:#475569;font-size:12px">${mdRender(o.just)}</div>`:""}</div>`;
+    return `<div class="gs-levelmini"><span class="gs-levelmini-badge" style="display:inline-block;padding:1px 7px;border-radius:6px;background:var(--navy,#1F3864);color:#fff;font-weight:700;font-size:11px;margin-right:6px">${badge}</span><b>${title}</b>${ref?` <span style="color:#64748b;font-size:11px">${ref}</span>`:""}${o.just?`<div class="md-body" style="margin-top:3px;color:#475569;font-size:12px">${mdRender(o.just)}</div>`:""}</div>`;
   };
   const authSummaryHtml=(o)=>{
     o=(o&&typeof o==="object")?o:{level:"",just:String(o||"")};
@@ -17645,7 +17571,7 @@ function buildSiaDecompositionSynopsis(c){
     const L=(AUTHORITY||[]).find(x=>x.k===o.level);
     const badge=o.level?esc(o.level):"A?";
     const title=L?esc(L.t):(o.level?"Niveau "+esc(o.level):"Niveau non précisé");
-    return `<div class="gs-levelmini auth"><span class="gs-levelmini-badge" style="display:inline-block;padding:1px 7px;border-radius:6px;background:#b45309;color:#fff;font-weight:700;font-size:11px;margin-right:6px">${badge}</span><b>${title}</b>${(L&&L.f)?`<div class="aa-formula">${esc(L.f)}</div>`:""}${o.just?`<div class="md-body ctrl-just" style="margin-top:3px;color:#475569;font-size:12px">${mdRender(o.just)}</div>`:""}</div>`;
+    return `<div class="gs-levelmini auth"><span class="gs-levelmini-badge" style="display:inline-block;padding:1px 7px;border-radius:6px;background:#b45309;color:#fff;font-weight:700;font-size:11px;margin-right:6px">${badge}</span><b>${title}</b>${(L&&L.f)?`<div class="aa-formula">${esc(L.f)}</div>`:""}${o.just?`<div class="md-body" style="margin-top:3px;color:#475569;font-size:12px">${mdRender(o.just)}</div>`:""}</div>`;
   };
   const ctrlSummaryHtml=(o)=>{
     o=(o&&typeof o==="object")?o:{level:"",just:String(o||"")};
@@ -17653,7 +17579,7 @@ function buildSiaDecompositionSynopsis(c){
     const L=(CONTROL_LEVELS||[]).find(x=>x.k===o.level);
     const badge=o.level?esc(o.level):"C?";
     const title=L?esc(String(L.t).replace(/^C\d+\s*[–-]\s*/,"")):(o.level?"Niveau "+esc(o.level):"Niveau non précisé");
-    return `<div class="gs-levelmini ctrl"><span class="gs-levelmini-badge" style="display:inline-block;padding:1px 7px;border-radius:6px;background:#0f6b7e;color:#fff;font-weight:700;font-size:11px;margin-right:6px">${badge}</span><b style="color:#0f6b7e;text-transform:none;font-weight:800">${title}</b>${o.just?`<div class="md-body ctrl-just" style="margin-top:3px;color:#475569;font-size:12px">${mdRender(o.just)}</div>`:""}</div>`;
+    return `<div class="gs-levelmini ctrl"><span class="gs-levelmini-badge" style="display:inline-block;padding:1px 7px;border-radius:6px;background:#0f6b7e;color:#fff;font-weight:700;font-size:11px;margin-right:6px">${badge}</span><b style="color:#0f6b7e;text-transform:none;font-weight:800">${title}</b>${o.just?`<div class="md-body" style="margin-top:3px;color:#475569;font-size:12px">${mdRender(o.just)}</div>`:""}</div>`;
   };
   const fieldRich=(label,inner,spec)=>{
     const miss=/gs-missing/.test(inner)&&!/gs-levelmini/.test(inner);
@@ -18210,6 +18136,7 @@ function schemaPopupConfigForItem(c,famKey,defId,it,defObj){
       html:`<form class="schema-structured-form">
         ${guidanceNote}${exampleNote}
         ${schemaFieldText("value","Description",String(it.value||""),(defObj&&defObj.ph)||"",6)}
+        ${defId==="pointsAttention"?`<button type="button" class="tpl-3b-btn" data-tpl-review title="Insérer un modèle de conditions de revue à compléter">Générer un template à remplir</button>`:""}
         ${schemaNoteBlock("Question d’aide",ph)}
       </form>`,
       save:(form)=>{it.value=formVal(form,"value");}
@@ -18238,6 +18165,7 @@ function schemaPopupConfigForComponent(c,ci,field){
   const techOptions=techOptionsForTypology(v.typologie||v.typology||"");
   const requested=String(field||"__full");
   const markComponentDirty=()=>{const rid=guidedRubricIdFromItem(c,"composants",it.iid);if(rid)markGuidedRubricDirty(c,rid);};
+  const tplBtn=(k)=>`<button type="button" class="tpl-insert-btn" data-tpl-key="${k}">Ins\u00e9rer une trame</button>`;
   const cfg=(subTitle,html,save)=>({
     title:baseTitle,
     subtitle:"",
@@ -18254,7 +18182,7 @@ function schemaPopupConfigForComponent(c,ci,field){
   }
   if(requested==="role"){
     return cfg("Fonction et rôle du composant IA",
-      `${mdExampleBlock("**Fonction :** détection d’anomalies sur séries temporelles.\n**Entrées :** paramètres capteurs normalisés.\n**Sorties :** score d’anomalie par pas de temps.\n**Interaction :** alimente le composant de priorisation.")}${schemaFieldText("role","Fonction et rôle du composant IA",v.role||"","La fonction assurée par ce composant et son rôle dans le SIA : ce qu\u2019il fait, ce qu\u2019il traite, ce qu\u2019il transmet aux autres éléments.",5)}`,
+      `${mdExampleBlock("**Fonction :** détection d’anomalies sur séries temporelles.\n**Entrées :** paramètres capteurs normalisés.\n**Sorties :** score d’anomalie par pas de temps.\n**Interaction :** alimente le composant de priorisation.")}${schemaFieldText("role","Fonction et rôle du composant IA",v.role||"","La fonction assurée par ce composant et son rôle dans le SIA : ce qu\u2019il fait, ce qu\u2019il traite, ce qu\u2019il transmet aux autres éléments.",5)}${tplBtn('comp-role')}`,
       (form)=>{v.role=formVal(form,"role");}
     );
   }
@@ -18278,7 +18206,7 @@ function schemaPopupConfigForComponent(c,ci,field){
     var _va=v.autonomie, _cr=_va.ref||"nrc";
     var _grp=Object.keys(AUTO_REFS).filter(function(k){return AUTO_REFS[k].levels;}).map(function(k){return `<div class="aut-levels" data-scale-group="${k}" ${k!==_cr?"hidden":""}><span class="aut-grp-lbl">Niveau d’autonomie</span><select name="level" class="schema-levelsel"><option value="">— à préciser —</option>${AUTO_REFS[k].levels.map(function(L){var on=String(_va.level||"").replace(/^N/,"")===String(L.k).replace(/^N/,"");return `<option value="${attrEsc(L.k)}" ${on?"selected":""}>${esc("N"+L.k+" — "+L.t)}</option>`;}).join("")}</select></div>`;}).join("");
     return cfg("Autonomie",
-      `<form class="schema-structured-form autonomy-form"><label class="schema-fld"><span>Référentiel / échelle d’autonomie</span><select name="ref" data-autonomy-scale>${Object.keys(AUTO_REFS).filter(function(k){return AUTO_REFS[k].levels;}).map(function(k){return `<option value="${k}" ${_cr===k?"selected":""}>${esc(AUTO_REFS[k].name)}</option>`;}).join("")}</select></label>${_grp}${schemaFieldText("just","Justification du niveau retenu",_va.just||"","Degré d’action sans intervention humaine : préciser ce que le composant fait sans intervention, dans quelles conditions et avec quelle intervention humaine.",4)}</form>`,
+      `<form class="schema-structured-form autonomy-form"><label class="schema-fld"><span>Référentiel / échelle d’autonomie</span><select name="ref" data-autonomy-scale>${Object.keys(AUTO_REFS).filter(function(k){return AUTO_REFS[k].levels;}).map(function(k){return `<option value="${k}" ${_cr===k?"selected":""}>${esc(AUTO_REFS[k].name)}</option>`;}).join("")}</select></label>${_grp}${schemaFieldText("just","Justification du niveau retenu",_va.just||"","Degré d’action sans intervention humaine : préciser ce que le composant fait sans intervention, dans quelles conditions et avec quelle intervention humaine.",4)}${tplBtn('autojust')}</form>`,
       (form)=>{var ref=formVal(form,"ref")||"nrc";var lvl="";var _g=form.querySelector('[data-scale-group="'+ref+'"]');if(_g){var _s=_g.querySelector('select[name="level"]');if(_s)lvl=_s.value;}v.autonomie={ref:ref,level:lvl,just:formVal(form,"just")};}
     );
   }
@@ -18287,14 +18215,14 @@ function schemaPopupConfigForComponent(c,ci,field){
     if(!v.autorite||typeof v.autorite!=="object")v.autorite={level:"",just:""};
     var _vt=v.autorite;
     return cfg("Autorité",
-      `<form class="schema-structured-form autonomy-form"><div class="schema-fld"><span>Niveau d’autorité</span><select name="level" class="schema-levelsel"><option value="">— à préciser —</option>${AUTHORITY.map(function(L){var on=_vt.level===L.k;return `<option value="${attrEsc(L.k)}" ${on?"selected":""}>${esc(L.t)}</option>`;}).join("")}</select></div>${schemaFieldText("just","Justification du niveau d’autorité",_vt.just||"","Influence du résultat sur la décision : le composant informe, assiste, recommande, propose ou décide, et qui conserve la décision ?",4)}</form>`,
+      `<form class="schema-structured-form autonomy-form"><div class="schema-fld"><span>Niveau d’autorité</span><select name="level" class="schema-levelsel"><option value="">— à préciser —</option>${AUTHORITY.map(function(L){var on=_vt.level===L.k;return `<option value="${attrEsc(L.k)}" ${on?"selected":""}>${esc(L.t)}</option>`;}).join("")}</select></div>${schemaFieldText("just","Justification du niveau d’autorité",_vt.just||"","Influence du résultat sur la décision : le composant informe, assiste, recommande, propose ou décide, et qui conserve la décision ?",4)}${tplBtn('authjust')}</form>`,
       (form)=>{v.autorite={level:formVal(form,"level")||"",just:formVal(form,"just")};}
     );
   }
 
   if(requested==="donnees"){
     return cfg("Données",
-      `${schemaFieldText("donnees","Données du composant",v.donnees||"","Les données qui ont servi à constituer, entraîner, tester et valider le composant, et celles qu\u2019il utilise en exploitation : nature, format, volume, origine, caractère figé ou évolutif.",5)}`,
+      `${schemaFieldText("donnees","Données du composant",v.donnees||"","Les données qui ont servi à constituer, entraîner, tester et valider le composant, et celles qu\u2019il utilise en exploitation : nature, format, volume, origine, caractère figé ou évolutif.",5)}${tplBtn('comp-donnees')}`,
       (form)=>{v.donnees=formVal(form,"donnees");}
     );
   }
@@ -18306,19 +18234,19 @@ function schemaPopupConfigForComponent(c,ci,field){
   }
   if(requested==="limites"){
     return cfg("Conçu pour / ne couvre pas (ODD)",
-      `${schemaFieldText("limites","Limites, hors-domaine ou conditions propres au composant",v.limites||"","Décrire les limites de validité du composant, ses dépendances, les cas non couverts, les situations où ses sorties ne doivent pas être utilisées seules, ou les restrictions d’usage identifiées.",6)}`,
+      `${schemaFieldText("limites","Limites, hors-domaine ou conditions propres au composant",v.limites||"","Décrire les limites de validité du composant, ses dépendances, les cas non couverts, les situations où ses sorties ne doivent pas être utilisées seules, ou les restrictions d’usage identifiées.",6)}${tplBtn('comp-limites')}`,
       (form)=>{v.limites=formVal(form,"limites");}
     );
   }
   if(requested==="justificationVV"){
     return cfg("Justification des performances et V&V",
-      `${mdExampleBlock("**Protocole V&V :** jeu de test indépendant (20 % des données).\n**Métriques et seuils :**\n- precision ≥ 0,90\n- recall ≥ 0,85\n**Cas limites :** testés sur transitoires rares.\n**Preuve :** rapport d’essais versionné.")}${schemaFieldText("justificationVV","Justification des performances et V&V",v.justificationVV||"","Décrire comment les performances annoncées sont établies et vérifiées : jeux d’essais, références, métriques, critères d’acceptation, analyses comparatives, essais sur cas limites et éléments de preuve, proportionnés à l’enjeu.",6)}`,
+      `${mdExampleBlock("**Protocole V&V :** jeu de test indépendant (20 % des données).\n**Métriques et seuils :**\n- precision ≥ 0,90\n- recall ≥ 0,85\n**Cas limites :** testés sur transitoires rares.\n**Preuve :** rapport d’essais versionné.")}${schemaFieldText("justificationVV","Justification des performances et V&V",v.justificationVV||"","Décrire comment les performances annoncées sont établies et vérifiées : jeux d’essais, références, métriques, critères d’acceptation, analyses comparatives, essais sur cas limites et éléments de preuve, proportionnés à l’enjeu.",6)}${tplBtn('comp-justificationVV')}`,
       (form)=>{v.justificationVV=formVal(form,"justificationVV");}
     );
   }
   if(requested==="incertitudes"){
     return cfg("Incertitudes",
-      `${mdExampleBlock("**Sources :**\n- représentativité limitée des cas rares\n- sensibilité au bruit capteur\n**Quantification :** intervalle de confiance à 95 % sur le score.\n**Prise en compte :** cas incertains signalés.")}${schemaFieldText("incertitudes","Incertitudes",v.incertitudes||"","Décrire les incertitudes connues : nature, sources, quantification, sensibilité aux données, et leur prise en compte dans l’interprétation des résultats.",6)}`,
+      `${mdExampleBlock("**Sources :**\n- représentativité limitée des cas rares\n- sensibilité au bruit capteur\n**Quantification :** intervalle de confiance à 95 % sur le score.\n**Prise en compte :** cas incertains signalés.")}${schemaFieldText("incertitudes","Incertitudes",v.incertitudes||"","Décrire les incertitudes connues : nature, sources, quantification, sensibilité aux données, et leur prise en compte dans l’interprétation des résultats.",6)}${tplBtn('comp-incertitudes')}`,
       (form)=>{v.incertitudes=formVal(form,"incertitudes");}
     );
   }
@@ -18885,20 +18813,18 @@ function getCadreItem(){
 }
 function cadreNormatifSummary(c){
   const it=findGuidedItem(c,"surete","cadreNormatif");
-  const v=it&&it.value;
-  if(!v) return "";
+  const v=(it&&it.value)||{};
   const entries=Array.isArray(v.entries)?v.entries:[];
   const fromEntries=entries.filter(e=>e&&(e.type||e.ref)).map(e=>{
     const t=(e.type&&e.type!=="Autre")?e.type:"";
     return e.ref?(t?`${t} — ${e.ref}`:e.ref):t;
   }).filter(Boolean).join(" · ");
   if(fromEntries) return fromEntries;
-  // repli : format multi {sel:[], note}
-  const sel=Array.isArray(v.sel)?v.sel.filter(Boolean):[];
-  const note=String(v.note||"").trim();
-  const head=sel.join(" · ");
-  if(head && note) return head+"\n"+note;
-  return head || note;
+  // Repli format multi {sel, note}
+  const sels=Array.isArray(v.sel)?v.sel.filter(Boolean):[];
+  const note=(v.note&&String(v.note).trim())?String(v.note).trim():"";
+  const head=sels.join(" · ");
+  return head&&note?`${head} — ${note}`:(head||note||"");
 }
 function cadreCardHtml(e,i){
   return `<div class="cadre-card" data-cadre-i="${i}">
@@ -19308,6 +19234,19 @@ document.addEventListener("click",function(e){
     var ev=document.createEvent("Event"); ev.initEvent("input",true,true); ta.dispatchEvent(ev);
   });
 })();
+/* v500 — insertion du modèle de conditions de revue dans le champ « Conditions de maintien de l’acceptabilité » */
+document.addEventListener("click",function(e){
+  var b=e.target.closest&&e.target.closest("[data-tpl-review]"); if(!b) return;
+  e.preventDefault();
+  var form=b.closest("form")||b.closest(".schema-modalbody")||document;
+  var ta=form.querySelector('textarea[name="value"]')||form.querySelector("textarea"); if(!ta) return;
+  var tpl=(typeof REVIEW_TEMPLATE_3B!=="undefined")?REVIEW_TEMPLATE_3B:"";
+  var cur=String(ta.value||"");
+  ta.value=cur.trim()?(cur.replace(/\s+$/,"")+"\n\n"+tpl):tpl;
+  ta.focus();
+  try{ta.selectionStart=ta.selectionEnd=ta.value.length;}catch(_){}
+  var ev=document.createEvent("Event"); ev.initEvent("input",true,true); ta.dispatchEvent(ev);
+});
 function normalizeLabelForCompare(s){
   return String(s||"")
     .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
@@ -19898,7 +19837,7 @@ function buildReview(c){
       const justif=criterionJustification(c,id);
       h+=`<div class="rv-crit-block">
         <div class="rv-crit-title"><b>${esc(id)} — ${esc(crit.nm)}</b><span class="rv-crit-mut">${esc(crit.mut||"")}</span></div>
-        <div class="rv-info"><div class="rv-info-h">Information ayant permis la cotation (justification de l'analyse)</div><div class="rv-info-just">${justif?esc(justif):"<i>Aucune justification renseignée par l'analyse pour ce critère.</i>"}</div></div>
+        <div class="rv-info"><div class="rv-info-h">Information ayant permis la cotation (justification de l'analyse)</div><div class="rv-info-just">${justif?mdRender(justif):"<i>Aucune justification renseignée par l'analyse pour ce critère.</i>"}</div></div>
         <div class="rv-grid-h">Niveau proposé par la revue :</div>
         <div class="rv-grid">`;
       (crit.L||[]).forEach((lv,i)=>{
@@ -20095,6 +20034,39 @@ function printOverviewModal(){
   .sia-ovcomp-top,.pp-ovcomp-top{padding:8px 10px;border-bottom:1px solid #e7edf5}
   p{line-height:1.4}
   @media print{body{margin:12mm}}
+/* ===== Dossier d'impression dédié (#printDocument) ===== */
+#printDocument{display:none}
+@media screen{#printDocument{display:none!important}}
+@media print{
+  html,body{background:#fff!important}
+  body>*:not(#printDocument){display:none!important}
+  #printDocument{display:block!important;position:static!important;font-family:Arial,Helvetica,sans-serif;color:#13233f;font-size:10pt;line-height:1.45}
+  @page{size:A4 portrait;margin:17mm 15mm 16mm}
+  #printDocument button,#printDocument .no-print,#printDocument .tpl-insert-btn,#printDocument [data-tpl-key],#printDocument .pp-actions,#printDocument .ctx-compedit,#printDocument .ctx-comp-actions,#printDocument .ctx-card-actions,#printDocument .gs-comp-editbtn,#printDocument .gs-comp-editname,#printDocument .gs-comp-dupbtn,#printDocument .gs-comp-delete,#printDocument [data-syn-edit],#printDocument [data-comp-edit-field],#printDocument [data-comp-delete],#printDocument [data-syn-add-component],#printDocument [data-act],#printDocument .bar,#printDocument .tab-actions,#printDocument details>summary::-webkit-details-marker{display:none!important}
+  #printDocument textarea,#printDocument select,#printDocument input{display:none!important}
+  #printDocument *{box-shadow:none!important;text-shadow:none!important}
+  #printDocument details{display:block!important}
+  #printDocument details>*{display:block!important}
+  #printDocument svg{max-width:100%!important;height:auto!important;page-break-inside:avoid;break-inside:avoid}
+  #printDocument h1,#printDocument h2,#printDocument h3,#printDocument summary{break-after:avoid;page-break-after:avoid}
+  #printDocument tr,#printDocument .pd-kv,#printDocument .pp-overview-row{break-inside:avoid;page-break-inside:avoid}
+  #printDocument table{width:100%;border-collapse:collapse;font-size:9pt}
+  #printDocument th,#printDocument td{border:1px solid #c9d4e6;padding:3px 5px;vertical-align:top;word-break:break-word}
+  #printDocument thead{display:table-header-group}
+  /* page de garde */
+  .pd-cover{border-bottom:3px solid #e0511e;padding-bottom:14px;margin-bottom:16px;break-after:avoid}
+  .pd-cover .pd-kicker{font-size:9pt;letter-spacing:.5px;text-transform:uppercase;color:#c2440f;font-weight:800}
+  .pd-cover h1{font-size:22pt;color:#14366c;margin:6px 0 2px;line-height:1.15}
+  .pd-cover .pd-sub{font-size:11pt;color:#5d6c83;margin:0 0 10px}
+  .pd-cover .pd-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:9.5pt}
+  .pd-cover .pd-kv{display:flex;gap:6px}.pd-cover .pd-kv b{color:#14366c;min-width:135px;display:inline-block}
+  .pd-part{break-before:page;page-break-before:always;margin-top:0}
+  .pd-part>h2{font-size:15pt;color:#14366c;border-bottom:1.5px solid #dce3ee;padding-bottom:4px;margin:0 0 10px}
+  .pd-matrixwrap{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-around}
+  .pd-matrixwrap figure{margin:0;max-width:48%}.pd-matrixwrap figcaption{font-size:9pt;font-weight:800;color:#14366c;text-align:center;margin-bottom:4px}
+  /* en-tête / pied de page discrets */
+  .pd-runhead{position:running(pdhead)} 
+}
   
 /* ===== V162 — COMPOSANTS IA : EN-TÊTE COMPACT, TAGS SANS DÉBORDEMENT ===== */
 .s0-comptop,.pp-comptop{
@@ -20297,57 +20269,366 @@ document.addEventListener('click',function(e){
   openVvtableReadModal(parseInt(b.getAttribute('data-vvt-open'),10)||0);
 },true);
 
-function renderRiskMatrix(c){
-  var wrap=document.getElementById('riskMatrixWrap');
-  if(!wrap)return;
-  var its=(c&&c.iterations)||[];
-  function avg(L,ids){var s=0,n=0;ids.forEach(function(k){var v=+((L&&L[k])||0);if(v){s+=v;n++;}});return n?s/n:0;}
-  var pts=[];
-  its.forEach(function(it,idx){
-    var L=(it&&it.levels)||{};
-    var conf=avg(L,['2a','2b','2c','2d']);
-    var benr=avg(L,['1a','1b','1c']);
-    if(!conf||!benr)return;
-    pts.push({label:'I'+(idx+1), occ:5-conf, cons:5-benr, conf:conf, benr:benr, last:false});
-  });
-  if(pts.length)pts[pts.length-1].last=true;
-  var head='<div class="riskmx-head"><div class="riskmx-title">Matrice des risques \u2014 trajectoire d\u2019acceptation par it\u00e9ration</div><div class="riskmx-sub">Inspir\u00e9e du diagramme de Farmer et de la matrice EBIOS Risk Management (ANSSI), adapt\u00e9e au cadre d\u2019analyse du chapitre 2.</div></div>';
-  if(!pts.length){ wrap.innerHTML=head+'<div class="riskmx-empty">Compl\u00e9tez les niveaux 1a\u20131c et 2a\u20132d d\u2019au moins une it\u00e9ration pour visualiser la matrice.</div>'; return; }
-  var W=460,H=408,pl=66,pt=22,pr=444,pb=342;
-  var pw=pr-pl, ph=pb-pt, cw=pw/4, ch=ph/4;
-  function zoneColor(cf,bn){ var s=(5-cf)+bn; if(s<=3)return '#cfe8c8'; if(s<=6)return '#f3cf95'; return '#eeae9f'; }
-  function X(cf){return pl+((4-cf)+0.5)*cw;}
-  function Y(bn){return pt+((4-bn)+0.5)*ch;}
-  var svg='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" class="riskmx-svg" role="img" aria-label="Matrice des risques par it\u00e9ration">';
-  var k,r,x,y;
-  for(k=1;k<=4;k++){ for(r=1;r<=4;r++){ x=pl+(k-1)*cw; y=pt+(r-1)*ch; svg+='<rect x="'+x+'" y="'+y+'" width="'+cw+'" height="'+ch+'" fill="'+zoneColor(5-k,5-r)+'" stroke="#ffffff" stroke-width="2"/>'; } }
-  svg+='<rect x="'+pl+'" y="'+pt+'" width="'+pw+'" height="'+ph+'" fill="none" stroke="#8aa0bf" stroke-width="1.2"/>';
-  svg+='<text x="'+(pl+pw/2)+'" y="'+(H-8)+'" text-anchor="middle" class="riskmx-axttl">Niveau de confiance (moyenne 2a\u00b72b\u00b72c\u00b72d)</text>';
-  svg+='<text x="'+(pl+6)+'" y="'+(pb+30)+'" text-anchor="start" class="riskmx-axsub">maximale</text>';
-  svg+='<text x="'+(pr-6)+'" y="'+(pb+30)+'" text-anchor="end" class="riskmx-axsub">minimale</text>';
-  svg+='<text transform="translate(14 '+(pt+ph/2)+') rotate(-90)" text-anchor="middle" class="riskmx-axttl">B\u00e9n\u00e9fice-risque pour la s\u00fbret\u00e9 (1a\u00b71b\u00b71c)</text>';
-  svg+='<text transform="translate(40 '+(pt+4)+') rotate(-90)" text-anchor="end" class="riskmx-axsub">important</text>';
-  svg+='<text transform="translate(40 '+(pb-4)+') rotate(-90)" text-anchor="start" class="riskmx-axsub">faible</text>';
-  for(k=1;k<=4;k++){ svg+='<text x="'+(pl+(k-0.5)*cw)+'" y="'+(pb+15)+'" text-anchor="middle" class="riskmx-tick">'+(5-k)+'</text>'; }
-  for(r=1;r<=4;r++){ svg+='<text x="'+(pl-9)+'" y="'+(pt+(r-0.5)*ch+4)+'" text-anchor="end" class="riskmx-tick">'+(5-r)+'</text>'; }
-  pts.forEach(function(p){ p.bx=X(p.conf); p.by=Y(p.benr); });
-  var EPS=17, clusters=[], deoverlapped=false;
-  pts.forEach(function(p){ var cl=null; for(var i=0;i<clusters.length;i++){ if(Math.abs(clusters[i].x-p.bx)<EPS && Math.abs(clusters[i].y-p.by)<EPS){cl=clusters[i];break;} } if(cl){cl.m.push(p);} else {clusters.push({x:p.bx,y:p.by,m:[p]});} });
-  clusters.forEach(function(cl){ if(cl.m.length===1){ cl.m[0].cx=cl.m[0].bx; cl.m[0].cy=cl.m[0].by; return; } deoverlapped=true; var R=15; cl.m.forEach(function(p,i){ var ang=(-Math.PI/2)+(i*2*Math.PI/cl.m.length); p.cx=cl.x+R*Math.cos(ang); p.cy=cl.y+R*Math.sin(ang); }); svg+='<circle cx="'+cl.x.toFixed(1)+'" cy="'+cl.y.toFixed(1)+'" r="2.6" fill="#14366c" opacity="0.55"/>'; });
-  if(pts.length>1){ var d=pts.map(function(p,i){return (i?'L':'M')+p.cx.toFixed(1)+' '+p.cy.toFixed(1);}).join(' '); svg+='<path d="'+d+'" fill="none" stroke="#14366c" stroke-width="2" stroke-dasharray="5 4" opacity="0.75"/>'; }
-  pts.forEach(function(p){ var fill=p.last?'#14366c':'#5b7ba6'; svg+='<circle cx="'+p.cx.toFixed(1)+'" cy="'+p.cy.toFixed(1)+'" r="14" fill="'+fill+'" stroke="#fff" stroke-width="2"/>'; svg+='<text x="'+p.cx.toFixed(1)+'" y="'+(p.cy+4).toFixed(1)+'" text-anchor="middle" class="riskmx-mk">'+esc(p.label)+'</text>'; });
-  svg+='</svg>';
-  var legend='<div class="riskmx-legend"><ul>'
-    +'<li><b>Axe horizontal \u2014 Niveau de confiance</b> (moyenne 2a\u00b72b\u00b72c\u00b72d) : de <b>maximale</b> (niveau 4, \u00e0 gauche) \u00e0 <b>minimale</b> (niveau 1, \u00e0 droite).</li>'
-    +'<li><b>Axe vertical \u2014 B\u00e9n\u00e9fice-risque pour la s\u00fbret\u00e9</b> (moyenne 1a\u00b71b\u00b71c) : d\u2019<b>important</b> (niveau 4, en haut) \u00e0 <b>faible</b> (niveau 1, en bas).</li>'
-    +'<li><span class="riskmx-sw sw-v"></span><b>Vert</b> (bas-gauche) : risque acceptable. &nbsp;<span class="riskmx-sw sw-o"></span><b>Orange</b> : risque acceptable sous conditions. &nbsp;<span class="riskmx-sw sw-r"></span><b>Rouge</b> (haut-droite) : risque inacceptable.</li>'
-    +'<li>Position d\u2019une it\u00e9ration = moyenne des niveaux cot\u00e9s.</li>'+(deoverlapped?'<li>Des it\u00e9rations de position identique ou tr\u00e8s proche sont l\u00e9g\u00e8rement d\u00e9cal\u00e9es autour de leur point r\u00e9el (petit rep\u00e8re) pour rester lisibles ; les valeurs exactes figurent dans le tableau.</li>':'')
-    +'</ul></div>';
-  var rows=pts.map(function(p){return '<tr><td>'+esc(p.label)+'</td><td>'+p.benr.toFixed(2)+'</td><td>'+p.conf.toFixed(2)+'</td></tr>';}).join('');
-  var recap='<table class="riskmx-recap"><thead><tr><th>It\u00e9ration</th><th>B\u00e9n\u00e9fice/risque<br>(1a\u20131c)</th><th>Confiance<br>(2a\u20132d)</th></tr></thead><tbody>'+rows+'</tbody></table>';
-  wrap.innerHTML=head+'<div class="riskmx-body"><div class="riskmx-plot">'+svg+'</div><div class="riskmx-side">'+legend+recap+'</div></div>';
+/* ===== Insertion de trames structurées (bouton « Insérer une trame ») — mécanisme commun ===== */
+(function(){
+  var _R={'autojust':['Fonctions réalisées de manière autonome par le SIA','Conditions et limites de cette autonomie','Modalités d’intervention, de validation ou de reprise humaine','Justification du niveau retenu au regard du cas d’usage et des enjeux de sûreté'],'authjust':['Place du SIA dans le processus de décision ou d’action','Nature de l’influence exercée par le SIA sur la décision ou l’action','Répartition de l’autorité et des responsabilités entre le SIA et les acteurs humains','Justification du niveau retenu au regard du cas d’usage et des enjeux de sûreté'],'ctrljust':['Nature et étendue du contrôle humain prévu','Moment et modalités d’exercice du contrôle','Situations nécessitant une intervention, une correction ou une suspension','Justification du niveau retenu au regard du cas d’usage et des enjeux de sûreté'],'comp-role':['Fonction assurée par le composant','Contribution du composant au fonctionnement du SIA','Position dans la chaîne de traitement','Articulation avec les autres composants et avec l’intervention humaine'],'comp-limites':['Domaine d’emploi prévu','Conditions et hypothèses de validité','Situations non couvertes ou hors domaine','Dépendances, restrictions et limites d’utilisation','Modalités de détection ou de traitement d’une sortie du domaine'],'comp-justificationVV':['Performances attendues et références utilisées pour les apprécier','Méthodes de vérification et de validation mises en œuvre','Données, cas d’essai et conditions d’évaluation','Résultats obtenus et critères d’acceptation','Limites des évaluations et éléments de preuve disponibles'],'comp-incertitudes':['Nature et sources des incertitudes','Méthodes de caractérisation ou de quantification','Effets possibles sur les résultats du composant','Prise en compte des incertitudes dans l’utilisation et l’interprétation des résultats','Incertitudes résiduelles et limites associées'],'comp-donnees':['Nature et origine des données','Utilisation pour l’entraînement, le test, la validation ou l’exploitation','Qualité, représentativité et traçabilité','Transformations ou traitements appliqués','Limites, évolutions et dérives à surveiller'],'ctx-cycle-note':['Installation, système ou périmètre concerné','Phase du cycle de vie et activité concernée','Acteurs et processus impliqués','Place du SIA dans cette activité','Hypothèses ou limites de périmètre'],'ctx-demo-note':['Dossier, analyse ou élément de démonstration concerné','Finalité de l’utilisation du SIA','Données, hypothèses ou résultats concernés','Place du résultat du SIA dans la justification de sûreté','Limites et conditions d’utilisation'],'ctx-mission-note':['Mission et activité concernées','Processus ou dossier dans lequel le SIA intervient','Acteurs concernés et responsabilités','Utilisation prévue des résultats du SIA','Limites du périmètre analysé'],'ctx-emploi':['Situation d’utilisation du SIA','Activité ou processus concerné','Utilisateurs et autres acteurs concernés','Conditions d’utilisation prévues','Situations exclues ou limites d’emploi'],'cadre-precision':['Exigence, principe ou disposition concerné','Lien avec le cas d’usage','Périmètre du SIA auquel le cadre se rapporte','Conséquences pour l’analyse ou les éléments à justifier','Limites, réserves ou points restant à examiner'],'crit1a':['Bénéfices attendus pour la sûreté ou l’activité concernée','Comparaison avec la solution de référence','Périmètre dans lequel ces bénéfices sont attendus','Limites ou incertitudes affectant les bénéfices','Justification du niveau retenu'],'crit1b':['Défaillances ou résultats erronés considérés','Fonctions, activités ou décisions susceptibles d’être affectées','Nature, étendue et réversibilité des conséquences','Délai disponible pour détecter et traiter la défaillance','Justification du niveau retenu'],'crit1c':['Parades et mesures de maîtrise prises en compte','Modalités de détection et de traitement d’une défaillance','Indépendance et efficacité attendue des mesures','Limites et conséquences résiduelles','Justification du niveau retenu'],'crit2a':['Données et usages pris en compte dans l’analyse','Qualité, représentativité et adéquation au domaine d’emploi','Traçabilité, validation et gouvernance','Limites, données atypiques ou dérives possibles','Justification du niveau retenu'],'crit2b':['Composants et performances pris en compte','Domaine de validité et conditions d’évaluation','Résultats de V&V et éléments de preuve disponibles','Robustesse, incertitudes et limites identifiées','Justification du niveau retenu'],'crit2c':['Configuration et chaîne de traitement analysées','Maîtrise des interfaces, dépendances et états dégradés','Essais du SIA intégré et résultats disponibles','Gestion des configurations, évolutions et régressions','Justification du niveau retenu'],'crit2d':['Répartition des rôles et des responsabilités','Modalités de contrôle, de supervision et de reprise','Compréhension et vérification des résultats par les utilisateurs','Compétences, organisation et limites identifiées','Justification du niveau retenu'],'crit3a':['Bilan bénéfice–risque pris en compte','Niveau de confiance pris en compte','Mesures de maîtrise nécessaires ou complémentaires considérées','Périmètre, limites et réserves de la position','Justification de la position retenue'],'crit3b':['Conditions et hypothèses prises en compte','Dispositions de surveillance et de réexamen considérées','Événements susceptibles de remettre en cause la position','Justification du niveau retenu']};
+  var _LBL={'autojust':'Justification du niveau d’autonomie retenu','authjust':'Justification du niveau d’autorité retenu','ctrljust':'Justification du niveau de contrôle retenu','comp-role':'Fonction et rôle du composant IA','comp-limites':'Domaine d’emploi et situations non couvertes','comp-justificationVV':'Justification des performances et de la V&V','comp-incertitudes':'Incertitudes','comp-donnees':'Données mobilisées par le composant IA','ctx-cycle-note':'Précisions sur la phase du cycle de vie','ctx-demo-note':'Précisions sur la démonstration de sûreté','ctx-mission-note':'Précisions sur la mission de l’Autorité','ctx-emploi':'Contexte d’emploi','cadre-precision':'Cadre réglementaire ou normatif','crit1a':'Justification 1a','crit1b':'Justification 1b','crit1c':'Justification 1c','crit2a':'Justification 2a','crit2b':'Justification 2b','crit2c':'Justification 2c','crit2d':'Justification 2d','crit3a':'Justification 3a','crit3b':'Justification 3b'};
+  var TEXT_FIELD_TEMPLATES={};
+  Object.keys(_R).forEach(function(k){ TEXT_FIELD_TEMPLATES[k]={label:(_LBL[k]||''),template:_R[k].map(function(r){return '**'+r+' :** [\u00e0 compl\u00e9ter]';}).join('\n\n')}; });
+  try{ window.TEXT_FIELD_TEMPLATES=TEXT_FIELD_TEMPLATES; }catch(e){}
+  function resolveTextTemplateKey(ta){ if(!ta||!ta.getAttribute)return null; var p=ta.getAttribute('data-part'); if(p&&TEXT_FIELD_TEMPLATES[p])return p; var cf=ta.getAttribute('data-cadre-field'); if(cf==='precision')return 'cadre-precision'; return null; }
+  function fire(ta){ try{ ta.dispatchEvent(new Event('input',{bubbles:true})); }catch(e){ try{var ev=document.createEvent('Event');ev.initEvent('input',true,true);ta.dispatchEvent(ev);}catch(_){}} try{ if(typeof markDirty==='function')markDirty(); }catch(e){} }
+  function putCursor(ta){ try{ ta.focus(); var i=ta.value.indexOf('[\u00e0 compl\u00e9ter]'); if(i>=0)ta.setSelectionRange(i,i+13); }catch(e){} }
+  function insertTextTemplate(ta,key){ var t=TEXT_FIELD_TEMPLATES[key]; if(!t||!ta)return; var cur=String(ta.value||''); if(cur.trim()===''){ ta.value=t.template; putCursor(ta); fire(ta); return; } showChoice(function(c){ if(c==='replace'){ ta.value=t.template; } else if(c==='append'){ ta.value=cur.replace(/\s+$/,'')+'\n\n'+t.template; } else { return; } putCursor(ta); fire(ta); }); }
+  function showChoice(cb){ var ov=document.createElement('div'); ov.className='tpl-choice-ov'; ov.innerHTML='<div class="tpl-choice-modal" role="dialog" aria-modal="true"><p>Ce champ contient d\u00e9j\u00e0 du texte. Que faire de la trame ?</p><div class="tpl-choice-btns"><button type="button" class="mini o" data-c="replace">Remplacer</button><button type="button" class="mini" data-c="append">Ajouter \u00e0 la suite</button><button type="button" class="mini" data-c="cancel">Annuler</button></div></div>'; document.body.appendChild(ov); function close(){ if(ov&&ov.parentNode)ov.parentNode.removeChild(ov); } ov.addEventListener('click',function(e){ if(e.target===ov){close();return;} var b=e.target.closest&&e.target.closest('[data-c]'); if(!b)return; var c=b.getAttribute('data-c'); close(); if(c!=='cancel')cb(c); }); }
+  function decorate(){ try{ var tas=document.querySelectorAll('textarea[data-part],textarea[data-cadre-field="precision"]'); Array.prototype.forEach.call(tas,function(ta){ if(ta.getAttribute('data-tpl-done')==='1')return; var key=resolveTextTemplateKey(ta); if(!key)return; ta.setAttribute('data-tpl-done','1'); var btn=document.createElement('button'); btn.type='button'; btn.className='tpl-insert-btn'; btn.textContent='Ins\u00e9rer une trame'; btn.title='Ins\u00e9rer une structure modifiable dans ce champ.'; btn.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); if(btn._busy)return; btn._busy=true; setTimeout(function(){btn._busy=false;},400); insertTextTemplate(ta,key); }); if(ta.parentNode){ if(ta.nextSibling)ta.parentNode.insertBefore(btn,ta.nextSibling); else ta.parentNode.appendChild(btn); } }); }catch(e){} }
+  try{ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(decorate,300);}); else setTimeout(decorate,300); }catch(e){}
+  setInterval(decorate,1000);
+  try{ window.__insertTplTemplate=insertTextTemplate; }catch(e){}
+  document.addEventListener('click',function(e){ var b=e.target.closest&&e.target.closest('[data-tpl-key]'); if(!b)return; e.preventDefault(); e.stopPropagation(); if(b._tplBusy)return; b._tplBusy=true; setTimeout(function(){b._tplBusy=false;},400); var key=b.getAttribute('data-tpl-key'); var form=(b.closest&&b.closest('form'))||b.parentNode; var ta=null; var prev=b.previousElementSibling; while(prev&&prev.tagName!=='TEXTAREA'){prev=prev.previousElementSibling;} if(!ta)ta=prev; if(!ta&&form)ta=form.querySelector('textarea'); if(ta)insertTextTemplate(ta,key); },true);
+})();
+
+/* ===================== Matrice bénéfice–risque / niveau de confiance ===================== */
+/* v503 — remplace l'ancienne matrice des risques (riskmx). Une seule matrice, réutilisée :
+   version complète à l'étape Confiance, version compacte à l'étape Position. */
+
+/* Axe horizontal — niveau de confiance (règle fournie, remplace la moyenne). */
+function calculateMatrixConfidence(levels){
+  const notes=["2a","2b","2c","2d"].map(id=>Number((levels||{})[id]||0)).filter(v=>v>=1&&v<=4);
+  if(notes.length!==4) return null;
+  const c1=notes.filter(v=>v===1).length;
+  const c2=notes.filter(v=>v===2).length;
+  if(c1>=2) return 1;
+  if(c1===1) return 2;
+  if(c2>=2) return 2;
+  if(c2===1) return 3;
+  return 4;
 }
 
+/* Axe vertical — bénéfice–risque pour la sûreté (1a,1b,1c), échelle -2..+2.
+   Fonction unique. Règle conservatrice : une conséquence importante (1b faible)
+   n'est pas compensée par le bénéfice (1a) ni entièrement par les parades (1c).
+   1a : 1 mineur … 4 majeur (bénéfice) ; 1b : 1 critiques … 4 mineures (plus haut = moins grave) ;
+   1c : 1 nulles … 4 fortes (parades). */
+function calculateMatrixBenefit(levels){
+  const a=Number((levels||{})["1a"]||0), b=Number((levels||{})["1b"]||0), c=Number((levels||{})["1c"]||0);
+  const ok=v=>v>=1&&v<=4;
+  if(!(ok(a)&&ok(b)&&ok(c))) return null;
+  const sev=5-b;                                   // sévérité des conséquences : 1..4
+  let residual=sev-Math.min(2,Math.max(0,c-2));    // les parades (1c>=3) réduisent d'au plus 2 crans
+  if(sev>=4) residual=Math.max(residual,3);        // conséquence critique : plancher de risque (pas de compensation complète)
+  if(residual>=4) return -2;                       // risque important
+  if(residual>=3) return -1;                       // risque significatif
+  if(a>=4 && residual<=1) return 2;                // bénéfice important
+  if(a>=3) return 1;                               // bénéfice significatif
+  return 0;                                        // bilan neutre ou non établi
+}
+
+const MX_BEN_LABEL={2:"+2 · Bénéfice important",1:"+1 · Bénéfice significatif",0:"0 · Bilan neutre ou non établi","-1":"\u22121 · Risque significatif","-2":"\u22122 · Risque important"};
+const MX_BEN_SHORT={2:"+2",1:"+1",0:"0","-1":"\u22121","-2":"\u22122"};
+const MX_CONF_LABEL={1:"N1 · Confiance insuffisante",2:"N2 · Confiance limitée",3:"N3 · Confiance établie",4:"N4 · Confiance forte"};
+
+function mxZone(b,n){ if(b<=-1) return "r"; if(b===0) return "o"; return (n>=3)?"v":"o"; }
+function mxZoneColor(z){ return z==="v"?"#cfe8c8":(z==="o"?"#f3cf95":"#eeae9f"); }
+
+function mxIterInProgress(c){
+  try{
+    const st=(c&&c.v271&&c.v271.iterationState)||"";
+    if(c&&c.review&&c.review.validated) return false;
+    return (st===""||st==="draft");
+  }catch(e){return true;}
+}
+
+function mxComputePoints(c){
+  const its=(c&&c.iterations)||[];
+  const activeIdx=its.length-1;
+  const pts=[];
+  its.forEach(function(it,idx){
+    const L=(it&&it.levels)||{};
+    const bv=calculateMatrixBenefit(L), cn=calculateMatrixConfidence(L);
+    pts.push({idx:idx, label:"I"+(idx+1), bv:bv, cn:cn, computable:(bv!==null&&cn!==null), active:(idx===activeIdx)});
+  });
+  return pts;
+}
+
+/* Construit le SVG de la matrice. mode : 'full' | 'compact'. */
+function mxAcceptEstimate(bv, cn, ch){
+  const z=mxZone(bv,cn);
+  const lab=function(lv){ try{ return CRIT["3a"].L[lv-1][0]; }catch(e){ return ""; } };
+  if(z==="r") return {level:1, label:lab(1), ring:"#c0392b"};
+  if(z==="v") return {level:4, label:lab(4), ring:"#2e7d32"};
+  const rowIdx={2:0,1:1,0:2,"-1":3,"-2":4}[bv];
+  const R=ch*0.9, distRed=(2.5-rowIdx)*ch;
+  if(distRed>0 && distRed<R) return {level:2, label:lab(2), ring:"#c0392b"};
+  return {level:3, label:lab(3), ring:"#e0511e"};
+}
+function mxBuildSvg(points, mode){
+  const bRow={2:0,1:1,0:2,"-1":3,"-2":4};
+  const bench=[2,1,0,-1,-2];
+  if(mode==="compact"){
+    const cell=60, pl=72, pt=40;
+    const pw=cell*4, ph=cell*5, pr=pl+pw, pb=pt+ph;
+    const W=pr+40, H=pb+112;
+    const X=n=>pl+(n-0.5)*cell, Y=b=>pt+(bRow[b]+0.5)*cell;
+    let svg='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" class="riskmx-svg" role="img" aria-label="Matrice bénéfice-risque / niveau de confiance">';
+    for(let ci=1;ci<=4;ci++){ for(let ri=0;ri<5;ri++){ const b=bench[ri]; const x=pl+(ci-1)*cell, y=pt+ri*cell; svg+='<rect x="'+x+'" y="'+y+'" width="'+cell+'" height="'+cell+'" fill="'+mxZoneColor(mxZone(b,ci))+'" stroke="#ffffff" stroke-width="2"/>'; } }
+    svg+='<rect x="'+pl+'" y="'+pt+'" width="'+pw+'" height="'+ph+'" fill="none" stroke="#8aa0bf" stroke-width="1.2"/>';
+    svg+='<text x="'+(pl+pw/2)+'" y="'+(pb+96)+'" text-anchor="middle" class="riskmx-axttl">Niveau de confiance dans le SIA</text>';
+    for(let n=1;n<=4;n++){ svg+='<text x="'+X(n)+'" y="'+(pb+30)+'" text-anchor="middle" class="riskmx-tick">N'+n+'</text>'; }
+    svg+='<text transform="translate(24 '+(pt+ph/2)+') rotate(-90)" text-anchor="middle" class="riskmx-axttl">B\u00e9n\u00e9fice\u2013risque pour la s\u00fbret\u00e9</text>';
+    bench.forEach(function(b,ri){ svg+='<text x="'+(pl-10)+'" y="'+(pt+(ri+0.5)*cell+4)+'" text-anchor="end" class="riskmx-tick">'+MX_BEN_SHORT[b]+'</text>'; });
+    const act=points.filter(p=>p.active)[0];
+    if(act&&act.computable){
+      const cx=X(act.cn), cy=Y(act.bv);
+      const cl=mxAcceptEstimate(act.bv, act.cn, cell), R=cell*0.9;
+      svg+='<circle cx="'+cx+'" cy="'+cy+'" r="'+R.toFixed(1)+'" fill="none" stroke="'+cl.ring+'" stroke-width="2" stroke-dasharray="3 3" opacity="0.85"><title>Marge de lecture \u2014 acceptabilit\u00e9 estim\u00e9e : '+esc(cl.label)+'</title></circle>';
+      if(act._inprog){ svg+='<circle cx="'+cx+'" cy="'+cy+'" r="18" fill="none" stroke="#e0511e" stroke-width="2.5" opacity="0.9"/>'; }
+      svg+='<circle cx="'+cx+'" cy="'+cy+'" r="13" fill="#14366c" stroke="#fff" stroke-width="2"><title>'+esc(act.label)+' \u2014 B\u00e9n\u00e9fice\u2013risque : '+esc(MX_BEN_LABEL[act.bv])+' ; Confiance : '+esc(MX_CONF_LABEL[act.cn])+'</title></circle>';
+      svg+='<text x="'+cx+'" y="'+(cy+4)+'" text-anchor="middle" class="riskmx-mk">'+esc(act.label)+'</text>';
+    }
+    svg+='</svg>';
+    return svg;
+  }
+  // ===== Vue complète : grandes cases, pleine largeur, axes légendés =====
+  const rowName={2:"B\u00e9n\u00e9fice important",1:"B\u00e9n\u00e9fice significatif",0:"Bilan neutre","-1":"Risque significatif","-2":"Risque important"};
+  const colName=["Confiance insuffisante","Confiance limit\u00e9e","Confiance \u00e9tablie","Confiance forte"];
+  const cw=135, ch=108, pl=200, pt=24;
+  const pw=cw*4, ph=ch*5, pr=pl+pw, pb=pt+ph;
+  const W=pr+24, H=pb+112;
+  const X=n=>pl+(n-0.5)*cw, Y=b=>pt+(bRow[b]+0.5)*ch;
+  let svg='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" class="riskmx-svg" role="img" aria-label="Matrice bénéfice-risque / niveau de confiance">';
+  // zones
+  for(let ci=1;ci<=4;ci++){ for(let ri=0;ri<5;ri++){ const b=bench[ri]; const x=pl+(ci-1)*cw, y=pt+ri*ch; svg+='<rect x="'+x+'" y="'+y+'" width="'+cw+'" height="'+ch+'" fill="'+mxZoneColor(mxZone(b,ci))+'" stroke="#ffffff" stroke-width="2"/>'; } }
+  svg+='<rect x="'+pl+'" y="'+pt+'" width="'+pw+'" height="'+ph+'" fill="none" stroke="#8aa0bf" stroke-width="1.4"/>';
+  // titre d'axe vertical (extérieur, tourné)
+  svg+='<text transform="translate(30 '+(pt+ph/2)+') rotate(-90)" text-anchor="middle" class="riskmx-axttl">B\u00e9n\u00e9fice\u2013risque pour la s\u00fbret\u00e9 (1a\u00b71b\u00b71c)</text>';
+  // libellés par ligne : valeur (gras) + nom
+  bench.forEach(function(b,ri){ const yc=pt+(ri+0.5)*ch; svg+='<text x="'+(pl-12)+'" y="'+(yc-3)+'" text-anchor="end" class="riskmx-rowval">'+MX_BEN_SHORT[b]+'</text>'; svg+='<text x="'+(pl-12)+'" y="'+(yc+14)+'" text-anchor="end" class="riskmx-rowname">'+rowName[b]+'</text>'; });
+  // libellés par colonne : nom + Niveau
+  for(let n=1;n<=4;n++){ const xc=X(n); svg+='<text x="'+xc+'" y="'+(pb+26)+'" text-anchor="middle" class="riskmx-colname">'+colName[n-1]+'</text>'; svg+='<text x="'+xc+'" y="'+(pb+44)+'" text-anchor="middle" class="riskmx-colval">N'+n+'</text>'; }
+  // titre d'axe horizontal
+  svg+='<text x="'+(pl+pw/2)+'" y="'+(pb+82)+'" text-anchor="middle" class="riskmx-axttl">Niveau de confiance dans le SIA (2a\u00b72b\u00b72c\u00b72d)</text>';
+  // trajectoire + regroupement des itérations de même note (même position)
+  const comp=points.filter(p=>p.computable);
+  var drawPts=comp;
+  if(mode==='full3a'){ var _ap=comp.filter(function(p){return p.active;}); drawPts=_ap.length?[_ap[_ap.length-1]]:(comp.length?[comp[comp.length-1]]:[]); }
+  if(drawPts.length>1){ svg+='<defs><marker id="mxArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64748b"/></marker></defs>'; }
+  const groups=[], gmap={};
+  drawPts.forEach(function(p){ const key=p.bv+"|"+p.cn; if(gmap[key]===undefined){gmap[key]=groups.length; groups.push({bv:p.bv,cn:p.cn,cx:X(p.cn),cy:Y(p.bv),members:[]});} groups[gmap[key]].members.push(p); });
+  drawPts.forEach(function(p){ const g=groups[gmap[p.bv+"|"+p.cn]]; p.cx=g.cx; p.cy=g.cy; });
+  for(let i=1;i<drawPts.length;i++){
+    const a=drawPts[i-1], b=drawPts[i];
+    if(a.cx===b.cx&&a.cy===b.cy) continue;
+    const dx=b.cx-a.cx, dy=b.cy-a.cy, len=Math.hypot(dx,dy)||1, ux=dx/len, uy=dy/len;
+    const x1=a.cx+ux*18, y1=a.cy+uy*18, x2=b.cx-ux*22, y2=b.cy-uy*22;
+    const tip='<title>'+esc(a.label)+'\u2192'+esc(b.label)+' \u2014 B\u00e9n\u00e9fice\u2013risque : '+esc(MX_BEN_SHORT[a.bv])+'\u2192'+esc(MX_BEN_SHORT[b.bv])+' ; Confiance : N'+a.cn+'\u2192N'+b.cn+'</title>';
+    svg+='<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)+'" stroke="#64748b" stroke-width="2.4" marker-end="url(#mxArrow)">'+tip+'</line>';
+  }
+  /* anneau d'estimation d'acceptabilit\u00e9 (onglet 3a) autour du point actif */
+  if(mode==='full3a'){
+    var _act=comp.filter(function(p){return p.active;})[0];
+    if(_act){
+      var _g=groups[gmap[_act.bv+'|'+_act.cn]];
+      var _cx=(_g?_g.cx:X(_act.cn)), _cy=(_g?_g.cy:Y(_act.bv));
+      var _cl=mxAcceptEstimate(_act.bv, _act.cn, ch);
+      var _R=Math.min(cw,ch)*0.6;
+      svg+='<circle cx="'+_cx.toFixed(1)+'" cy="'+_cy.toFixed(1)+'" r="'+_R.toFixed(1)+'" fill="none" stroke="'+_cl.ring+'" stroke-width="3" stroke-dasharray="4 3" opacity="0.9"><title>Acceptabilit\u00e9 estim\u00e9e : '+esc(_cl.label)+'</title></circle>';
+    }
+  }
+  groups.forEach(function(g){
+    const nums=g.members.map(function(m){return m.idx+1;}).sort(function(a,b){return a-b;});
+    const label=mxRangeLabel(nums);
+    const inprog=g.members.some(function(m){return m._inprog;});
+    const fs=(label.length<=3)?18:(label.length<=6?14:11);
+    if(inprog){ svg+='<circle cx="'+g.cx.toFixed(1)+'" cy="'+g.cy.toFixed(1)+'" r="27" fill="none" stroke="#e0511e" stroke-width="3" opacity="0.9"/>'; }
+    const list=nums.map(function(n){return "I"+n;}).join(", ");
+    const many=(nums.length>1)?(" \u2014 it\u00e9rations de m\u00eame cotation : "+list):"";
+    svg+='<circle cx="'+g.cx.toFixed(1)+'" cy="'+g.cy.toFixed(1)+'" r="20" fill="#14366c" stroke="#fff" stroke-width="2.5"><title>'+esc(label)+(inprog?" (en cours)":"")+' \u2014 B\u00e9n\u00e9fice\u2013risque : '+esc(MX_BEN_LABEL[g.bv])+' ; Confiance : '+esc(MX_CONF_LABEL[g.cn])+esc(many)+'</title></circle>';
+    svg+='<text x="'+g.cx.toFixed(1)+'" y="'+(g.cy+fs*0.35).toFixed(1)+'" text-anchor="middle" class="riskmx-mk" style="font-size:'+fs+'px">'+esc(label)+'</text>';
+    if(inprog){ svg+='<text x="'+g.cx.toFixed(1)+'" y="'+(g.cy-31).toFixed(1)+'" text-anchor="middle" class="riskmx-encours">en cours</text>'; }
+  });
+  svg+='</svg>';
+  return svg;
+}
+function mxRangeLabel(nums){
+  if(!nums.length) return "";
+  if(nums.length===1) return "I"+nums[0];
+  let consec=true; for(let i=1;i<nums.length;i++){ if(nums[i]!==nums[i-1]+1){consec=false;break;} }
+  if(consec) return "I"+nums[0]+"\u2013I"+nums[nums.length-1];
+  return nums.map(function(n){return "I"+n;}).join(",");
+}
+function mxZonebarHtml(){
+  return '<div class="riskmx-zonebar">'
+    +'<div class="riskmx-zb v">B\u00e9n\u00e9fice / risque acceptable</div>'
+    +'<div class="riskmx-zb o">B\u00e9n\u00e9fice / risque soutenable sous conditions</div>'
+    +'<div class="riskmx-zb r">B\u00e9n\u00e9fice / risque inacceptable</div>'
+    +'</div>';
+}
+function mxGlyphLegendHtml(){
+  return '<div class="riskmx-glyphs">'
+    +'<span><span class="riskmx-gl">\u25CF</span> it\u00e9ration act\u00e9e ou cl\u00f4tur\u00e9e</span>'
+    +'<span><span class="riskmx-gl riskmx-gl-o">\u25C9</span> it\u00e9ration en cours</span>'
+    +'<span><span class="riskmx-gl">\u2500\u2500\u25B6</span> cheminement chronologique</span>'
+    +'</div>';
+}
+function mxLegendHtml(){
+  return '<div class="riskmx-legend"><ul>'
+    +'<li><span class="riskmx-gl">\u25CF</span> It\u00e9ration act\u00e9e ou cl\u00f4tur\u00e9e</li>'
+    +'<li><span class="riskmx-gl riskmx-gl-o">\u25C9</span> It\u00e9ration en cours</li>'
+    +'<li><span class="riskmx-gl">\u2500\u2500\u25B6</span> Cheminement entre deux it\u00e9rations</li>'
+    +'<li><span class="riskmx-sw sw-v"></span> Vert : b\u00e9n\u00e9fice / risque acceptable</li>'
+    +'<li><span class="riskmx-sw sw-o"></span> Orange : b\u00e9n\u00e9fice / risque soutenable sous conditions</li>'
+    +'<li><span class="riskmx-sw sw-r"></span> Rouge : b\u00e9n\u00e9fice / risque inacceptable</li>'
+    +'</ul></div>';
+}
+
+
+function mxCompactLegendHtml(){
+  return '<div class="riskmx-legend riskmx-legend-compact"><div class="riskmx-legend-hd">Comment lire la matrice</div><ul>'
+    +'<li>Vers la <b>droite</b> : confiance plus forte (N1\u2192N4). Vers le <b>haut</b> : b\u00e9n\u00e9fice\u2013risque plus favorable (\u22122\u2192+2).</li>'
+    +'<li>Le point marque l\u2019it\u00e9ration active ; sa case indique sa zone.</li>'
+    +'<li>Le cercle estime la marge : s\u2019il atteint le rouge, la position d\u2019acceptabilit\u00e9 est fragilis\u00e9e.</li>'
+    +'<li><span class="riskmx-sw sw-v"></span> Vert : b\u00e9n\u00e9fice / risque acceptable</li>'
+    +'<li><span class="riskmx-sw sw-o"></span> Orange : b\u00e9n\u00e9fice / risque soutenable sous conditions</li>'
+    +'<li><span class="riskmx-sw sw-r"></span> Rouge : b\u00e9n\u00e9fice / risque inacceptable</li>'
+    +'</ul></div>';
+}
+
+function mxPaValueForIter(c, idx){
+  try{
+    const its=(c&&c.iterations)||[];
+    const isActive=(idx===its.length-1);
+    if(isActive){ const it=(typeof findItem==="function")?findItem(c,"ia","perennite"):null; return it&&it.value?String(it.value).trim():""; }
+    const snap=its[idx]&&its[idx].step0Snapshot;
+    if(snap&&snap.fams&&snap.fams.ia&&Array.isArray(snap.fams.ia.items)){ const it=snap.fams.ia.items.find(function(x){return x.defId==="perennite";}); return it&&it.value?String(it.value).trim():""; }
+  }catch(e){}
+  return "";
+}
+function mxPointsAttentionHtml(c){
+  try{
+    const its=(c&&c.iterations)||[];
+    const n=its.length||1;
+    const md=function(v){return (typeof mdRender==="function")?mdRender(v):esc(v).replace(/\n/g,"<br>");};
+    let anyContent=false; for(let i=0;i<n;i++){ if(mxPaValueForIter(c,i)){anyContent=true;break;} }
+    if(!anyContent) return "";
+    const cur=mxPaValueForIter(c,n-1);
+    const head='<div class="riskmx-pa-hd">Conditions de maintien propos\u00e9es (it\u00e9ration '+n+')</div>';
+    const body=cur?'<div class="riskmx-pa-body md-body">'+md(cur)+'</div>':'<div class="riskmx-pa-body riskmx-pa-empty">Non renseign\u00e9es pour cette it\u00e9ration.</div>';
+    let cmp="";
+    if(n>1){
+      let rows="";
+      for(let i=0;i<n;i++){
+        const v=mxPaValueForIter(c,i);
+        const ts=(its[i]&&its[i].ts)?(" \u00b7 "+esc(String(its[i].ts))):"";
+        const act=(i===n-1)?' <span class="riskmx-enc">active</span>':"";
+        rows+='<div class="riskmx-pa-item"><div class="riskmx-pa-itemhd">It\u00e9ration '+(i+1)+ts+act+'</div><div class="md-body">'+(v?md(v):'<span class="riskmx-pa-empty">Non renseign\u00e9es.</span>')+'</div></div>';
+      }
+      cmp='<button type="button" class="riskmx-cmp-btn" data-mx-compare>Comparer avec les autres it\u00e9rations</button><div class="riskmx-pa-compare" hidden>'+rows+'</div>';
+    }
+    return '<div class="riskmx-pa">'+head+body+cmp+'</div>';
+  }catch(e){return "";}
+}
+
+function mxAcceptHtml(c){
+  try{
+    const pts=mxComputePoints(c);
+    const act=pts.filter(function(p){return p.active;})[0];
+    if(!act||!act.computable) return "";
+    const e=mxAcceptEstimate(act.bv, act.cn, 60);
+    return '<div class="riskmx-cond"><div class="riskmx-cond-hd">Position d\u2019acceptabilit\u00e9 (estim\u00e9e)</div>'
+      +'<div class="riskmx-cond-row"><span class="riskmx-cond-dot" style="background:'+e.ring+'"></span><b>'+esc(e.label)+'</b></div>'
+      +'<div class="riskmx-cond-note">Estimation d\u2019apr\u00e8s la position ; ne remplace pas la cotation 3a. La p\u00e9rennit\u00e9 (3b) d\u00e9pend des conditions de maintien d\u00e9crites.</div></div>';
+  }catch(e){return "";}
+}
+function mxHeadHtml(mode){
+  return '<div class="riskmx-head"><div class="riskmx-title" title="Axe vertical : b\u00e9n\u00e9fice\u2013risque pour la s\u00fbret\u00e9. Axe horizontal : niveau de confiance.">Matrice b\u00e9n\u00e9fice\u2013risque / niveau de confiance</div><div class="riskmx-sub">'+(mode==="compact"?"Positionnement de l\u2019it\u00e9ration active.":"Positionnement issu de la cotation et \u00e9volution des it\u00e9rations.")+'</div></div>';
+}
+
+function renderMatrixInto(host, c, mode){
+  const points=mxComputePoints(c);
+  // marquer l'itération active en cours
+  const inprog=mxIterInProgress(c);
+  points.forEach(function(p){ p._inprog=(p.active&&inprog); });
+  const head=mxHeadHtml(mode);
+  const mention='<div class="riskmx-mention">Le positionnement ne d\u00e9termine pas l\u2019acceptabilit\u00e9.</div>';
+  if(mode==="compact"){
+    const act=points.filter(p=>p.active)[0];
+    let plot;
+    if(act&&act.computable){ plot='<div class="riskmx-plot">'+mxBuildSvg(points,"compact")+'</div>'; }
+    else { plot='<div class="riskmx-plot">'+mxBuildSvg(points,"compact")+'<div class="riskmx-empty">Cotation incompl\u00e8te</div></div>'; }
+    host.innerHTML=head+'<div class="riskmx-body">'+plot+'<div class="riskmx-side">'+mxCompactLegendHtml()+mxAcceptHtml(c)+'</div></div>'+mention;
+    return;
+  }
+  // complet
+  const comp=points.filter(p=>p.computable);
+  if(!comp.length){ host.innerHTML=head+'<div class="riskmx-empty">Cotation incompl\u00e8te</div>'+mention; return; }
+  const estimate3a=(mode==='full3a')?mxAcceptHtml(c):'';
+  host.innerHTML=head+'<div class="riskmx-body riskmx-body-full"><div class="riskmx-plot riskmx-plot-full">'+mxBuildSvg(points,mode)+'</div>'+mxZonebarHtml()+mxGlyphLegendHtml()+estimate3a+'</div>'+mention;
+}
+
+function mxToggleByCrit(c){
+  try{
+    var host=document.getElementById('riskMatrixWrap'); var paHost=document.getElementById('mxPaWrap');
+    var stage=(c&&c.v276&&c.v276.stage)||'benefit';
+    if(stage!=='position') return;
+    var crit=(c&&c.v278&&c.v278.criterion); if(crit!=='3a'&&crit!=='3b') crit='3a';
+    if(crit==='3a'){ if(host)host.style.display=''; if(paHost)paHost.style.display='none'; }
+    else { if(host)host.style.display='none'; if(paHost)paHost.style.display=''; }
+  }catch(e){}
+}
+function renderRiskMatrix(c){
+  const host=document.getElementById('riskMatrixWrap');
+  if(!host)return;
+  const stage=(c&&c.v276&&c.v276.stage)||'benefit';
+  var paHost=document.getElementById('mxPaWrap');
+  function hidePa(){ if(paHost){ paHost.innerHTML=''; paHost.style.display='none'; } }
+  function ensurePa(){ if(!paHost){ paHost=document.createElement('div'); paHost.id='mxPaWrap'; paHost.className='riskmx-wrap'; } return paHost; }
+  /* la matrice n'existe que dans la vue analyse/cotation ; jamais dans la fiche « cas d'usage » (\u00e9dition/lecture) */
+  if(!document.body.classList.contains('analyse-mode-global')){ host.innerHTML=''; host.style.display='none'; hidePa(); return; }
+  if(stage==='benefit'){ host.innerHTML=''; host.style.display='none'; hidePa(); return; }
+  var wb=document.getElementById('workBody'); var tw=wb&&wb.closest&&wb.closest('.tablewrap');
+  if(stage==='confidence'){
+    host.style.display='';
+    try{ if(tw&&tw.parentNode&&host.previousElementSibling!==tw){ tw.parentNode.insertBefore(host, tw.nextSibling); } }catch(e){}
+    try{ renderMatrixInto(host, c, 'full'); }catch(e){ host.innerHTML='<div class="riskmx-empty">Cotation incompl\u00e8te</div>'; }
+    hidePa();
+    return;
+  }
+  /* \u00e9tape Position : matrice (3a) et conditions (3b). En mode analyse (sous-onglets pr\u00e9sents) on place la matrice apr\u00e8s le contexte ; sinon on la laisse dans la zone de notation (toujours visible), sans jamais viser un conteneur potentiellement masqu\u00e9. */
+  var ctx=document.getElementById('v278Context');
+  try{ if(ctx&&ctx.parentNode && host.previousElementSibling!==ctx){ ctx.parentNode.insertBefore(host, ctx.nextSibling); } }catch(e){}
+  try{ renderMatrixInto(host, c, 'full3a'); }catch(e){ host.innerHTML='<div class="riskmx-empty">Cotation incompl\u00e8te</div>'; }
+  try{
+    ensurePa();
+    if(host.parentNode && paHost.previousElementSibling!==host){ host.parentNode.insertBefore(paHost, host.nextSibling); }
+    var _pa=mxPointsAttentionHtml(c);
+    paHost.innerHTML=_pa||'<div class="riskmx-empty">Aucune condition de maintien d\u00e9crite dans la fiche.</div>';
+  }catch(e){}
+  mxToggleByCrit(c);
+}
+
+/* v525 — clic sous-onglet : rendre la matrice si absente, sinon simple bascule (\u00e9vite le scintillement) */
+document.addEventListener('click',function(e){
+  if(e.target.closest&&e.target.closest('[data-v278-crit],#btnV278Full,#workBody tr[data-crit]')){
+    setTimeout(function(){try{
+      var c=(typeof activeCase==='function')?activeCase():null; if(!c) return;
+      var host=document.getElementById('riskMatrixWrap');
+      var stage=(c.v276&&c.v276.stage)||'benefit';
+      if(stage==='position' && host && !/riskmx-body|riskmx-empty/.test(host.innerHTML)){ renderRiskMatrix(c); }
+      else { mxToggleByCrit(c); }
+    }catch(_){}} ,30);
+  }
+},true);
+/* v511 — bascule d'affichage des itérations dans la table de notation */
+document.addEventListener('click',function(e){ var b=e.target.closest&&e.target.closest('#btnToggleIters'); if(!b)return; e.preventDefault(); window.__notShowAllIters=!window.__notShowAllIters; try{renderNotation();}catch(_){} },true);
+/* v506 — bascule de la comparaison des conditions de maintien entre itérations */
+document.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('[data-mx-compare]'); if(!b) return;
+  e.preventDefault();
+  var box=b.parentNode&&b.parentNode.querySelector('.riskmx-pa-compare'); if(!box) return;
+  if(box.hasAttribute('hidden')){box.removeAttribute('hidden');b.textContent='Masquer la comparaison';}
+  else{box.setAttribute('hidden','');b.textContent='Comparer avec les autres itérations';}
+},true);
 function renderNotation(){
   const c=activeCase();
   if(!c)return;
@@ -20366,6 +20647,7 @@ function renderNotation(){
       if(!it.levels)it.levels={};
       if(it.decision===undefined)it.decision="";
       const tr=document.createElement("tr");
+      tr.dataset.iteridx=idx; tr.classList.add(idx===realIts.length-1?"notrow-active":"notrow-other");
       const lbl=idx===0?"Initiale":"Itération "+idx;
       let changed=false;
       try{
@@ -20417,12 +20699,25 @@ function renderNotation(){
     }
   }
 
+  try{
+    var _activeIdx=realIts.length-1;
+    var _showAll=!!window.__notShowAllIters;
+    tb.querySelectorAll('tr').forEach(function(r){ var i=parseInt(r.dataset.iteridx,10); r.style.display=(!_showAll && i!==_activeIdx)?'none':''; });
+    var _tg=document.getElementById('btnToggleIters');
+    if(_tg){ if(realIts.length>1){ _tg.style.display=''; _tg.textContent=_showAll?"N'afficher que l'itération en cours":('Afficher toutes les itérations ('+realIts.length+')'); } else { _tg.style.display='none'; } }
+  }catch(e){}
   const nIter=Math.max(0,(c.iterations||[]).length-1);
   const iterCt=$("#iterCt");if(iterCt)iterCt.textContent=nIter;
   const iterWarn=$("#iterWarn");if(iterWarn)iterWarn.classList.toggle("show",nIter>4);
   try{updateDiffPanel();}catch(e){console.warn("Diff panel non mis à jour",e);}
   try{renderRiskMatrix(c);}catch(e){console.warn("Matrice risques",e);}
 }
+/* v503 — re-rendu de la matrice au changement d'étape (confidence/position) */
+document.addEventListener('click',function(e){
+  if(e.target.closest&&e.target.closest('[data-v276-stage],[data-v276-goto],[data-v276-validate]')){
+    setTimeout(function(){try{var c=(typeof activeCase==='function')?activeCase():null; if(c)renderRiskMatrix(c);}catch(_){}} ,120);
+  }
+},true);
 function topAcceptabilityStatusHtml(c){
   try{
     const it=safeActiveIter(c)||{levels:{},decision:""};
@@ -21370,48 +21665,39 @@ if(trustCards){
 });
 
 
-// sous-critères de confiance des critères 2a à 2d
-$("#workBody").addEventListener("input",e=>{
-  const lvl=e.target.closest("[data-ct-level]");
-  const jus=e.target.closest("[data-ct-just]");
-  if(!lvl&&!jus)return;
-  const c=activeCase();if(!c)return;ensureCriterionTrust(c);
-  const raw=(lvl||jus).dataset.ctLevel||(lvl||jus).dataset.ctJust;
-  const [id,k]=raw.split(":");
-  const item=c.criterionTrust[id][k];
-  if(lvl)item.level=+lvl.value;
-  if(jus)item.just=jus.value;
-  renderCriterionTrust(id);
-  markDirty();
-});
-$("#workBody").addEventListener("change",e=>{
-  const imp=e.target.closest("[data-ct-importance]");
-  if(!imp)return;
-  const c=activeCase();if(!c)return;ensureCriterionTrust(c);
-  const [id,k]=imp.dataset.ctImportance.split(":");
-  c.criterionTrust[id][k].importance=imp.value;
-  renderCriterionTrust(id);
-  markDirty();
-});
-$("#workBody").addEventListener("click",e=>{
-  const b=e.target.closest("[data-ct-apply]");
-  if(!b)return;
-  e.preventDefault();e.stopPropagation();
-  const c=activeCase();if(!c)return;ensureCriterionTrust(c);
-  const id=b.dataset.ctApply;
-  const it=safeActiveIter(c);
-  const cur=(it.levels||{})[id]||0;
-  const prop=computeCriterionTrustProposal(c,id,cur);
-  if(!prop.target){toast("Sélectionnez d’abord une note pour "+id);return;}
-  it.levels[id]=prop.target;
-  const row=$(`.crit-row[data-crit="${id}"]`);
-  if(row)row.querySelectorAll(".wlvl").forEach(cell=>cell.classList.toggle("sel",+cell.dataset.level===prop.target));
-  const addition="\\n[Repères de confiance] "+prop.msg;
-  c.comments[id]=(c.comments[id]||"")+addition;
-  const t=$(`[data-comment="${id}"]`);if(t)t.value=c.comments[id];
-  markDirty();renderCriterionTrust(id);renderNotation();updateBreadcrumb();renderCriterionTrust(id);
-  toast("Proposition appliquée à "+id);
-});
+/* sous-cotation criterionTrust supprimée : plus de gestionnaires data-ct-* */
+
+/* v499 — template des conditions de revue (3b) */
+const REVIEW_TEMPLATE_3B=[
+    "Modèle de description des conditions de revue",
+    "Supprimer les lignes non pertinentes et compléter les éléments entre crochets en fonction du cas d’usage.",
+    "",
+    "- **Indicateurs suivis** : [préciser les indicateurs permettant de vérifier le maintien des performances, de la qualité des résultats et des conditions d’utilisation du SIA].",
+    "- **Valeurs ou seuils attendus** : [préciser, pour chaque indicateur, la valeur attendue, le seuil d’alerte ou la situation considérée comme acceptable].",
+    "- **Fréquence de suivi des indicateurs** : [préciser la fréquence : en continu, mensuelle, trimestrielle, semestrielle, annuelle ou autre].",
+    "- **Périodicité de la revue** : [préciser à quelle fréquence une revue formelle sera réalisée].",
+    "- **Périmètre couvert par la revue** : [préciser les activités, fonctions, installations, utilisateurs, données ou situations concernées].",
+    "- **Performances à réexaminer** : [préciser les performances qui seront vérifiées : taux d’erreur, faux positifs, faux négatifs, disponibilité, stabilité, temps de réponse ou autres].",
+    "- **Données à réexaminer** : [préciser les caractéristiques des données à vérifier : qualité, représentativité, origine, évolution, dérive ou données hors domaine].",
+    "- **Conditions d’utilisation à vérifier** : [préciser les conditions devant rester conformes à celles retenues lors de l’analyse].",
+    "- **Supervision humaine à vérifier** : [préciser les contrôles, validations, possibilités de correction ou décisions humaines qui doivent être maintenus].",
+    "- **Mesures de maîtrise à vérifier** : [préciser les mesures techniques ou organisationnelles dont le maintien doit être contrôlé].",
+    "- **Critères à réévaluer** : [préciser les critères 1a, 1b, 1c, 2a, 2b, 2c ou 2d qui devront être réexaminés].",
+    "- **Événements déclenchant une revue anticipée** : [préciser les changements ou événements nécessitant une revue avant l’échéance prévue].",
+    "- **Modification du SIA** : [préciser les modifications du modèle, des paramètres, des composants ou de la version qui déclenchent une revue].",
+    "- **Modification des données** : [préciser les nouvelles sources, dérives, changements de qualité ou évolutions du domaine d’utilisation qui déclenchent une revue].",
+    "- **Modification du périmètre d’utilisation** : [préciser les extensions d’usage, nouveaux utilisateurs, nouvelles activités ou nouveaux contextes concernés].",
+    "- **Dégradation des performances** : [préciser les seuils, tendances ou écarts qui déclenchent une revue].",
+    "- **Erreur, anomalie ou événement significatif** : [préciser les situations nécessitant un réexamen immédiat].",
+    "- **Éléments examinés lors de la revue** : [préciser si la revue porte sur les indicateurs clés, certains critères ou l’ensemble de l’analyse].",
+    "- **Responsable de la revue** : [préciser la fonction ou l’entité chargée de réaliser ou de coordonner la revue].",
+    "- **Éléments de preuve attendus** : [préciser les données, rapports, résultats de tests, journaux, retours d’expérience ou autres documents nécessaires].",
+    "- **Actions en cas d’écart limité** : [préciser les corrections, analyses complémentaires ou renforcements du suivi prévus].",
+    "- **Actions en cas d’écart significatif** : [préciser les réévaluations, restrictions, mesures compensatoires ou modifications à engager].",
+    "- **Conditions de création d’une nouvelle itération** : [préciser les situations dans lesquelles une nouvelle cotation et un nouveau positionnement dans la matrice sont nécessaires].",
+    "- **Conditions de restriction ou de suspension de l’utilisation** : [préciser les situations dans lesquelles l’utilisation du SIA doit être limitée ou interrompue].",
+    "- **Traçabilité de la revue** : [préciser où seront enregistrés les constats, décisions, actions et résultats de la revue]."
+].join("\n");
 
 // sélection des niveaux
 $("#workBody").addEventListener("click",e=>{
@@ -23169,13 +23455,70 @@ document.addEventListener("click",e=>{
 
 
 /* impression : orientation selon l'onglet */
-$("#btnPrint").addEventListener("click",()=>{
-  const tab=$(".tab[aria-selected=true]").dataset.tab;
-  const cadre=$(".subtab[data-sub='cadre']").getAttribute("aria-selected")==="true";
-  const orient=(tab==="guide"&&cadre)?"portrait":"landscape";
-  let st=$("#printOrient");if(!st){st=document.createElement("style");st.id="printOrient";document.head.appendChild(st);}
-  st.textContent=`@page{size:A4 ${orient};margin:8mm;}`;window.print();
-});
+/* ===== Dossier d'impression dédié : génération statique avant impression ===== */
+function _pdText(t){ try{ return (typeof mdRender==="function")?mdRender(String(t==null?"":t)):String(t==null?"":t); }catch(e){ return String(t==null?"":t); } }
+function _pdAcc(c){ try{ var its=(c.iterations||[]); var last=its[its.length-1]; var lv=(last&&last.levels)||{}; var n=Number(lv["3a"]||0); if(!n) return "Non renseignée"; try{ if(typeof CRIT!=="undefined"&&CRIT["3a"]&&CRIT["3a"].L&&CRIT["3a"].L[n-1]) return "Niveau "+n+" — "+CRIT["3a"].L[n-1][0]; }catch(_e){} return "Niveau "+n; }catch(e){ return "Non renseignée"; } }
+function _pdMatrix(c){
+  try{
+    if(typeof mxComputePoints!=="function"||typeof mxBuildSvg!=="function") return "";
+    var pts=mxComputePoints(c);
+    var conf=mxBuildSvg(pts,"full");
+    var acc=mxBuildSvg(pts,"full3a");
+    return '<figure><figcaption>Trajectoire — niveau de confiance</figcaption>'+conf+'</figure>'+
+           '<figure><figcaption>Position d\u2019acceptabilit\u00e9 (derni\u00e8re it\u00e9ration)</figcaption>'+acc+'</figure>';
+  }catch(e){ return ""; }
+}
+function _pdBold(root){ try{
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null,false); var nodes=[],n;
+  while(n=w.nextNode()){ var pt=n.parentNode&&n.parentNode.tagName; if(pt==="SCRIPT"||pt==="STYLE"||pt==="TEXTAREA")continue; if(n.nodeValue&&n.nodeValue.indexOf("**")>=0)nodes.push(n); }
+  nodes.forEach(function(t){ var raw=t.nodeValue; var esc2=raw.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); var out=esc2.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>").replace(/\*\*/g,""); if(out!==esc2){ var span=document.createElement("span"); span.innerHTML=out; t.parentNode.replaceChild(span,t); } });
+}catch(e){} }
+function buildPrintDocument(){
+  var c=(typeof activeCase==="function")?activeCase():null; if(!c) return null;
+  var host=document.getElementById("printDocument"); if(host&&host.parentNode)host.parentNode.removeChild(host);
+  host=document.createElement("div"); host.id="printDocument";
+  var s0=c.step0||{};
+  var title=(s0.title||"Cas d\u2019usage sans titre");
+  var idf=(c.ucn!=null?("UC-"+String(c.ucn).padStart(3,"0")):"");
+  var porteur=(c.holderRole||"")+((c.entiteIndustriel||c.entite_industriel)?(" \u2014 "+(c.entiteIndustriel||c.entite_industriel)):"");
+  var comps=(((s0.fams||{}).composants||{}).items||[]).filter(function(i){return i&&i.kind==="componentai";}).length;
+  var its=(c.iterations||[]); var nIt=its.length;
+  var stamp=(typeof printTimestamp==="function")?printTimestamp():new Date().toLocaleString("fr-FR");
+  var ver="v545";
+  var fiche=""; try{ fiche=buildProjectPeek(c).replace(/<div class="pp-actions">[\s\S]*?<\/div>/g," "); }catch(e){ fiche=""; }
+  var assess=""; try{ assess=printableAssessmentHtml(c); }catch(e){ assess=""; }
+  var mtx=_pdMatrix(c);
+  var cover='<section class="pd-cover">'+
+    '<div class="pd-kicker">Dossier d\u2019analyse d\u2019un cas d\u2019usage de SIA \u2014 S\u00fbret\u00e9 &amp; usage de l\u2019IA</div>'+
+    '<h1>'+esc(title)+'</h1>'+
+    (idf?'<div class="pd-sub">'+esc(idf)+'</div>':'')+
+    '<div class="pd-grid">'+
+      (porteur?'<div class="pd-kv"><b>Porteur</b><span>'+esc(porteur)+'</span></div>':'<div class="pd-kv"><b>Porteur</b><span>Non renseign\u00e9</span></div>')+
+      '<div class="pd-kv"><b>Date d\u2019impression</b><span>'+esc(stamp)+'</span></div>'+
+      '<div class="pd-kv"><b>Version de l\u2019outil</b><span>'+esc(ver)+'</span></div>'+
+      '<div class="pd-kv"><b>Composants IA</b><span>'+comps+'</span></div>'+
+      '<div class="pd-kv"><b>It\u00e9rations</b><span>'+nIt+'</span></div>'+
+      '<div class="pd-kv"><b>It\u00e9ration active</b><span>'+(nIt?("It\u00e9ration "+nIt):"\u2014")+'</span></div>'+
+      '<div class="pd-kv"><b>Position d\u2019acceptabilit\u00e9</b><span>'+esc(_pdAcc(c))+'</span></div>'+
+    '</div>'+
+  '</section>';
+  var ficheSec='<section class="pd-part"><h2>Fiche descriptive du cas d\u2019usage</h2>'+fiche+'</section>';
+  var mtxSec=mtx?'<section class="pd-part"><h2>Matrice b\u00e9n\u00e9fice\u2013risque / confiance</h2><div class="pd-matrixwrap">'+mtx+'</div></section>':'';
+  var assessSec=assess?'<section class="pd-part"><h2>Analyse, cotations, r\u00e9sultats et it\u00e9rations</h2>'+assess+'</section>':'';
+  host.innerHTML=cover+ficheSec+mtxSec+assessSec;
+  try{ _pdBold(host); }catch(e){}
+  host.style.display="none";
+  document.body.appendChild(host);
+  return host;
+}
+function removePrintDocument(){ var h=document.getElementById("printDocument"); if(h&&h.parentNode)h.parentNode.removeChild(h); }
+if(!window.__printDocWired){
+  window.addEventListener("beforeprint",function(){ try{ buildPrintDocument(); }catch(e){} });
+  window.addEventListener("afterprint",function(){ try{ removePrintDocument(); }catch(e){} });
+  window.__printDocWired=true;
+}
+(function(){ var b=document.getElementById("btnPrint"); if(b&&!b.__pdWired){ b.__pdWired=true; b.addEventListener("click",function(ev){ ev.preventDefault(); try{ buildPrintDocument(); }catch(e){} setTimeout(function(){ try{ window.print(); }catch(e){} }, 60); }); } })();
+try{ window.buildPrintDocument=buildPrintDocument; }catch(e){}
 
 window.addEventListener("beforeunload",e=>{if(dirty){e.preventDefault();e.returnValue="";}});
 
@@ -23807,7 +24150,7 @@ body.v276-locked-edit #anchor-0 .value{opacity:1!important}
 .v278-iter-actions{display:flex;gap:7px;flex-wrap:wrap}.v278-iter-actions button{border:1.5px solid #14366c;background:#fff;color:#14366c;border-radius:999px;padding:7px 10px;font-family:"Archivo";font-weight:800;font-size:11.5px;cursor:pointer}.v278-iter-actions button.primary{background:#14366c;color:#fff}
 .v278-ref-banner{margin:8px 18px;border:1px solid #bcd0ec;background:#f0f6ff;color:#14366c;border-radius:12px;padding:9px 12px;font-size:12.4px;font-weight:700;display:flex;justify-content:space-between;gap:10px;align-items:center}.v278-ref-banner button{border:1px solid #14366c;background:#fff;color:#14366c;border-radius:999px;font-weight:800;padding:5px 9px;font-size:11px;cursor:pointer}
 #v276Context{display:none!important}.v278-context{margin:14px 18px 20px;border:1px solid #dbe4f0;border-radius:15px;background:#fff;box-shadow:0 10px 28px -24px rgba(20,54,108,.32);overflow:hidden}.v278-context-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:12px 14px;background:#f8fbff;border-bottom:1px solid #e8eef6}.v278-context-head .h{font-family:"Archivo";font-weight:800;color:#14366c}.v278-context-head .s{font-size:12px;color:#5d6c83;margin-top:2px;line-height:1.35}.v278-detail-btn{border:1.5px solid #14366c;background:#fff;color:#14366c;border-radius:999px;font-family:"Archivo";font-weight:800;font-size:12px;padding:8px 12px;cursor:pointer;white-space:nowrap}.v278-detail-btn:hover{background:#eef3fb}
-.v278-crit-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:12px 14px;border-bottom:1px solid #eef2f8;background:#fff}.v278-crit-tabs button{border:1.5px solid #dbe4f0;background:#fff;color:#14366c;border-radius:999px;padding:7px 11px;font-family:"Archivo";font-weight:800;font-size:12px;cursor:pointer}.v278-crit-tabs button.on{background:#e0511e;color:#fff;border-color:#c2440f}.v278-crit-tabs button.done{box-shadow:inset 0 -3px 0 rgba(20,54,108,.25)}.nc-context .nc-focus,.nc-context .nc-full{padding:14px 16px 18px}.nc-zone{margin:0 0 16px}.nc-zone>h5{margin:0 0 7px;font-family:"Archivo";font-weight:800;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:#14366c}.nc-objet p{margin:0;font-size:13px;color:#243348;line-height:1.5;background:#f4f8fd;border-left:3px solid #14366c;padding:9px 13px;border-radius:0 8px 8px 0}.nc-field{padding:7px 0;border-bottom:1px solid #eef2f8}.nc-field:last-child{border-bottom:none}.nc-flabel{font-family:"Archivo";font-weight:700;font-size:11.5px;color:#33445c;margin-bottom:3px}.nc-fval{font-size:12.5px;color:#1f2933;line-height:1.5}.nc-fval.md-body{max-height:none;overflow:visible}.nc-missing{color:#b4530a;font-style:italic;font-size:12px}.nc-open{border:none;background:none;color:#0f6b7e;font-size:11px;cursor:pointer;text-decoration:underline;padding:0;font-family:inherit}.nc-comp{border:1px solid #dbe4f0;border-radius:11px;padding:9px 13px;margin:9px 0;background:#fbfdff}.nc-comp-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:5px;flex-wrap:wrap}.nc-comp-head>span{font-family:"Archivo";font-weight:800;font-size:12px;color:#14366c}.nc-reperes ul{margin:5px 0 0;padding-left:18px}.nc-reperes li{font-size:12px;color:#4a5b72;margin:3px 0;line-height:1.45}.nc-recap{margin:0 0 10px}.nc-levels{list-style:none;margin:5px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.nc-levels li{background:#eef3fb;border:1px solid #d3e0f2;border-radius:6px;padding:2px 9px;font-size:11px;color:#1d4488}.nc-block{border-top:2px solid #e3eaf4;padding-top:14px;margin-top:16px}.nc-block:first-child{border-top:none;padding-top:0;margin-top:0}.nc-crit-title{font-family:"Archivo";font-weight:800;font-size:13.5px;color:#0f6b7e;margin-bottom:10px}.nc-empty{font-size:12px;color:#8a97aa;font-style:italic;margin:4px 0}.riskmx-wrap{margin:16px 18px 8px;border:1px solid #dbe4f0;border-radius:14px;background:#fff;padding:14px 16px}.riskmx-head{margin-bottom:10px}.riskmx-title{font-family:"Archivo";font-weight:800;font-size:14px;color:#14366c}.riskmx-sub{font-size:12px;color:#5d6c83;margin-top:2px;line-height:1.35}.riskmx-body{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}.riskmx-plot{flex:0 0 460px;max-width:100%}.riskmx-svg{width:100%;height:auto;display:block}.riskmx-side{flex:1 1 260px;min-width:240px}.riskmx-axttl{font-family:"Archivo";font-weight:800;font-size:12px;fill:#14366c}.riskmx-axsub{font-size:10.5px;fill:#5d6c83}.riskmx-tick{font-size:10px;fill:#14366c;font-weight:700;font-family:"Archivo"}.riskmx-sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin:0 3px 0 2px;vertical-align:-1px;border:1px solid rgba(0,0,0,.15)}.riskmx-sw.sw-v{background:#cfe8c8}.riskmx-sw.sw-o{background:#f3cf95}.riskmx-sw.sw-r{background:#eeae9f}.riskmx-mk{font-family:"Archivo";font-weight:800;font-size:11px;fill:#fff}.riskmx-legend ul{margin:0 0 10px;padding-left:18px}.riskmx-legend li{font-size:11.5px;color:#4a5b72;margin:3px 0;line-height:1.4}.riskmx-recap{width:100%;border-collapse:collapse;font-size:11.5px}.riskmx-recap th,.riskmx-recap td{border:1px solid #e3eaf4;padding:4px 7px;text-align:center}.riskmx-recap th{background:#f4f8fd;color:#14366c;font-family:"Archivo";font-weight:700;line-height:1.2}.riskmx-empty{font-size:12px;color:#8a97aa;font-style:italic;padding:8px 0}/* texte des cartes aligné à gauche (tags/pastilles restent centrés) */.schema-systemic-v224 .gs-field .md-body,.schema-systemic-v224 .gs-comp-row .md-body,.schema-systemic-v224 .md-body,.schema-systemic-v224 .md-body .md-ul,.schema-systemic-v224 .md-body .md-ul li{text-align:left!important}.schema-systemic-v224 .md-body .md-ul{display:block!important;padding-left:18px!important}.schema-systemic-v224 .md-body .md-ul li{display:list-item!important}/* onglets d'étape : toujours orange et cliquables (plus de grisage conditionnel) */.v276-stage-tabs button,.v276-stage-tabs button.locked,.v276-stage-tabs button.complete,.v276-stage-tabs button.todo,.v276-stage-tabs button.recheck,.v276-stage-tabs button:not(.active){background:#e0511e!important;color:#fff!important;border-color:#c2440f!important;opacity:1!important;filter:none!important;cursor:pointer!important;pointer-events:auto!important}.v276-stage-tabs button.active{background:#b53a0d!important;border-color:#8f2e0a!important;box-shadow:0 0 0 2px rgba(224,81,30,.35)!important}/* Interaction Humains-SIA : corps de champ aligné à gauche (titres de champ, tags et pastilles conservent leur mise en forme) */.gs-autonomy-authority .gs-field,.sys-col-aa .gs-field{text-align:left!important}.gs-autonomy-authority .gs-field>b,.sys-col-aa .gs-field>b{text-align:left!important}.gs-autonomy-authority .gs-field .md-body,.sys-col-aa .gs-field .md-body{text-align:left!important}.gs-autonomy-authority .gs-field .md-body .md-ul,.sys-col-aa .gs-field .md-body .md-ul{display:block!important;text-align:left!important;padding-left:18px!important}.gs-autonomy-authority .gs-field .md-body .md-ul li,.sys-col-aa .gs-field .md-body .md-ul li{display:list-item!important;text-align:left!important;white-space:normal!important}.gs-autonomy-authority .gs-field .md-body b,.sys-col-aa .gs-field .md-body b{display:inline!important;white-space:normal!important}/* fil d’ariane : tous bleus par défaut, orange pour l’étape sélectionnée */#breadcrumb .crumb:not(.it){background:#14366c!important;color:#fff!important;border-color:#0f2a55!important;opacity:1!important;filter:none!important}#breadcrumb .crumb:not(.it) .n{background:#fff!important;color:#14366c!important}#breadcrumb .crumb.crumb-current:not(.it){background:#e0511e!important;color:#fff!important;border-color:#c2440f!important}#breadcrumb .crumb.crumb-current:not(.it) .n{background:#fff!important;color:#c2440f!important}#breadcrumb .crumb:not(.it):hover{background:#0f2a55!important;color:#fff!important}#breadcrumb .crumb.crumb-current:not(.it):hover{background:#c2440f!important;color:#fff!important}.vvt-open-btn{margin-top:10px;display:flex;width:fit-content;max-width:100%;clear:both;align-items:center;gap:6px;border:1.5px solid #14366c;background:#14366c;color:#fff;border-radius:9px;padding:6px 13px;font-family:"Archivo";font-weight:700;font-size:11.5px;cursor:pointer}.vvt-open-btn:hover{background:#0f2a55;border-color:#0f2a55}.appr-wide{width:100%}.appr-wide textarea{min-height:440px!important;max-height:74vh!important;font-size:13.5px!important;line-height:1.55!important;padding:12px 14px!important}.schema-modal:has(.appr-wide){width:min(1140px,calc(100vw - 28px))!important}/* bouton « Ouvrir le tableau » cliquable aussi en mode lecture */body.analyse-mode-global .vvt-open-btn,body.analyse-mode-global .analysis-read-schema .vvt-open-btn{pointer-events:auto!important;cursor:pointer!important}/* niveau de supervision (G2 …) centré comme un tag */.gs-autonomy-authority .gs-levelmini,.sys-col-aa .gs-levelmini{text-align:center!important}.gs-autonomy-authority .gs-levelmini .gs-levelmini-badge,.sys-col-aa .gs-levelmini .gs-levelmini-badge{margin-right:0!important}.vvt-read-ov{position:fixed;inset:0;background:rgba(15,30,60,.5);z-index:99999;display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;overflow:auto}.vvt-read-modal{background:#fff;border-radius:14px;width:min(940px,100%);box-shadow:0 20px 60px -18px rgba(0,0,0,.55);overflow:hidden}.vvt-read-modal header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#14366c;color:#fff}.vvt-read-modal header span{font-family:"Archivo";font-weight:800;font-size:14px}.vvt-read-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:8px;font-size:20px;cursor:pointer;line-height:1}.vvt-read-body{padding:14px 16px;max-height:64vh;overflow:auto}.vvt-read-table{width:100%;border-collapse:collapse;font-size:12.5px}.vvt-read-table th,.vvt-read-table td{border:1px solid #e3eaf4;padding:6px 10px;text-align:left;vertical-align:top}.vvt-read-table th{background:#f4f8fd;color:#14366c;font-family:"Archivo";font-weight:700}.vvt-read-table tbody tr:nth-child(even){background:#fafcff}.vvt-read-appr{margin-top:12px;padding-top:12px;border-top:1px solid #eef2f8;font-size:12.5px;color:#1f2933;line-height:1.5}.vvt-read-empty{color:#8a97aa;font-style:italic;padding:10px}.vvt-read-foot{padding:10px 16px;border-top:1px solid #eef2f8;display:flex;gap:8px;justify-content:flex-end}.vvt-read-edit{background:#e0511e;color:#fff;border:none;border-radius:9px;padding:7px 14px;font-family:"Archivo";font-weight:700;font-size:12px;cursor:pointer}.vvt-read-ok{background:#eef2f8;color:#14366c;border:none;border-radius:9px;padding:7px 14px;font-family:"Archivo";font-weight:700;font-size:12px;cursor:pointer}.vvt-open-btn{pointer-events:auto!important;cursor:pointer!important}
+.v278-crit-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:12px 14px;border-bottom:1px solid #eef2f8;background:#fff}.v278-crit-tabs button{border:1.5px solid #dbe4f0;background:#fff;color:#14366c;border-radius:999px;padding:7px 11px;font-family:"Archivo";font-weight:800;font-size:12px;cursor:pointer}.v278-crit-tabs button.on{background:#e0511e;color:#fff;border-color:#c2440f}.v278-crit-tabs button.done{box-shadow:inset 0 -3px 0 rgba(20,54,108,.25)}.nc-context .nc-focus,.nc-context .nc-full{padding:14px 16px 18px}.nc-zone{margin:0 0 16px}.nc-zone>h5{margin:0 0 7px;font-family:"Archivo";font-weight:800;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:#14366c}.nc-objet p{margin:0;font-size:13px;color:#243348;line-height:1.5;background:#f4f8fd;border-left:3px solid #14366c;padding:9px 13px;border-radius:0 8px 8px 0}.nc-field{padding:7px 0;border-bottom:1px solid #eef2f8}.nc-field:last-child{border-bottom:none}.nc-flabel{font-family:"Archivo";font-weight:700;font-size:11.5px;color:#33445c;margin-bottom:3px}.nc-fval{font-size:12.5px;color:#1f2933;line-height:1.5}.nc-fval.md-body{max-height:none;overflow:visible}.nc-missing{color:#b4530a;font-style:italic;font-size:12px}.nc-open{border:none;background:none;color:#0f6b7e;font-size:11px;cursor:pointer;text-decoration:underline;padding:0;font-family:inherit}.nc-comp{border:1px solid #dbe4f0;border-radius:11px;padding:9px 13px;margin:9px 0;background:#fbfdff}.nc-comp-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:5px;flex-wrap:wrap}.nc-comp-head>span{font-family:"Archivo";font-weight:800;font-size:12px;color:#14366c}.nc-reperes ul{margin:5px 0 0;padding-left:18px}.nc-reperes li{font-size:12px;color:#4a5b72;margin:3px 0;line-height:1.45}.nc-recap{margin:0 0 10px}.nc-levels{list-style:none;margin:5px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.nc-levels li{background:#eef3fb;border:1px solid #d3e0f2;border-radius:6px;padding:2px 9px;font-size:11px;color:#1d4488}.nc-block{border-top:2px solid #e3eaf4;padding-top:14px;margin-top:16px}.nc-block:first-child{border-top:none;padding-top:0;margin-top:0}.nc-crit-title{font-family:"Archivo";font-weight:800;font-size:13.5px;color:#0f6b7e;margin-bottom:10px}.nc-empty{font-size:12px;color:#8a97aa;font-style:italic;margin:4px 0}.confidence-analysis-questions{margin:10px 0 6px;border:1px solid #dbe4f0;border-radius:9px;background:#fbfdff;padding:2px 12px}.confidence-analysis-questions>summary{cursor:pointer;font-family:"Archivo";font-weight:800;font-size:12px;color:#14366c;padding:7px 0;list-style:disclosure-closed}.confidence-analysis-questions[open]>summary{list-style:disclosure-open}.confidence-analysis-questions .caq-note{font-size:11.5px;color:#5d6c83;font-style:italic;margin:2px 0 8px}.confidence-analysis-questions .caq-item{padding:5px 0;border-top:1px solid #eef2f8}.confidence-analysis-questions .caq-item:first-of-type{border-top:none}.confidence-analysis-questions .caq-item>b{font-family:"Archivo";font-size:12px;color:#33445c}.confidence-analysis-questions .caq-item>div{font-size:12.5px;color:#1f2933;line-height:1.45;margin-top:2px}.tpl-insert-btn{display:inline-block;margin:6px 0 2px;padding:4px 10px;font-size:11px;font-family:inherit;color:#2b3f63;background:#eef3fb;border:1px solid #cdd9ec;border-radius:7px;cursor:pointer;line-height:1.3}.tpl-insert-btn:hover{background:#e3ebf8;border-color:#b7c7e2}.locked-read .tpl-insert-btn,textarea[readonly]+.tpl-insert-btn,textarea[disabled]+.tpl-insert-btn{display:none}.tpl-choice-ov{position:fixed;inset:0;background:rgba(20,32,54,.34);display:flex;align-items:center;justify-content:center;z-index:9999}.tpl-choice-modal{background:#fff;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 18px 50px rgba(20,40,80,.28)}.tpl-choice-modal p{margin:0 0 14px;font-size:13.5px;color:#22304a}.tpl-choice-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.riskmx-wrap{margin:16px 18px 8px;border:1px solid #dbe4f0;border-radius:14px;background:#fff;padding:14px 16px}.riskmx-head{margin-bottom:10px}.riskmx-title{font-family:"Archivo";font-weight:800;font-size:14px;color:#14366c}.riskmx-sub{font-size:12px;color:#5d6c83;margin-top:2px;line-height:1.35}.riskmx-body{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}.riskmx-plot{flex:0 0 460px;max-width:100%}.riskmx-svg{width:100%;height:auto;display:block}.riskmx-body-full{display:block}.riskmx-plot-full{flex:1 1 100%;width:100%;max-width:520px;margin:0 auto}.riskmx-plot-full .riskmx-svg{width:100%;height:auto}.riskmx-rowname{font-size:13px;fill:#33445c;font-family:"Archivo";font-weight:600}.riskmx-rowval{font-size:16px;fill:#14366c;font-family:"Archivo";font-weight:800}.riskmx-colname{font-size:14px;fill:#33445c;font-family:"Archivo";font-weight:600}.riskmx-colval{font-size:15px;fill:#14366c;font-family:"Archivo";font-weight:800}.riskmx-mk-lg{font-size:13px}.riskmx-zonebar{display:flex;gap:8px;margin:12px 0 8px;flex-wrap:wrap}.riskmx-zb{flex:1 1 200px;border-radius:8px;padding:10px 13px;font-size:12.5px;color:#243348;font-weight:600;border:1px solid rgba(0,0,0,.08)}.riskmx-zb.v{background:#cfe8c8}.riskmx-zb.o{background:#f3cf95}.riskmx-zb.r{background:#eeae9f}.riskmx-glyphs{display:flex;gap:20px;flex-wrap:wrap;font-size:11.5px;color:#4a5b72;margin-bottom:4px}.riskmx-side{flex:1 1 260px;min-width:240px}.riskmx-axttl{font-family:"Archivo";font-weight:800;font-size:15.5px;fill:#14366c}.riskmx-axsub{font-size:10.5px;fill:#5d6c83}.riskmx-tick{font-size:10px;fill:#14366c;font-weight:700;font-family:"Archivo"}.riskmx-sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin:0 3px 0 2px;vertical-align:-1px;border:1px solid rgba(0,0,0,.15)}.riskmx-sw.sw-v{background:#cfe8c8}.riskmx-sw.sw-o{background:#f3cf95}.riskmx-sw.sw-r{background:#eeae9f}.riskmx-mk{font-family:"Archivo";font-weight:800;font-size:11px;fill:#fff}.riskmx-legend ul{margin:0 0 10px;padding-left:18px}.riskmx-legend li{font-size:11.5px;color:#4a5b72;margin:3px 0;line-height:1.4}.riskmx-legend-hd{font-family:"Archivo";font-weight:800;font-size:12px;color:#14366c;margin-bottom:6px}.riskmx-legend-compact{border:1px solid #dbe4f0;border-radius:10px;padding:9px 12px;background:#fbfdff;margin-bottom:10px}.riskmx-legend-compact ul{margin:0;padding-left:16px}.riskmx-empty{font-size:12px;color:#8a97aa;font-style:italic;padding:8px 0}.riskmx-mention{margin-top:10px;font-size:11.5px;color:#5d6c83;font-style:italic}.riskmx-encours{font-family:"Archivo";font-weight:800;font-size:9.5px;fill:#c2440f}.riskmx-enc,.riskmx-encours-txt{color:#c2440f;font-weight:700;font-size:10px}.riskmx-gl{display:inline-block;min-width:20px;color:#14366c;font-weight:700}.riskmx-gl-o{color:#e0511e}.riskmx-pa{border-top:1px solid #eef2f8;padding-top:10px}.riskmx-pa-hd{font-family:"Archivo";font-weight:800;font-size:12px;color:#0f6b7e;margin-bottom:6px}.riskmx-pa-body{font-size:12px;color:#1f2933;line-height:1.5}.riskmx-cmp-btn{margin-top:8px;background:#14366c;border:1px solid #14366c;color:#fff;font-size:11.5px;font-weight:600;border-radius:7px;padding:6px 11px;cursor:pointer}.riskmx-cmp-btn:hover{background:#0f2a55;border-color:#0f2a55}.riskmx-pa-compare{margin-top:8px;border-top:1px dashed #dbe4f0;padding-top:8px}.riskmx-pa-item{padding:6px 0;border-bottom:1px solid #eef2f8}.riskmx-pa-item:last-child{border-bottom:none}.riskmx-pa-itemhd{font-family:"Archivo";font-weight:700;font-size:11px;color:#33445c;margin-bottom:3px}.riskmx-pa-empty{color:#8a97aa;font-style:italic}.riskmx-cond{border:1px solid #dbe4f0;border-radius:10px;padding:9px 12px;background:#fbfdff;margin-bottom:10px}.riskmx-cond-hd{font-family:"Archivo";font-weight:800;font-size:12px;color:#14366c;margin-bottom:6px}.riskmx-cond-row{display:flex;align-items:center;gap:7px;font-size:12.5px;color:#243348}.riskmx-cond-dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex:0 0 auto}.riskmx-cond-act{font-size:12px;color:#4a5b72;margin-top:3px}.riskmx-cond-note{font-size:11px;color:#8a97aa;font-style:italic;margin-top:5px}@media(max-width:600px){.riskmx-plot{flex:1 1 100%}.riskmx-body{overflow-x:auto}}/* texte des cartes aligné à gauche (tags/pastilles restent centrés) */.schema-systemic-v224 .gs-field .md-body,.schema-systemic-v224 .gs-comp-row .md-body,.schema-systemic-v224 .md-body,.schema-systemic-v224 .md-body .md-ul,.schema-systemic-v224 .md-body .md-ul li{text-align:left!important}.schema-systemic-v224 .md-body .md-ul{display:block!important;padding-left:18px!important}.schema-systemic-v224 .md-body .md-ul li{display:list-item!important}/* onglets d'étape : toujours orange et cliquables (plus de grisage conditionnel) */.v276-stage-tabs button,.v276-stage-tabs button.locked,.v276-stage-tabs button.complete,.v276-stage-tabs button.todo,.v276-stage-tabs button.recheck,.v276-stage-tabs button:not(.active){background:#e0511e!important;color:#fff!important;border-color:#c2440f!important;opacity:1!important;filter:none!important;cursor:pointer!important;pointer-events:auto!important}.v276-stage-tabs button.active{background:#b53a0d!important;border-color:#8f2e0a!important;box-shadow:0 0 0 2px rgba(224,81,30,.35)!important}/* Interaction Humains-SIA : corps de champ aligné à gauche (titres de champ, tags et pastilles conservent leur mise en forme) */.gs-autonomy-authority .gs-field,.sys-col-aa .gs-field{text-align:left!important}.gs-autonomy-authority .gs-field>b,.sys-col-aa .gs-field>b{text-align:left!important}.gs-autonomy-authority .gs-field .md-body,.sys-col-aa .gs-field .md-body{text-align:left!important}.gs-autonomy-authority .gs-field .md-body .md-ul,.sys-col-aa .gs-field .md-body .md-ul{display:block!important;text-align:left!important;padding-left:18px!important}.gs-autonomy-authority .gs-field .md-body .md-ul li,.sys-col-aa .gs-field .md-body .md-ul li{display:list-item!important;text-align:left!important;white-space:normal!important}.gs-autonomy-authority .gs-field .md-body b,.sys-col-aa .gs-field .md-body b{display:inline!important;white-space:normal!important}/* fil d’ariane : tous bleus par défaut, orange pour l’étape sélectionnée */#breadcrumb .crumb:not(.it){background:#14366c!important;color:#fff!important;border-color:#0f2a55!important;opacity:1!important;filter:none!important}#breadcrumb .crumb:not(.it) .n{background:#fff!important;color:#14366c!important}#breadcrumb .crumb.crumb-current:not(.it){background:#e0511e!important;color:#fff!important;border-color:#c2440f!important}#breadcrumb .crumb.crumb-current:not(.it) .n{background:#fff!important;color:#c2440f!important}#breadcrumb .crumb:not(.it):hover{background:#0f2a55!important;color:#fff!important}#breadcrumb .crumb.crumb-current:not(.it):hover{background:#c2440f!important;color:#fff!important}.vvt-open-btn{margin-top:10px;display:flex;width:fit-content;max-width:100%;clear:both;align-items:center;gap:6px;border:1.5px solid #14366c;background:#14366c;color:#fff;border-radius:9px;padding:6px 13px;font-family:"Archivo";font-weight:700;font-size:11.5px;cursor:pointer}.vvt-open-btn:hover{background:#0f2a55;border-color:#0f2a55}.appr-wide{width:100%}.appr-wide textarea{min-height:440px!important;max-height:74vh!important;font-size:13.5px!important;line-height:1.55!important;padding:12px 14px!important}.schema-modal:has(.appr-wide){width:min(1140px,calc(100vw - 28px))!important}/* bouton « Ouvrir le tableau » cliquable aussi en mode lecture */body.analyse-mode-global .vvt-open-btn,body.analyse-mode-global .analysis-read-schema .vvt-open-btn{pointer-events:auto!important;cursor:pointer!important}/* niveau de supervision (G2 …) centré comme un tag */.gs-autonomy-authority .gs-levelmini,.sys-col-aa .gs-levelmini{text-align:center!important}.gs-autonomy-authority .gs-levelmini .gs-levelmini-badge,.sys-col-aa .gs-levelmini .gs-levelmini-badge{margin-right:0!important}.vvt-read-ov{position:fixed;inset:0;background:rgba(15,30,60,.5);z-index:99999;display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;overflow:auto}.vvt-read-modal{background:#fff;border-radius:14px;width:min(940px,100%);box-shadow:0 20px 60px -18px rgba(0,0,0,.55);overflow:hidden}.vvt-read-modal header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#14366c;color:#fff}.vvt-read-modal header span{font-family:"Archivo";font-weight:800;font-size:14px}.vvt-read-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:8px;font-size:20px;cursor:pointer;line-height:1}.vvt-read-body{padding:14px 16px;max-height:64vh;overflow:auto}.vvt-read-table{width:100%;border-collapse:collapse;font-size:12.5px}.vvt-read-table th,.vvt-read-table td{border:1px solid #e3eaf4;padding:6px 10px;text-align:left;vertical-align:top}.vvt-read-table th{background:#f4f8fd;color:#14366c;font-family:"Archivo";font-weight:700}.vvt-read-table tbody tr:nth-child(even){background:#fafcff}.vvt-read-appr{margin-top:12px;padding-top:12px;border-top:1px solid #eef2f8;font-size:12.5px;color:#1f2933;line-height:1.5}.vvt-read-empty{color:#8a97aa;font-style:italic;padding:10px}.vvt-read-foot{padding:10px 16px;border-top:1px solid #eef2f8;display:flex;gap:8px;justify-content:flex-end}.vvt-read-edit{background:#e0511e;color:#fff;border:none;border-radius:9px;padding:7px 14px;font-family:"Archivo";font-weight:700;font-size:12px;cursor:pointer}.vvt-read-ok{background:#eef2f8;color:#14366c;border:none;border-radius:9px;padding:7px 14px;font-family:"Archivo";font-weight:700;font-size:12px;cursor:pointer}.vvt-open-btn{pointer-events:auto!important;cursor:pointer!important}
 .v278-schema-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:10px;padding:13px;background:linear-gradient(180deg,#fff,#fbfcff)}.v278-card{border:1.5px solid #dce3ee;border-radius:13px;background:#fff;padding:11px 12px;min-height:98px;position:relative;transition:.14s}.v278-card.active{border-color:#14366c;box-shadow:inset 0 0 0 2px rgba(20,54,108,.10),0 12px 24px -22px rgba(20,54,108,.7);background:#f8fbff;opacity:1}.v278-card.secondary{background:#f8fafc;color:#40516b;border-color:#e1e8f2;opacity:.94;filter:none}.v278-card.missing{background:#fff7ed;border-color:#f2b38e;color:#7c2d12;opacity:1;filter:none}.v278-card.modified{border-style:dashed}.v278-card .k{font-family:"Archivo";font-weight:800;font-size:12px;color:#14366c;margin-bottom:6px}.v278-card.secondary .k{color:#33455f}.v278-card.missing .k{color:#9a3412}.v278-card .v{font-size:12.2px;line-height:1.38;color:#25364f;max-height:90px;overflow:auto}.v278-card.secondary .v{color:#46566f}.v278-card .tag{display:inline-flex;align-items:center;margin-top:8px;margin-right:5px;border-radius:999px;background:#e0511e;color:#fff;font-size:10px;font-weight:800;padding:3px 7px}.v278-card .miss{background:#fed7aa;color:#9a3412}.v278-card .why{background:#14366c;color:#fff}
 .v278-linear{padding:14px 16px}.v278-linear h4{font-family:"Archivo";font-size:13px;color:#14366c;margin:0 0 10px}.v278-linear .row{border-left:4px solid #14366c;background:#f8fbff;border-radius:9px;padding:10px 12px;margin-bottom:9px}.v278-linear .row.missing{border-left-color:#e0511e;background:#fff7ed}.v278-linear .lab{font-family:"Archivo";font-size:12px;font-weight:800;color:#14366c;margin-bottom:4px}.v278-linear .txt{font-size:12.5px;line-height:1.42;color:#25364f;white-space:pre-wrap}
 @media(max-width:780px){.v278-context-head{flex-direction:column}.v278-detail-btn{width:100%}.v278-schema-grid{grid-template-columns:1fr}.v278-iter-list{grid-template-columns:1fr}}
@@ -23874,7 +24217,7 @@ body.v276-locked-edit #anchor-0 .value{opacity:1!important}
     '2b':{stage:'confidence',label:'2b — Performance / robustesse',keys:['component','data','conditions','trace'],hint:'Apprécier validation, robustesse, tests et limites.'},
     '2c':{stage:'confidence',label:'2c — Intégration technique',keys:['si','trace','component','data'],hint:'Examiner intégration SI, journalisation, accès et supervision.'},
     '2d':{stage:'confidence',label:'2d — Usage humain et organisation',keys:['role','autonomy','si','conditions'],hint:'Examiner compréhension, responsabilité, validation et reprise en main.'},
-    '3a':{stage:'position',label:'3a — Position d’acceptabilité',keys:['benefitSummary','trustSummary','conditions','surete','iterMods'],hint:'Formuler la position finale au regard de la cotation.'},
+    '3a':{stage:'position',label:'3a — Position d’acceptabilité',keys:['benefitSummary','trustSummary','conditions','surete','iterMods'],hint:'Formuler la position finale au regard de la cotation. Mesures de maîtrise nécessaires : indispensables au maintien de l’acceptabilité (niveau 2). Mesures de maîtrise complémentaires : renforcent les marges de maîtrise sans conditionner directement l’acceptabilité (niveau 3).'},
     '3b':{stage:'position',label:'3b — Pérennité / conditions de maintien',keys:['accept','conditions','trace','iterMods'],hint:'Préciser conditions, surveillance, réexamen et maintien dans le temps.'}
   };
   var STAGE_CRITS={benefit:['1a','1b','1c'],confidence:['2a','2b','2c','2d'],position:['3a','3b']};
@@ -23950,18 +24293,21 @@ body.v276-locked-edit #anchor-0 .value{opacity:1!important}
     '3b':['hypothèses ayant fondé l\u2019acceptabilité','indicateurs et paramètres suivis','événements déclencheurs d\u2019une révision','dispositif de surveillance','retour d\u2019expérience']
   };
   var NC_FIELDS={
-    '1a':[['ia','objectifsSia','Objectif de l\u2019activité'],['ia','valeurIA','Plus-value attendue de l\u2019IA'],['ia','benefice','Bénéfice par rapport à la solution de référence'],['ia','service','Service attendu et contours d\u2019usage']],
+    '1a':[['ia','service','Service attendu et finalité'],['ia','benefice','Bénéfice par rapport à la solution de référence'],['ia','contoursUsage','Contours et limites d\u2019usage'],['ia','usageResultats','Usage attendu des résultats']],
     '1b':[['ia','defaillances','Défaillances possibles, conséquences et parades'],['surete','perimetre','Périmètre d\u2019emploi du SIA'],['surete','enjeuxInstallation','Enjeux de sûreté concernés'],['surete','positionnementAipEip','Lien du cas d\u2019usage avec la sûreté'],['ia','resultats','Résultats produits ou actions déclenchées']],
     '1c':[['ia','defaillances','Défaillances possibles, conséquences et parades'],['socio','controleSuperv','Niveau de contrôle et de supervision humaine'],['socio','repriseControle','Capacité de reprise de contrôle par l\u2019humain']],
     '2a':[['donnees','donneesConcernees','Données mobilisées et adéquation au domaine d\u2019emploi'],['donnees','qualiteRepresentativiteValidation','Qualité, représentativité, validation et traçabilité'],['donnees','usageAvalInterpretation','Utilisation aval et effets d\u2019une erreur'],['donnees','documentationGouvernance','Documentation et gouvernance des données']],
     '2c':[['composants','enchainement','Enchaînement fonctionnel du SIA'],['si','hebergement','Environnement d\u2019hébergement'],['si','interface','Interface utilisateur'],['si','connecteurs','Systèmes sources et destinataires'],['si','acces','Accès, habilitations et droits'],['si','traca','Journalisation, traçabilité et supervision technique'],['si','maint','Maintenance et gestion des évolutions'],['ia','defaillances','États dégradés (volet défaillances)'],['ia','resultats','Résultats produits (cohérence en configuration intégrée)']],
     '2d':[['socio','controleSuperv','Niveau de contrôle et de supervision humaine'],['socio','roleHumain','Rôle attendu de l\u2019utilisateur'],['socio','decisionFinale','Responsabilité de la décision fondée sur le résultat du SIA'],['socio','repriseControle','Capacité de reprise de contrôle par l\u2019humain'],['socio','effetsCompetences','Maintien des compétences et de l\u2019organisation']],
-    '3a':[['ia','pointsAttention','Conditions de maintien de l\u2019acceptabilité']],
-    '3b':[['ia','pointsAttention','Conditions de maintien de l\u2019acceptabilité'],['ia','vigilanceBiais','Vigilance et biais d\u2019automatisation']]
+    '3a':[['ia','pointsAttention','Conditions de l\u2019acceptabilité à respecter']],
+    '3b':[['ia','perennite','Conditions de maintien et de révision dans le temps'],['si','maint','Maintenance et gestion des évolutions'],['donnees','documentationGouvernance','Documentation et gouvernance des données']]
   };
-  var NC_COMP_2B=[['role','Fonction et rôle du composant'],['typologie','Typologie'],['technologies','Technologies mobilisées'],['limites','Domaine de validité et situations non couvertes'],['justificationVV','Justification des performances et V&V'],['incertitudes','Incertitudes associées au composant'],['sorties','Sorties produites par le composant'],['appreciationVV','Résultats de tests et V&V \\u2014 analyse des indicateurs']];
+  var NC_COMP_2B=[['role','Fonction et rôle du composant'],['typologie','Typologie'],['technologies','Technologies mobilisées'],['limites','Domaine de validité et situations non couvertes'],['justificationVV','Justification des performances et V&V'],['incertitudes','Incertitudes associées au composant'],['sorties','Sorties produites par le composant'],['appreciationVV','Résultats de tests et V&V \u2014 analyse des indicateurs']];
   var NC_COMP_2D=[['autonomie','Niveau d\u2019autonomie'],['autorite','Niveau d\u2019autorité conféré']];
-  function ncRead(c,fam,def){ try{ return String(s0text(c,fam,def)||'').trim(); }catch(e){ return ''; } }
+  /* Source unique de vérité du mapping descriptif d'appui à la cotation (objet, champs, composants, repères). Dérivée des définitions NC_* ci-dessus — contenu identique, un seul mapping alimente l'affichage. */
+  var CRITERION_INFORMATION_MAPPING=(function(){var m={};['1a','1b','1c','2a','2b','2c','2d','3a','3b'].forEach(function(k){m[k]={object:(NC_OBJET[k]||''),fields:(NC_FIELDS[k]||[]),componentFields:(k==='2b'?NC_COMP_2B:(k==='2d'?NC_COMP_2D:[])),references:(NC_REPERES[k]||[])};});return m;})();
+  (function(){var Q={'2a':[['Exactitude','Les données utilisées sont-elles suffisamment exactes, complètes et représentatives du domaine d’emploi prévu du SIA ?'],['Robustesse','Les données manquantes, atypiques, dégradées ou hors domaine, ainsi que les dérives, peuvent-elles être détectées et maîtrisées ?'],['Consistance','Les modalités de collecte, de préparation, de validation, de versionnement et d’utilisation des données sont-elles cohérentes sur l’ensemble de leur cycle de vie ?'],['Intelligibilité','Le rôle des différentes données et leur influence possible sur les résultats du SIA sont-ils suffisamment compris et documentés ?'],['Transparence','L’origine des données, les transformations appliquées, les versions et les conditions d’utilisation sont-elles traçables et justifiables ?']],'2b':[['Exactitude','Les performances du composant sont-elles évaluées par rapport à une référence pertinente, avec des métriques et des seuils adaptés à son domaine d’emploi ?'],['Robustesse','Les performances restent-elles maîtrisées face aux variations des entrées, aux incertitudes, aux perturbations et aux situations hors domaine ?'],['Consistance','La conception, la vérification et la validation du composant sont-elles cohérentes avec les exigences définies, les méthodes applicables et l’état de l’art pertinent ?'],['Intelligibilité','Les hypothèses, les incertitudes, les limites, les conditions d’utilisation et la signification des résultats produits sont-elles suffisamment explicitées ?'],['Transparence','Les données d’essai, les protocoles d’évaluation, les versions du composant et les résultats obtenus sont-ils documentés, traçables et justifiables ?']],'2c':[['Exactitude','Les performances et la qualité des résultats restent-elles conformes aux attentes après l’intégration des composants dans le SIA complet ?'],['Robustesse','Le SIA reste-t-il maîtrisé face aux aléas d’exploitation, aux indisponibilités, aux défaillances d’interface et aux situations dégradées ?'],['Consistance','L’architecture, les interfaces, les flux de données et l’enchaînement des composants forment-ils un ensemble cohérent avec le fonctionnement prévu ?'],['Intelligibilité','Les informations nécessaires à la compréhension des résultats, des alertes et de l’état du SIA restent-elles disponibles dans les conditions opérationnelles prévues ?'],['Transparence','L’architecture, les configurations, les versions, les journaux de fonctionnement et les évolutions du SIA sont-ils traçables et auditables ?']],'2d':[['Exactitude','Les utilisateurs peuvent-ils interpréter et utiliser correctement les résultats du SIA, compte tenu de leurs limites et de leurs incertitudes ?'],['Robustesse','L’utilisation du SIA reste-t-elle maîtrisée en situation inattendue ou dégradée, notamment grâce aux possibilités de contrôle, de correction et de reprise ?'],['Consistance','Les modalités réelles d’utilisation, les responsabilités et la répartition des rôles restent-elles cohérentes avec l’usage prévu ?'],['Intelligibilité','Les utilisateurs comprennent-ils les résultats, leurs limites, le niveau d’autonomie du SIA et les modalités de supervision attendues ?'],['Transparence','L’influence du SIA sur les décisions et les actions est-elle identifiable et traçable, avec une responsabilité finale clairement établie ?']]};Object.keys(Q).forEach(function(k){if(CRITERION_INFORMATION_MAPPING[k])CRITERION_INFORMATION_MAPPING[k].analysisQuestions=Q[k].map(function(x){return {principle:x[0],question:x[1]};});});})();
+  function ncRead(c,fam,def){ try{ var it=(typeof findItem==='function')?findItem(c,fam,def):null; if(!it)return ''; var v=(typeof itemSummary==='function')?itemSummary(it):(it.value&&(it.value.note||it.value.text||it.value.resume)||it.value); return String(v||'').trim(); }catch(e){ return ''; } }
   function ncComponents(c){ try{ var f=c.step0&&c.step0.fams&&c.step0.fams.composants; if(!f)return []; return (f.items||[]).filter(function(i){return i.kind==='componentai';}).map(function(i){return i.value||{};}); }catch(e){ return []; } }
   function ncCompRead(comp,field){
     var v=comp?comp[field]:null;
@@ -23980,21 +24326,32 @@ body.v276-locked-edit #anchor-0 .value{opacity:1!important}
   function ncCompBlock(c,crit){
     var comps=ncComponents(c);
     if(!comps.length) return '<p class="nc-empty">Aucun composant d\u2019IA renseigné dans la fiche descriptive.</p>';
-    var fields=(crit==='2b')?NC_COMP_2B:NC_COMP_2D;
+    var fields=((CRITERION_INFORMATION_MAPPING[crit]||{}).componentFields)||((crit==='2b')?NC_COMP_2B:NC_COMP_2D);
     return comps.map(function(comp,idx){
       var rows=fields.map(function(f){return ncFieldRow(f[1],ncCompRead(comp,f[0]));}).join('');
-      return '<div class="nc-comp"><div class="nc-comp-head"><span>Composants d\u2019IA \u203a C'+(idx+1)+' \u2014 '+esc(comp.nom||'Composant IA')+'</span><button type="button" class="nc-open" data-nc-comp="'+idx+'">Ouvrir dans la fiche descriptive</button></div>'+rows+'</div>';
+      var vvtBtn=(crit==='2b')?('<button type="button" class="vvt-open-btn" data-vvt-open="'+idx+'">Ouvrir le tableau des indicateurs et des r\u00e9sultats</button>'):'';
+      return '<div class="nc-comp"><div class="nc-comp-head"><span>Composants d\u2019IA \u203a C'+(idx+1)+' \u2014 '+esc(comp.nom||'Composant IA')+'</span><button type="button" class="nc-open" data-nc-comp="'+idx+'">Ouvrir dans la fiche descriptive</button></div>'+rows+vvtBtn+'</div>';
     }).join('');
   }
   function ncCritHtml(c,crit){
-    var objet=NC_OBJET[crit]||'', reperes=NC_REPERES[crit]||[];
+    var _cim=(CRITERION_INFORMATION_MAPPING[crit]||{object:'',fields:[],references:[]});
+    var objet=_cim.object||'', reperes=_cim.references||[];
     var h='<div class="nc-zone nc-objet"><h5>Objet du critère</h5><p>'+esc(objet)+'</p></div>';
     h+='<div class="nc-zone nc-elements"><h5>Éléments descriptifs associés au critère</h5>';
     if(crit==='2b'){ h+=ncCompBlock(c,'2b'); }
-    else if(crit==='2d'){ (NC_FIELDS['2d']||[]).forEach(function(f){h+=ncFieldRow(f[2],ncRead(c,f[0],f[1]),f[0],f[1]);}); h+=ncCompBlock(c,'2d'); }
-    else if(crit==='3a'){ h+='<div class="nc-recap"><div class="nc-flabel">Niveaux cotés (1a à 2d)</div>'+ncLevelsRecap(c)+'</div>'; (NC_FIELDS['3a']||[]).forEach(function(f){h+=ncFieldRow(f[2],ncRead(c,f[0],f[1]),f[0],f[1]);}); }
-    else { (NC_FIELDS[crit]||[]).forEach(function(f){h+=ncFieldRow(f[2],ncRead(c,f[0],f[1]),f[0],f[1]);}); }
+    else if(crit==='2d'){ (_cim.fields||[]).forEach(function(f){h+=ncFieldRow(f[2],ncRead(c,f[0],f[1]),f[0],f[1]);}); h+=ncCompBlock(c,'2d'); }
+    else if(crit==='3a'){ h+='<div class="nc-recap"><div class="nc-flabel">Niveaux cotés (1a à 2d)</div>'+ncLevelsRecap(c)+'</div>'; (_cim.fields||[]).forEach(function(f){h+=ncFieldRow(f[2],ncRead(c,f[0],f[1]),f[0],f[1]);}); }
+    else { (_cim.fields||[]).forEach(function(f){h+=ncFieldRow(f[2],ncRead(c,f[0],f[1]),f[0],f[1]);}); }
     h+='</div>';
+    if(['2a','2b','2c','2d'].indexOf(crit)>=0){
+      var _q=(_cim.analysisQuestions)||((CRITERION_INFORMATION_MAPPING[crit]||{}).analysisQuestions)||[];
+      if(_q.length){
+        h+='<details class="confidence-analysis-questions" data-analysis-questions="'+crit+'"><summary>Questions d\u2019analyse</summary>';
+        h+='<p class="caq-note">Ces questions aident \u00e0 examiner le crit\u00e8re. Elles ne font pas l\u2019objet d\u2019une cotation distincte.</p>';
+        _q.forEach(function(q){ h+='<div class="caq-item"><b>'+esc(q.principle)+'</b><div>'+esc(q.question)+'</div></div>'; });
+        h+='</details>';
+      }
+    }
     h+='<div class="nc-zone nc-reperes"><h5>Repères pour la cotation</h5><ul>'+reperes.map(function(r){return '<li>'+esc(r)+'</li>';}).join('')+'</ul></div>';
     return h;
   }
@@ -24015,8 +24372,12 @@ body.v276-locked-edit #anchor-0 .value{opacity:1!important}
     }
     var btn=full?'Revenir au critère en cours':'Aperçu complet de la fiche';
     var head='<div class="v278-context-head"><div><div class="h">Appui descriptif à la cotation \u2014 '+esc(full?'aperçu complet':info.label)+'</div><div class="s">Les éléments descriptifs sont repris tels quels depuis la fiche. L\u2019outil affiche et signale ce qui manque, sans interpréter.</div></div><button type="button" class="v278-detail-btn" id="btnV278Full">'+btn+'</button></div>';
-    var html='<section id="v278Context" class="v278-context nc-context">'+head+(full?'':tabs)+body+'</section>';
-    var old=q('#v278Context'); if(old)old.remove(); wrap.insertAdjacentHTML('afterend',html);
+    var _isPos=(st==='position');
+    var html='<section id="v278Context" class="v278-context nc-context">'+((_isPos&&!full)?'':head)+(full?'':tabs)+((_isPos&&!full)?'':body)+'</section>';
+    var old=q('#v278Context');
+    var _caqOpen=!!(old && old.querySelector && old.querySelector('.confidence-analysis-questions[open]'));
+    if(old)old.remove(); wrap.insertAdjacentHTML('afterend',html);
+    if(_caqOpen){ var _nd=q('#v278Context .confidence-analysis-questions'); if(_nd)_nd.setAttribute('open',''); }
   }
 
   function markRowCrit(id){qa('#workBody tr').forEach(function(r){r.classList.toggle('v278-row-active',r.dataset&&r.dataset.crit===id)});}
@@ -24427,7 +24788,7 @@ details.rv-step>summary::-webkit-details-marker{display:none}
       else{if(st.cases.some(function(c){return c&&c.__example;}))return false;}
       var made=EX_CASES.map(buildOne).filter(Boolean);
       st.cases=made.concat(st.cases);
-      if(!st.activeId&&made.length)st.activeId=made[0].id;
+      if(made.length&&(force|| !st.activeId || !st.cases.some(function(c){return c&&c.id===st.activeId;}))) st.activeId=made[0].id;
       refreshAll(made.length+" exemples chargés.");
       return true;
     }catch(e){return false;}
@@ -24445,6 +24806,21 @@ details.rv-step>summary::-webkit-details-marker{display:none}
     }catch(e){return false;}
   }
   window.seedExampleCases=seed; window.clearExampleCases=clearExamples;
+  function exportCurrentCase(){
+    try{
+      var c=(typeof activeCase==='function')?activeCase():null;
+      if(!c){ try{if(typeof toast==='function')toast('Aucun cas d\u2019usage actif \u00e0 exporter.');}catch(e){} return; }
+      var cc=JSON.parse(JSON.stringify(c)); try{delete cc.__example;}catch(e){}
+      var st=(typeof S==='function')?S():null;
+      var out={version:(st&&st.version)||1, exportedAt:new Date().toISOString(), single:true, cases:[cc]};
+      var ttl=((c.step0&&c.step0.title)||'cas-usage').toString().replace(/[^\w\u00c0-\u017f\-]+/g,'_').replace(/^_+|_+$/g,'').slice(0,60)||'cas-usage';
+      var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+      var a=document.createElement('a'); a.download='cas-'+ttl+'.json'; a.href=URL.createObjectURL(blob); document.body.appendChild(a); a.click();
+      setTimeout(function(){try{URL.revokeObjectURL(a.href);}catch(e){} if(a&&a.parentNode)a.parentNode.removeChild(a);},120);
+      try{if(typeof toast==='function')toast('Cas d\u2019usage export\u00e9.');}catch(e){}
+    }catch(e){ try{if(typeof toast==='function')toast('Export impossible.');}catch(_){}} }
+  window.exportCurrentCase=exportCurrentCase;
+  document.addEventListener('click',function(e){ var b=e.target.closest&&e.target.closest('#btnExportCase'); if(!b)return; e.preventDefault(); exportCurrentCase(); },true);
   function wireButtons(){
     try{
       /* « Exemples » retiré de la barre Gestion des cas : déplacé dans le menu Utilitaires */
@@ -24466,7 +24842,18 @@ details.rv-step>summary::-webkit-details-marker{display:none}
       }
     }catch(e){}
   }
-  function boot(){ wireButtons(); setTimeout(function(){try{var st=S(); if(!st)return; var SEED_VER="v500-12-cas-v8"; if(st.__seedVer!==SEED_VER){ if(Array.isArray(st.cases)&&st.cases.some(function(c){return c&&c.__example;})) seed(true); else if(Array.isArray(st.cases)&&st.cases.length===0) seed(false); st.__seedVer=SEED_VER; try{if(typeof persist==="function")persist();}catch(e){} } else if(Array.isArray(st.cases)&&st.cases.length===0){ seed(false); } }catch(e){}},500); }
+  function _caseHasCotation(c){ try{ return !!((c&&c.iterations)||[]).some(function(it){ return it&&it.levels&&Object.keys(it.levels).some(function(k){return +it.levels[k]>0;}); }); }catch(e){ return false; } }
+  function boot(){ wireButtons(); setTimeout(function(){try{
+    var st=S(); if(!st)return; var SEED_VER="v544-12cas-v8-easa-canukus";
+    var cs=Array.isArray(st.cases)?st.cases:[];
+    var hasExamples=cs.some(function(c){return c&&c.__example;});
+    var allBlank=(cs.length===0)||!cs.some(function(c){return c&&!c.__example&&_caseHasCotation(c);});
+    if(st.__seedVer!==SEED_VER){
+      /* migration : (ré)installer le jeu d\u2019exemples si des exemples existent d\u00e9j\u00e0, ou si l\u2019utilisateur n\u2019a aucun cas r\u00e9el (installation fraîche / cas vide par d\u00e9faut) */
+      if(hasExamples||allBlank) seed(true);
+      st.__seedVer=SEED_VER; try{if(typeof persist==="function")persist();}catch(e){}
+    } else if(!hasExamples&&allBlank){ seed(true); }
+  }catch(e){}},500); }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,350);});
   else setTimeout(boot,350);
 })();

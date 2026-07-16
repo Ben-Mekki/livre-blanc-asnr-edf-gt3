@@ -19271,8 +19271,18 @@ document.addEventListener("click",function(e){
   document.addEventListener("mousedown",function(e){ if(e.target.closest&&e.target.closest("[data-md]")) e.preventDefault(); },true);
   document.addEventListener("click",function(e){
     var b=e.target.closest&&e.target.closest("[data-md]"); if(!b) return;
-    var wrap=b.closest(".schema-fld"); if(!wrap) return;
-    var ta=wrap.querySelector("textarea"); if(!ta) return;
+    /* v696 — le gestionnaire n'acceptait QUE le conteneur .schema-fld : partout ailleurs — dont
+       le pop-up du cadre réglementaire, qui utilise .cadre-fld — le closest échouait et le clic
+       était ignoré. On accepte les conteneurs connus, puis on cherche le textarea qui suit la
+       barre d'outils : l'éditeur fonctionne désormais quel que soit son hôte. */
+    var wrap=b.closest(".schema-fld,.cadre-fld,.md-field,label");
+    var ta=wrap&&wrap.querySelector?wrap.querySelector("textarea"):null;
+    if(!ta){ var bar=b.closest(".md-toolbar");
+      if(bar){ var n=bar.nextElementSibling;
+        while(n&&!ta){ if(n.tagName==="TEXTAREA")ta=n; else if(n.querySelector)ta=n.querySelector("textarea"); n=n.nextElementSibling; }
+        if(!ta&&bar.parentElement)ta=bar.parentElement.querySelector("textarea");
+      } }
+    if(!ta) return;
     e.preventDefault();
     var s=ta.selectionStart||0, en=ta.selectionEnd||0, val=ta.value, sel=val.slice(s,en);
     if(b.getAttribute("data-md")==="bold"){
@@ -20954,7 +20964,7 @@ function renderNotation(){
       w.innerHTML='<div class="ncf-bar"><span class="ncf-ttl">'+esc(subtitle()||'Appui descriptif à la cotation')+'</span>'
         +'<button type="button" data-ncf-all>Tout afficher</button>'
         +'<button type="button" data-ncf-tab title="Ouvrir ce panneau dans un onglet du navigateur">Onglet</button>'
-        +'<button type="button" data-ncf-print>Imprimer</button><button type="button" data-ncf-close>Fermer</button></div>'
+        +'<button type="button" data-ncf-close>Fermer</button></div>'
         +'<div class="ncf-body"><section class="v278-context nc-context ncf-wrap">'+bodyHtml()+'</section></div>';
       document.body.appendChild(w);
       return;
@@ -21003,14 +21013,7 @@ function renderNotation(){
       return;
     }
     if(e.target.closest&&e.target.closest('[data-ncf-close]')){ e.preventDefault(); var n=document.getElementById('ncFloat'); if(n)n.remove(); return; }
-    var pr=e.target.closest&&(e.target.closest('[data-nc-print]')||e.target.closest('[data-ncf-print]'));
-    if(pr){
-      e.preventDefault(); e.stopPropagation();
-      var fl=document.getElementById('ncFloat');
-      window.__ncPrintHtml=(fl&&e.target.closest('[data-ncf-print]'))?fl.querySelector('.ncf-body').innerHTML:bodyHtml();
-      window.__ncPrintSub=subtitle();
-      try{ window.print(); }finally{ setTimeout(function(){ window.__ncPrintHtml=null; window.__ncPrintSub=null; },400); }
-    }
+    /* v697 — boutons « Imprimer » retirés du panneau et de la fenêtre : leur gestionnaire n'a plus d'objet. */
   },true);
   /* déplacement à la souris, sans bloquer la page */
   var drag=null;
@@ -25624,7 +25627,7 @@ var NC_COMP_2C=[['limites','Domaine de validité et situations non couvertes'],[
     var head='<div class="v278-context-head"><div><div class="h">Appui descriptif à la cotation \u2014 '+esc(full?'aperçu complet':info.label)+'</div></div>'
       +'<div class="nc-tools"><button type="button" class="v278-detail-btn" id="btnV278Full">'+btn+'</button>'
       +'<button type="button" data-nc-float title="Ouvrir dans une fenêtre déplaçable, sans bloquer la saisie">Détacher</button>'
-      +'<button type="button" data-nc-print title="Imprimer ce seul panneau">Imprimer</button></div></div>';
+      +'</div></div>';
     var _isPos=(st==='position');
     var html='<section id="v278Context" class="v278-context nc-context">'+((_isPos&&!full)?'':head)+(full?'':tabs)+((_isPos&&!full)?'':body)+'</section>';
   var old=q('#v278Context');

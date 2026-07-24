@@ -11932,6 +11932,28 @@ body.review-mode-global .breadcrumb{display:flex!important}
   .accept-status-pill .v,.accept-status-pill .d{white-space:normal}
 }
 
+/* v743 — pop-up d'arbitrage des conflits de synchronisation */
+.cfl-ov{position:fixed;inset:0;background:rgba(12,26,50,.55);z-index:9999;display:flex;align-items:flex-start;justify-content:center;padding:26px 14px;overflow:auto}
+.cfl-box{background:#fff;border-radius:12px;max-width:1080px;width:100%;box-shadow:0 20px 60px -20px rgba(10,30,70,.6);overflow:hidden}
+.cfl-head{background:#14366c;color:#fff;padding:14px 18px}
+.cfl-head h3{margin:0;font-size:16px}
+.cfl-head p{margin:4px 0 0;font-size:12.5px;opacity:.9}
+.cfl-body{padding:14px 18px;max-height:60vh;overflow:auto}
+.cfl-case{border:1px solid #d8e3f3;border-radius:9px;margin-bottom:14px}
+.cfl-case>h4{margin:0;padding:9px 12px;background:#eef4fc;color:#14366c;font-size:13.5px;border-bottom:1px solid #d8e3f3}
+.cfl-f{padding:10px 12px;border-bottom:1px solid #eef2f8}
+.cfl-f:last-child{border-bottom:none}
+.cfl-fl{font-weight:700;color:#14366c;font-size:12.5px;margin-bottom:6px}
+.cfl-cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:7px}
+.cfl-cmp>div{background:#f7fafd;border:1px solid #e2ebf6;border-radius:6px;padding:6px 8px;font-size:12px;white-space:pre-wrap;word-break:break-word;max-height:120px;overflow:auto}
+.cfl-cmp .t{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:#5b7196;margin-bottom:3px}
+.cfl-opts{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px}
+.cfl-opts label{display:inline-flex;align-items:center;gap:5px;cursor:pointer}
+.cfl-foot{padding:12px 18px;border-top:1px solid #e4ebf5;display:flex;gap:9px;justify-content:flex-end;align-items:center;background:#fbfdff}
+.cfl-foot .sp{margin-right:auto;font-size:12px;color:#5b7196}
+.cfl-foot button{border-radius:7px;padding:8px 14px;font-size:13px;cursor:pointer;border:1px solid #c9d8ec;background:#fff;color:#14366c}
+.cfl-foot button.main{background:#14366c;color:#fff;border-color:#14366c;font-weight:600}
+
 /* v728 — repli d’un composant IA (déplié par défaut) */
 .gs-comp.gs-comp-collapsed > *:not(.gs-comp-head){display:none!important}
 .gs-comp.gs-comp-collapsed .gs-comp-head-actions{display:none!important}
@@ -14348,6 +14370,7 @@ var CRIT_LABEL=new Proxy({},{get:function(_,k){
         <button class="mini o" id="btnNew2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Ajouter</button>
         <button class="mini" id="btnDup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Dupliquer</button>
         <button class="mini" id="btnImportFile" title="Importer un ou plusieurs cas d’usage depuis un fichier JSON, où qu’il se trouve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M12 17v-6"/><path d="m9.5 13.5 2.5 2.5 2.5-2.5"/></svg>Importer</button>
+        <button class="mini ghost" id="btnSyncWork" title="Synchroniser avec le fichier de sauvegarde (récupère les cas ajoutés ou modifiés par un autre utilisateur)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-7.5-4"/><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 7.5 4"/><path d="M20 4v5h-5"/><path d="M4 20v-5h5"/></svg>Synchroniser</button>
         <button class="mini" id="btnExportCase" title="Exporter le cas d’usage en cours (fichier réimportable)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21V9"/><path d="m7 14 5-5 5 5"/><path d="M5 3h14"/></svg>Exporter</button>
         <button class="mini danger" id="btnDel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Supprimer</button>
       </div>
@@ -16121,7 +16144,7 @@ function reopenFicheV320(){
 }
 function modeAllowedForState(state,mode){
   if(state==="draft"){
-    if(mode==="review"){ try{var c=activeCase();var it=safeActiveIter(c); if(it&&it.review&&it.review.validated)return true;}catch(e){} return false; } // revue consultable si une RC validée existe (ex. RC défavorable)
+    if(mode==="review"){ try{var c=activeCase();var it=safeActiveIter(c); if(it&&it.review&&(it.review.requested||it.review.validated))return true;}catch(e){} return false; } // revue consultable si une RC validée existe (ex. RC défavorable)
     return mode==="read"||mode==="edit"||mode==="analyse";
   }
   return mode==="read"||mode==="analyse"||mode==="review"; // acté : consultable + revue
@@ -18253,17 +18276,49 @@ function schemaPopupConfigForComponent(c,ci,field){
       (form)=>{v.nom=formVal(form,"nom")||defaultComponentNameForIndex(idx);}
     );
   }
-  if(requested==="role"){
-    return cfg("Fonction et rôle du composant IA",
-      `<div class="appr-wide">${schemaFieldText("appreciationVV","Analyse qualitative des résultats de test et de V&V",v.appreciationVV||"","Interpr\u00e9tation qualitative des m\u00e9triques du tableau : performance globale, points forts, points faibles et priorit\u00e9s d\u2019am\u00e9lioration. Compl\u00e8te le tableau chiffr\u00e9 par une lecture d\u2019analyste.",16)}${tplBtn('comp-appreciationVV')}</div>`,
-      (form)=>{v.appreciationVV=formVal(form,"appreciationVV");}
-    );
-  }
   if(requested==="vvtable"){
     return cfg("Résultats de tests et de validation (V&V)",
       vvtEditorHtml(v.vvtable||vvtableForTypology(v.typologie||v.typology))+`<div class="appr-wide">${schemaFieldText("appreciationVV","Analyse qualitative des résultats de test et de V&V",v.appreciationVV||"","Interprétation qualitative des métriques du tableau : performance globale, points forts, points faibles et priorités d’amélioration.",10,"comp-appreciationVV")}${schemaFieldText("justificationVV","Justification des performances et V&V",v.justificationVV||"","Comment les performances annoncées sont établies et vérifiées (protocole V&V, essais, comparaisons).",8,"comp-justificationVV")}${schemaFieldText("incertitudes","Incertitudes",v.incertitudes||"","Nature, sources et quantification des incertitudes, et prise en compte dans l’interprétation des résultats.",8,"comp-incertitudes")}${schemaFieldText("confianceIA","Confiance IA — explicabilité, vérification, incertitude",v.confianceIA||"","Explicabilité, vérification / méthodes formelles, incertitude / calibration, robustesse et détection du hors-domaine — selon la technologie du composant.",10,"comp-confianceIA")}</div>`,
       (form)=>{ var host=form.querySelector(".vvt-editor"); if(host) v.vvtable=readVvtDom(host); v.appreciationVV=formVal(form,"appreciationVV"); v.justificationVV=formVal(form,"justificationVV"); v.incertitudes=formVal(form,"incertitudes"); v.confianceIA=formVal(form,"confianceIA"); }
     );
+  }
+
+  /* v741 — éditeurs ciblés par champ descriptif (évite l'ouverture de toute la carte) */
+  var _TXT={
+    role:["Fonction et rôle du composant IA","Décrire la fonction du composant, son périmètre et ses limites d'emploi.","comp-role"],
+    capacite:["Capacité du composant","Ce que le composant sait faire.","comp-capacite"],
+    limites:["Conçu pour / ne couvre pas (ODD)","Ce pour quoi le composant est conçu, et ce qu'il ne couvre pas.","comp-limites"],
+    donnees:["Données mobilisées par ce composant IA","Données d'entraînement, de test, de validation et d'exploitation.","comp-donnees"],
+    sorties:["Sorties produites par le composant","Résultats, scores, alertes, synthèses, représentations produites.","comp-sorties"]
+  };
+  if(_TXT[requested]){
+    var _t=_TXT[requested];
+    return cfg(_t[0], `${schemaFieldText(requested,_t[0],v[requested]||"",_t[1],8,_t[2])}`,
+      (form)=>{ v[requested]=formVal(form,requested); });
+  }
+  if(requested==="typologie"||requested==="technologies"){
+    var _isTyp=(requested==="typologie");
+    var _opts=_isTyp?IA_TYPOLOGY_OPTIONS:(techOptionsForTypology(v.typologie||v.typology||"")||IA_TECH_OPTIONS);
+    var _sel=_isTyp?[v.typologie||v.typology].filter(Boolean):(v.technologies||[]);
+    var _part=_isTyp?"comp-typologie":"comp-tech";
+    var _chips='<div class="chips">'+_opts.map(function(o){return '<span class="chipopt '+(_sel.indexOf(o)>=0?"on":"")+'" data-fam="composants" data-iid="'+it.iid+'" data-part="'+_part+'" data-opt="'+attrEsc(o)+'">'+esc(o)+'</span>';}).join("")+'</div>';
+    return cfg(_isTyp?"Typologie d'IA":"Technologie d'IA",
+      '<div class="s0complement full"><label>'+(_isTyp?"Typologie d’IA":"Technologie d’IA")+'</label>'+_chips+'</div>',
+      (form)=>{ markComponentDirty(); });
+  }
+  if(requested==="autorite"){
+    v.autorite=(v.autorite&&typeof v.autorite==="object")?v.autorite:{level:"",just:String(v.autorite||"")};
+    var _ao=AUTHORITY.map(function(a){return '<option value="'+a.k+'"'+((v.autorite.level===a.k)?" selected":"")+'>'+esc(a.t)+'</option>';}).join("");
+    return cfg("Niveau d'autorité",
+      '<div class="s0complement full"><label>Niveau d’autorité</label><select name="autorite-level" class="v276-select"><option value="">— À préciser —</option>'+_ao+'</select></div>'+schemaFieldText("autorite-just","Justification du niveau d'autorité",v.autorite.just||"","Pourquoi ce niveau d'autorité pour ce composant.",6),
+      (form)=>{ var sl=form.querySelector('[name="autorite-level"]'); v.autorite={level:sl?sl.value:"",just:formVal(form,"autorite-just")}; });
+  }
+  if(requested==="autonomie"){
+    v.autonomie=(v.autonomie&&typeof v.autonomie==="object")?v.autonomie:{ref:"",level:"",just:String(v.autonomie||"")};
+    var _grp=Object.keys(AUTO_REFS).filter(function(rk){return AUTO_REFS[rk]&&Array.isArray(AUTO_REFS[rk].levels)&&AUTO_REFS[rk].levels.length;}).map(function(rk){var r=AUTO_REFS[rk];return '<optgroup label="'+esc(r.name||rk)+'">'+(r.levels||[]).map(function(l){var val=rk+":"+l.k;return '<option value="'+val+'"'+((v.autonomie.ref===rk&&String(v.autonomie.level)===String(l.k))?" selected":"")+'>'+esc(l.t)+'</option>';}).join("")+'</optgroup>';}).join("");
+    return cfg("Niveau d'autonomie",
+      '<div class="s0complement full"><label>Niveau d’autonomie</label><select name="auto-reflevel" class="v276-select"><option value="">— À préciser —</option>'+_grp+'</select></div>'+schemaFieldText("auto-just","Justification du niveau d'autonomie",v.autonomie.just||"","Pourquoi ce niveau d'autonomie pour ce composant.",6),
+      (form)=>{ var sl=form.querySelector('[name="auto-reflevel"]'); var rv=((sl&&sl.value)||"").split(":"); v.autonomie={ref:rv[0]||"",level:rv[1]||"",just:formVal(form,"auto-just")}; });
   }
 
   return {
@@ -22843,6 +22898,40 @@ function sizeSiaFrame(){
 const LS="cadre_ia_outil_v2";
 const WORK_FILE_NAME="cadre-analyse-ia-cas-usages.json";
 let workDirHandle=null, workFileHandle=null, autosaveTimer=null;
+/* v742 — intégrité du fichier de sauvegarde */
+const BACKUP_DIR_NAME="sauvegarde";
+const LOG_FILE_NAME="journal-modifications.log";
+let backupDirHandle=null;          /* dossier sauvegarde/ */
+let workFileBaseline={};           /* v743 — signature des cas telle que lue/écrite en dernier */
+let conflictModalOpen=false;       /* évite d'empiler les pop-up d'arbitrage */
+let skipConcurrencyOnce=false;     /* v743 — après arbitrage, la ré-écriture ne redéclenche pas la détection */
+let pendingWorkDirHandle=null;     /* handle mémorisé en attente d'autorisation */
+let workFileAdopted=false;         /* le fichier disque a été lu au moins une fois */
+let sessionBackupDone=false;       /* une copie de sécurité a été faite dans cette session */
+function fsIdbOpen(){
+  return new Promise(function(res,rej){
+    try{
+      if(typeof indexedDB==="undefined")return rej(new Error("no idb"));
+      var r=indexedDB.open("cadre_ia_fs",1);
+      r.onupgradeneeded=function(){try{r.result.createObjectStore("handles");}catch(e){}};
+      r.onsuccess=function(){res(r.result);};
+      r.onerror=function(){rej(r.error);};
+    }catch(e){rej(e);}
+  });
+}
+async function fsIdbPut(k,v){
+  try{var db=await fsIdbOpen();return await new Promise(function(res,rej){var t=db.transaction("handles","readwrite");t.objectStore("handles").put(v,k);t.oncomplete=function(){res(true);};t.onerror=function(){rej(t.error);};});}catch(e){return false;}
+}
+async function fsIdbGet(k){
+  try{var db=await fsIdbOpen();return await new Promise(function(res,rej){var t=db.transaction("handles","readonly");var q=t.objectStore("handles").get(k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){rej(q.error);};});}catch(e){return null;}
+}
+function stampNow(){
+  var d=new Date(),p=function(n){return String(n).padStart(2,"0");};
+  return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+"-"+p(d.getHours())+p(d.getMinutes())+p(d.getSeconds());
+}
+function stampHuman(){
+  try{return new Date().toLocaleString("fr-FR");}catch(e){return new Date().toISOString();}
+}
 let importCandidates=[];
 
 function markDirty(){
@@ -22879,6 +22968,9 @@ function updateFileBadge(){
   if(workDirHandle){
     wd&&wd.classList.add("ready");
     if(wt)wt.textContent=dirty?"À sauvegarder":"Sauvegarde OK";
+  }else if(pendingWorkDirHandle){
+    wd&&wd.classList.remove("ready");
+    if(wt)wt.textContent="Dossier mémorisé — cliquer pour reconnecter";
   }else{
     wd&&wd.classList.remove("ready");
     if(wt)wt.textContent="Répertoire non défini";
@@ -22887,7 +22979,17 @@ function updateFileBadge(){
   else if((fileName||workDirHandle)&&dirty){fi.classList.remove("saved");$("#fileSt").textContent="Modifié";}
   else{fi.classList.remove("saved");$("#fileSt").textContent="Cache navigateur";}
 }
-function payload(){return JSON.stringify(state,null,2);}
+function payload(){
+  /* v742 — les cas d'exemple ne sont jamais écrits dans le fichier de sauvegarde */
+  var out={};
+  try{
+    out=JSON.parse(JSON.stringify(state));
+    if(Array.isArray(out.cases))out.cases=out.cases.filter(function(c){return !(c&&c.__example);});
+    if(out.activeId&&!out.cases.some(function(c){return c&&c.id===out.activeId;}))out.activeId=(out.cases[0]&&out.cases[0].id)||null;
+  }catch(e){out=state;}
+  return JSON.stringify(out,null,2);
+}
+function realCases(){try{return (state.cases||[]).filter(function(c){return !(c&&c.__example);});}catch(e){return [];}}
 function suggestedName(){
   const c=activeCase();const base=(c&&caseTitle(c)?caseTitle(c):"cadre-analyse-IA").replace(/[^\w\-À-ÿ ]+/g,"").trim().replace(/\s+/g,"-").slice(0,40);
   return (base||"cadre-analyse-IA")+".json";
@@ -22896,6 +22998,78 @@ async function writeToHandle(handle){
   const w=await handle.createWritable();
   await w.write(payload());
   await w.close();
+}
+/* ===== v742 — dossier sauvegarde/, journal des modifications, lecture disque ===== */
+async function ensureBackupDir(){
+  if(backupDirHandle)return backupDirHandle;
+  if(!workDirHandle)return null;
+  try{backupDirHandle=await workDirHandle.getDirectoryHandle(BACKUP_DIR_NAME,{create:true});}catch(e){backupDirHandle=null;}
+  return backupDirHandle;
+}
+async function readWorkFileText(){
+  if(!workDirHandle)return null;
+  try{
+    var h=await workDirHandle.getFileHandle(WORK_FILE_NAME,{create:false});
+    var f=await h.getFile();
+    var t=await f.text();
+    return {text:t,handle:h,mtime:f.lastModified||0};
+  }catch(e){return null;}
+}
+async function readWorkFileState(){
+  var r=await readWorkFileText();
+  if(!r||!r.text||!r.text.trim())return null;
+  try{var d=JSON.parse(r.text); d.__mtime=r.mtime; return d;}catch(e){return null;}
+}
+async function logAppend(line){
+  try{
+    var dir=await ensureBackupDir(); if(!dir)return false;
+    var prev="";
+    try{var h0=await dir.getFileHandle(LOG_FILE_NAME,{create:false});var f0=await h0.getFile();prev=await f0.text();}catch(e){prev="";}
+    var h=await dir.getFileHandle(LOG_FILE_NAME,{create:true});
+    var w=await h.createWritable();
+    await w.write(prev+"["+stampHuman()+"] "+line+"\n");
+    await w.close();
+    return true;
+  }catch(e){return false;}
+}
+/* copie de sécurité du fichier TEL QU'IL EST SUR LE DISQUE, avant toute écriture */
+async function backupWorkFile(reason){
+  try{
+    var dir=await ensureBackupDir(); if(!dir)return false;
+    var cur=await readWorkFileText();
+    if(!cur||!cur.text||!cur.text.trim())return false;
+    var name=WORK_FILE_NAME.replace(/\.json$/i,"")+"_"+stampNow()+".json";
+    var h=await dir.getFileHandle(name,{create:true});
+    var w=await h.createWritable();
+    await w.write(cur.text);
+    await w.close();
+    await logAppend("Copie de sauvegarde créée ("+name+") — motif : "+(reason||"écriture"));
+    return true;
+  }catch(e){return false;}
+}
+/* union non destructive : les cas du fichier absents en local sont ajoutés, aucun cas local n'est écrasé */
+function mergeFileCasesIntoState(fileState){
+  var res={added:0,common:[],total:0};
+  try{
+    var fcases=(fileState&&Array.isArray(fileState.cases))?fileState.cases:[];
+    res.total=fcases.length;
+    var byKey=new Map();
+    realCases().forEach(function(c){var k=caseImportKey(c); if(k)byKey.set(k,c);});
+    fcases.forEach(function(fc){
+      try{
+        var cc=JSON.parse(JSON.stringify(fc));
+        ensureCaseRuntime(cc);
+        if(cc.__example)return;
+        var k=caseImportKey(cc);
+        if(k&&byKey.has(k)){res.common.push(caseTitle(cc)||k);return;}
+        cc.id=cc.id||uid();
+        if(!cc.step0ViewMode)cc.step0ViewMode="read";
+        state.cases.push(cc); if(k)byKey.set(k,cc);
+        res.added++;
+      }catch(e){}
+    });
+  }catch(e){}
+  return res;
 }
 async function saveToHandle(){
   if(!fileHandle)throw new Error("Aucun fichier sélectionné");
@@ -22906,7 +23080,30 @@ async function saveWorkFile(silent=false){
   if(!workDirHandle)return false;
   try{
     if(!workFileHandle)workFileHandle=await workDirHandle.getFileHandle(WORK_FILE_NAME,{create:true});
+    /* v742 — première écriture de la session : copie de sécurité du fichier existant */
+    if(!sessionBackupDone){ sessionBackupDone=true; try{await backupWorkFile("première écriture de la session");}catch(e){} }
+    /* v743 — un tiers a-t-il modifié le fichier pendant la saisie ? */
+    if(skipConcurrencyOnce){ skipConcurrencyOnce=false; }
+    else if(!conflictModalOpen){
+      var _cc=null;
+      try{_cc=await detectConcurrentChanges();}catch(e){_cc=null;}
+      if(_cc&&_cc.conflicts.length){
+        conflictModalOpen=true;
+        try{await logAppend("Modification concurrente détectée sur "+_cc.conflicts.length+" cas — arbitrage demandé.");}catch(e){}
+        openConflictModal(_cc.conflicts,"save",function(r){
+          conflictModalOpen=false;
+          baselineFromLocal();
+          skipConcurrencyOnce=true;   /* la décision vient d'être arbitrée : on écrit telle quelle */
+          try{saveWorkFile(true);}catch(e){}
+          toast(r.cancelled?"Enregistrement suspendu — aucun champ modifié":(r.applied?(r.applied+" champ(s) repris du fichier · enregistré"):"Votre version conservée · enregistrée"));
+        });
+        return false;
+      }
+      if(_cc&&_cc.pulled){ try{persist();refreshCaseSelect();loadCaseIntoTool();}catch(e){} }
+    }
     await writeToHandle(workFileHandle);
+    baselineFromLocal();
+    try{ logAppend("Enregistrement — "+realCases().length+" cas dans le fichier."); }catch(e){}
     fileName=WORK_FILE_NAME;
     dirty=false;
     updateFileBadge();
@@ -22923,24 +23120,345 @@ function scheduleAutoSave(){
   clearTimeout(autosaveTimer);
   autosaveTimer=setTimeout(()=>saveWorkFile(true),700);
 }
+/* ===== v743 — arbitrage des conflits : pop-up champ par champ ===== */
+function _cflEmpty(v){
+  try{
+    if(v==null)return true;
+    if(typeof v==="string")return !v.trim();
+    if(Array.isArray(v))return !v.length;
+    if(typeof v==="object")return !Object.keys(v).some(function(k){return !_cflEmpty(v[k]);});
+    return false;
+  }catch(e){return false;}
+}
+function _cflParse(j){try{return JSON.parse(j);}catch(e){return null;}}
+function _cflPreview(j){
+  var v=_cflParse(j);
+  if(v==null)return "— (non renseigné)";
+  if(typeof v==="string")return v.trim()||"— (vide)";
+  try{
+    if(typeof v==="object"){
+      var parts=[];
+      Object.keys(v).forEach(function(k){
+        var x=v[k]; if(_cflEmpty(x))return;
+        parts.push(k+" : "+(typeof x==="object"?JSON.stringify(x):String(x)));
+      });
+      return parts.length?parts.join("\n"):"— (vide)";
+    }
+  }catch(e){}
+  return String(v);
+}
+/* applique un choix sur UN champ ; incoming = valeur venant du fichier / de l'import */
+function applyFieldChoice(localCase,field,choice){
+  try{
+    if(choice==="rien")return false;
+    var inc=_cflParse(field.remote);
+    if(choice==="completer"){
+      var cur=(field.path.indexOf("step0.")===0)
+        ? ((localCase.step0||{})[field.path.split(".")[1]])
+        : _cflParse(field.local);
+      cur=(typeof cur==="string")?cur.trim():cur;
+      if(!_cflEmpty(cur))return false;   /* déjà renseigné localement : on ne touche pas */
+    }
+    if(field.path.indexOf("step0.")===0){
+      var k=field.path.split(".")[1];
+      localCase.step0=localCase.step0||{};
+      localCase.step0[k]=(inc==null?"":inc);
+      return true;
+    }
+    /* champ d'une famille : appariement par notion (defId#rang) */
+    var fam=field.fam, dk=String(field.defKey||""), defId=dk.split("#")[0], rank=parseInt(dk.split("#")[1]||"1",10);
+    localCase.step0=localCase.step0||{}; localCase.step0.fams=localCase.step0.fams||{};
+    var f=localCase.step0.fams[fam]=localCase.step0.fams[fam]||{state:"active",collapsed:false,items:[]};
+    f.items=f.items||[];
+    var seen=0, target=null;
+    f.items.forEach(function(it){ if(it&&(it.defId||it.kind)===defId){seen++; if(seen===rank)target=it;} });
+    if(!target){
+      if(inc==null)return false;
+      target={iid:(typeof uid==="function"?uid():"i"+Math.random().toString(36).slice(2)),defId:defId,kind:defId,value:null};
+      f.items.push(target);
+    }
+    target.value=inc;
+    return true;
+  }catch(e){return false;}
+}
+/* mode "incoming" : le fichier/import propose ; mode "save" : arbitrage à l'enregistrement */
+function openConflictModal(entries,mode,onDone){
+  try{
+    if(!entries||!entries.length){if(onDone)onDone({applied:0,cancelled:false});return;}
+    var isSave=(mode==="save");
+    var LBL=isSave
+      ? {a:"Garder ma version (écrase le fichier)",b:"Prendre la version du fichier",c:"Ne rien faire"}
+      : {a:"Remplacer",b:"Compléter si vide",c:"Ne rien faire"};
+    var colL=isSave?"Ma version (en cours)":"Version locale", colR=isSave?"Version du fichier de sauvegarde":"Version proposée";
+    var nb=entries.reduce(function(n,e){return n+e.diff.length;},0);
+    var ov=document.createElement("div"); ov.className="cfl-ov";
+    var html='<div class="cfl-box"><div class="cfl-head"><h3>'+(isSave?"Modification concurrente détectée":"Synchronisation — champs en conflit")+'</h3>'+
+      '<p>'+nb+' champ(s) divergent(s) sur '+entries.length+' cas d’usage. '+
+      (isSave?'Le fichier de sauvegarde a été modifié pendant votre saisie.':'Par défaut, la valeur proposée remplace la vôtre.')+
+      ' Vous pouvez valider directement, ou arbitrer champ par champ.</p></div><div class="cfl-body">';
+    entries.forEach(function(en,ei){
+      html+='<div class="cfl-case"><h4>'+esc(en.title||"Cas d’usage")+'</h4>';
+      en.diff.forEach(function(f,fi){
+        var nm="cfl_"+ei+"_"+fi;
+        var dft=isSave?"b":"remplacer";
+        html+='<div class="cfl-f"><div class="cfl-fl">'+esc(f.label||f.path)+'</div>'+
+          '<div class="cfl-cmp"><div><span class="t">'+colL+'</span>'+esc(_cflPreview(f.local))+'</div>'+
+          '<div><span class="t">'+colR+'</span>'+esc(_cflPreview(f.remote))+'</div></div>'+
+          '<div class="cfl-opts">'+
+            '<label><input type="radio" name="'+nm+'" value="remplacer"'+(isSave?'':' checked')+'> '+LBL[isSave?"b":"a"]+'</label>'+
+            (isSave
+              ? '<label><input type="radio" name="'+nm+'" value="rien" checked> '+LBL.a+'</label>'
+              : '<label><input type="radio" name="'+nm+'" value="completer"> '+LBL.b+'</label>')+
+            '<label><input type="radio" name="'+nm+'" value="rien2"> '+LBL.c+'</label>'+
+          '</div></div>';
+      });
+      html+='</div>';
+    });
+    html+='</div><div class="cfl-foot"><span class="sp">'+(isSave?'« Ne rien faire » conserve les deux versions en l’état.':'Un simple OK applique le choix par défaut à tout.')+'</span>'+
+      '<button type="button" data-cfl="cancel">Annuler</button>'+
+      '<button type="button" class="main" data-cfl="ok">OK</button></div></div>';
+    ov.innerHTML=html;
+    document.body.appendChild(ov);
+    ov.addEventListener("click",function(e){
+      var b=e.target&&e.target.closest?e.target.closest("[data-cfl]"):null;
+      if(!b)return;
+      var act=b.getAttribute("data-cfl");
+      if(act==="cancel"){ov.remove(); if(onDone)onDone({applied:0,cancelled:true}); return;}
+      var applied=0, details=[];
+      entries.forEach(function(en,ei){
+        en.diff.forEach(function(f,fi){
+          var sel=ov.querySelector('input[name="cfl_'+ei+'_'+fi+'"]:checked');
+          var v=sel?sel.value:"rien";
+          var choice=(v==="remplacer")?"remplacer":(v==="completer"?"completer":"rien");
+          if(isSave&&v==="rien"){ choice="rien"; }        /* garder ma version */
+          if(choice!=="rien"&&en.local){
+            if(applyFieldChoice(en.local,f,choice)){applied++;details.push((en.title||"")+" › "+(f.label||f.path));}
+          }
+        });
+      });
+      ov.remove();
+      try{persist();}catch(e){}
+      try{if(typeof refreshCaseSelect==="function")refreshCaseSelect();if(typeof loadCaseIntoTool==="function")loadCaseIntoTool();}catch(e){}
+      try{logAppend("Arbitrage de conflits — "+applied+" champ(s) repris"+(details.length?" ("+details.slice(0,6).join(" ; ")+(details.length>6?"…":"")+")":"")+".");}catch(e){}
+      if(onDone)onDone({applied:applied,cancelled:false});
+    });
+  }catch(e){ if(onDone)onDone({applied:0,cancelled:true}); }
+}
+function openSyncConflictModal(diverging){
+  openConflictModal(diverging,"incoming",function(r){
+    if(r.cancelled)toast("Synchronisation : aucun champ repris");
+    else toast(r.applied?(r.applied+" champ(s) synchronisé(s)"):"Aucun champ modifié");
+  });
+}
+/* v743 — mémorise l'état de référence du fichier (pour détecter qui a modifié quoi) */
+function updateWorkFileBaseline(fileState){
+  try{
+    var m={};
+    ((fileState&&fileState.cases)||[]).forEach(function(c){
+      try{var k=caseImportKey(c); if(k)m[k]=caseSignature(c);}catch(e){}
+    });
+    workFileBaseline=m;
+  }catch(e){}
+}
+function baselineFromLocal(){
+  try{
+    var m={};
+    realCases().forEach(function(c){try{var k=caseImportKey(c); if(k)m[k]=caseSignature(c);}catch(e){}});
+    workFileBaseline=m;
+  }catch(e){}
+}
+async function detectConcurrentChanges(){
+  var res={conflicts:[],pulled:0};
+  if(!workDirHandle)return res;
+  var fileState=null;
+  try{fileState=await readWorkFileState();}catch(e){return res;}
+  if(!fileState)return res;
+  var localByKey=new Map();
+  realCases().forEach(function(c){var k=caseImportKey(c); if(k)localByKey.set(k,c);});
+  ((fileState.cases)||[]).forEach(function(fc){
+    try{
+      if(fc&&fc.__example)return;
+      var cc=JSON.parse(JSON.stringify(fc)); ensureCaseRuntime(cc);
+      var k=caseImportKey(cc); if(!k)return;
+      var fileSig=caseSignature(cc), baseSig=workFileBaseline[k];
+      if(baseSig===undefined)return;
+      if(fileSig===baseSig)return;
+      var loc=localByKey.get(k);
+      if(!loc)return;
+      var localSig=caseSignature(loc);
+      if(localSig===baseSig){
+        var d0=diffCaseFields(loc,cc);
+        d0.forEach(function(f){applyFieldChoice(loc,f,"remplacer");});
+        res.pulled++;
+        return;
+      }
+      var d=diffCaseFields(loc,cc);
+      if(d.length)res.conflicts.push({key:k,title:caseTitle(cc)||k,local:loc,remote:cc,diff:d});
+    }catch(e){}
+  });
+  return res;
+}
+/* v742 — comparaison d'un cas local et de sa version dans le fichier */
+function caseSignature(c){
+  try{
+    var cc=JSON.parse(JSON.stringify(c||{}));
+    delete cc.id; delete cc.__example; delete cc.step0ViewMode; delete cc.v276; delete cc.v278;
+    return JSON.stringify(cc);
+  }catch(e){return "";}
+}
+function diffCaseFields(local,remote){
+  var out=[];
+  try{
+    var L=(local&&local.step0)||{}, R=(remote&&remote.step0)||{};
+    ["title","shortDesc"].forEach(function(k){
+      var a=String(L[k]||"").trim(), b=String(R[k]||"").trim();
+      /* v743 — valeurs sérialisées comme pour les autres champs, pour un traitement uniforme */
+      if(a!==b)out.push({path:"step0."+k,label:(k==="title"?"Intitulé":"Description courte"),
+                         local:JSON.stringify(a),remote:JSON.stringify(b)});
+    });
+    /* v742 — appariement par NOTION (defId + rang), jamais par iid : les iid sont regénérés
+       localement et diffèrent d'un poste à l'autre, ce qui créerait de faux conflits. */
+    var lf=(L.fams)||{}, rf=(R.fams)||{};
+    var isEmptyVal=function(v){
+      try{
+        if(v==null)return true;
+        if(typeof v==="string")return !v.trim();
+        if(Array.isArray(v))return !v.length;
+        if(typeof v==="object")return !Object.keys(v).some(function(k){return !isEmptyVal(v[k]);});
+        return false;
+      }catch(e){return false;}
+    };
+    var indexByDef=function(items){
+      var m={}, seen={};
+      (items||[]).forEach(function(it){
+        if(!it)return;
+        var d=it.defId||it.kind||"?";
+        seen[d]=(seen[d]||0)+1;
+        m[d+"#"+seen[d]]=it;
+      });
+      return m;
+    };
+    Object.keys(Object.assign({},lf,rf)).forEach(function(fk){
+      var lm=indexByDef(((lf[fk]||{}).items)||[]), rm=indexByDef(((rf[fk]||{}).items)||[]);
+      Object.keys(Object.assign({},lm,rm)).forEach(function(key){
+        var li=lm[key], ri=rm[key];
+        var lv=li?li.value:null, rv=ri?ri.value:null;
+        if(isEmptyVal(lv)&&isEmptyVal(rv))return;                 /* deux fois vide : pas un conflit */
+        var a=JSON.stringify(lv==null?null:lv), b=JSON.stringify(rv==null?null:rv);
+        if(a===b)return;
+        out.push({path:fk+"."+key,label:(li&&li.defId)||(ri&&ri.defId)||key.split("#")[0],
+                  local:a,remote:b,fam:fk,defKey:key,
+                  onlyRemote:!li||isEmptyVal(lv), onlyLocal:!ri||isEmptyVal(rv)});
+      });
+    });
+  }catch(e){}
+  return out;
+}
+/* v742 — synchronisation : récupère ce qu'un autre utilisateur a écrit dans le fichier */
+async function syncWithWorkFile(){
+  if(!workDirHandle){
+    if(pendingWorkDirHandle){await reconnectWorkDir();}
+    if(!workDirHandle){toast("Aucun dossier de sauvegarde défini");return false;}
+  }
+  var fileState=null;
+  try{fileState=await readWorkFileState();}catch(e){fileState=null;}
+  if(!fileState){toast("Fichier de sauvegarde illisible ou vide");return false;}
+  var localByKey=new Map();
+  realCases().forEach(function(c){var k=caseImportKey(c); if(k)localByKey.set(k,c);});
+  var added=0, diverging=[];
+  (fileState.cases||[]).forEach(function(fc){
+    try{
+      if(fc&&fc.__example)return;
+      var cc=JSON.parse(JSON.stringify(fc)); ensureCaseRuntime(cc);
+      var k=caseImportKey(cc);
+      if(!k)return;
+      if(localByKey.has(k)){
+        var loc=localByKey.get(k);
+        if(caseSignature(loc)!==caseSignature(cc)){
+          var d=diffCaseFields(loc,cc);
+          if(d.length)diverging.push({key:k,title:caseTitle(cc)||k,local:loc,remote:cc,diff:d});
+        }
+      }else{
+        cc.id=cc.id||uid(); if(!cc.step0ViewMode)cc.step0ViewMode="read";
+        state.cases.push(cc); localByKey.set(k,cc); added++;
+      }
+    }catch(e){}
+  });
+  try{updateWorkFileBaseline(fileState);}catch(e){}
+  try{persist();}catch(e){}
+  try{if(typeof refreshCaseSelect==="function")refreshCaseSelect();if(typeof renderCases==="function")renderCases();}catch(e){}
+  try{await logAppend("Synchronisation — "+added+" cas récupéré(s), "+diverging.length+" cas divergent(s).");}catch(e){}
+  updateFileBadge();
+  if(diverging.length&&typeof openSyncConflictModal==="function"){openSyncConflictModal(diverging);}
+  else if(diverging.length){toast(added+" cas récupéré(s) · "+diverging.length+" cas divergent(s) à arbitrer");}
+  else toast(added?(added+" cas récupéré(s) depuis le fichier de sauvegarde"):"Déjà à jour avec le fichier de sauvegarde");
+  return {added:added,diverging:diverging};
+}
 async function chooseWorkDir(){
   if(!window.showDirectoryPicker){
     toast("Votre navigateur ne permet pas le choix d'un répertoire. Utilisez Enregistrer / Sous…");
     return;
   }
   try{
-    workDirHandle=await window.showDirectoryPicker({mode:"readwrite"});
-    workFileHandle=await workDirHandle.getFileHandle(WORK_FILE_NAME,{create:true});
-    fileName=WORK_FILE_NAME;
-    updateFileBadge();
-    toast("Répertoire de travail défini");
-    // On écrit immédiatement le cache courant pour éviter toute perte.
-    await saveWorkFile(true);
-    toast("Répertoire défini · cache sauvegardé localement");
+    var dh=await window.showDirectoryPicker({mode:"readwrite"});
+    await adoptWorkDir(dh,true);
   }catch(err){
     if(err&&err.name==="AbortError")return;
     toast("Répertoire non défini");
   }
+}
+/* v742 — adoption d'un dossier de sauvegarde SANS jamais écraser le fichier existant */
+async function adoptWorkDir(dh,remember){
+  workDirHandle=dh; backupDirHandle=null; sessionBackupDone=false;
+  fileName=WORK_FILE_NAME;
+  if(remember){try{await fsIdbPut("workdir",dh);}catch(e){}}
+  var existing=null;
+  try{existing=await readWorkFileState();}catch(e){existing=null;}
+  if(existing){
+    /* le fichier existe : on le RÉUTILISE, on ne l'écrase pas */
+    try{workFileHandle=await workDirHandle.getFileHandle(WORK_FILE_NAME,{create:false});}catch(e){}
+    workFileAdopted=true;
+    updateWorkFileBaseline(existing);
+    var m=mergeFileCasesIntoState(existing);
+    try{persist();}catch(e){}
+    try{if(typeof refreshCaseSelect==="function")refreshCaseSelect();if(typeof renderCases==="function")renderCases();}catch(e){}
+    await logAppend("Dossier de sauvegarde reconnecté — fichier existant réutilisé ("+m.total+" cas dans le fichier, "+m.added+" ajouté(s) localement, "+m.common.length+" déjà présent(s)).");
+    updateFileBadge();
+    if(m.common.length)toast("Fichier de sauvegarde réutilisé · "+m.added+" cas ajouté(s), "+m.common.length+" à synchroniser");
+    else toast("Fichier de sauvegarde réutilisé · "+m.added+" cas chargé(s)");
+  }else{
+    /* aucun fichier : on l'instancie avec le contenu courant */
+    try{workFileHandle=await workDirHandle.getFileHandle(WORK_FILE_NAME,{create:true});}catch(e){}
+    workFileAdopted=true;
+    await saveWorkFile(true);
+    await logAppend("Fichier de sauvegarde créé ("+WORK_FILE_NAME+") — "+realCases().length+" cas.");
+    updateFileBadge();
+    toast("Dossier de sauvegarde défini · fichier créé");
+  }
+  return true;
+}
+/* v742 — reconnexion silencieuse au dossier mémorisé */
+async function tryRestoreWorkDir(){
+  try{
+    var h=await fsIdbGet("workdir");
+    if(!h)return false;
+    var q="prompt";
+    try{q=await h.queryPermission({mode:"readwrite"});}catch(e){q="prompt";}
+    if(q==="granted"){await adoptWorkDir(h,false);return true;}
+    pendingWorkDirHandle=h; updateFileBadge();
+    return false;
+  }catch(e){return false;}
+}
+async function reconnectWorkDir(){
+  var h=pendingWorkDirHandle||await fsIdbGet("workdir");
+  if(!h){return chooseWorkDir();}
+  try{
+    var q=await h.requestPermission({mode:"readwrite"});
+    if(q!=="granted"){toast("Autorisation refusée pour le dossier mémorisé");return false;}
+    pendingWorkDirHandle=null;
+    await adoptWorkDir(h,true);
+    return true;
+  }catch(e){return chooseWorkDir();}
 }
 function openImportModal(message="",mode="list"){
   const m=$("#importModal"); if(!m)return;
@@ -23084,6 +23602,9 @@ async function collectImportCandidates(){
       out.push(...arr);
     }catch(e){}
   }
+  // v742 — les cas d'exemple fournis avec l'outil ne figurent jamais dans la liste du dossier de sauvegarde.
+  const _noEx=out.filter(function(e){var c=e&&e.case; return !(c&&c.__example);});
+  out.length=0; _noEx.forEach(function(e){out.push(e);});
   // Dédoublonnage : un même intitulé ne doit apparaître qu’une fois, même s’il est présent dans plusieurs JSON.
   const byKey=new Map();
   out.forEach(entry=>{
@@ -23161,7 +23682,9 @@ function clearCaseListFiltersAfterImport(){
   if(typeof updateFilterToggle==="function")updateFilterToggle();
 }
 
+let _importConflicts=[];
 function importSelectedCases(){
+  _importConflicts=[];
   const selected=$$("#importList .imcheck").filter(x=>x.checked).map(x=>importCandidates[+x.dataset.i]).filter(Boolean);
   if(!selected.length){toast("Aucun cas sélectionné");return;}
   let added=0,replaced=0,skipped=0,lastId=null;
@@ -23177,12 +23700,13 @@ function importSelectedCases(){
     const title=caseTitle(c)||"Cas importé";
     c.step0.title=title;
     if(existingByKey.has(key)){
+      /* v743 — même cas d'usage : on ne l'écrase pas, on relève les champs en conflit */
       const idx=existingByKey.get(key);
-      const keepId=state.cases[idx].id||uid();
-      c.id=keepId;
-      state.cases[idx]=c;
+      const loc=state.cases[idx];
+      const d=(typeof diffCaseFields==="function")?diffCaseFields(loc,c):[];
+      if(d.length){ _importConflicts.push({key:key,title:caseTitle(c)||key,local:loc,remote:c,diff:d}); }
       replaced++;
-      lastId=keepId;
+      lastId=loc.id||uid(); loc.id=lastId;
     }else{
       c.id=uid();
       c.ucn=nextUcn();
@@ -23205,7 +23729,22 @@ function importSelectedCases(){
   closeImportModal();
   gotoTab("cases");
   renderCases();
-  toast(`${added} ajouté(s), ${replaced} remplacé(s), ${skipped} ignoré(s) — liste des cas affichée`);
+  /* v743 — l'import alimente le fichier de sauvegarde et arbitre les conflits éventuels */
+  const _fin=function(){
+    try{ if(typeof workDirHandle!=="undefined"&&workDirHandle&&typeof saveWorkFile==="function")saveWorkFile(true); }catch(e){}
+    try{ if(typeof logAppend==="function")logAppend("Import — "+added+" cas ajouté(s), "+_importConflicts.length+" cas à arbitrer, "+skipped+" ignoré(s)."); }catch(e){}
+  };
+  if(_importConflicts.length&&typeof openConflictModal==="function"){
+    const nb=_importConflicts.length;
+    openConflictModal(_importConflicts,"incoming",function(r){
+      _fin();
+      try{refreshCaseSelect();loadCaseIntoTool();renderCases();}catch(e){}
+      toast(added+" ajouté(s) · "+nb+" cas synchronisé(s) ("+r.applied+" champ(s) repris) · "+skipped+" ignoré(s)");
+    });
+    return;
+  }
+  _fin();
+  toast(`${added} ajouté(s), ${replaced} synchronisé(s), ${skipped} ignoré(s) — liste des cas affichée`);
 }
 async function saveAs(){
   if(window.showSaveFilePicker){
@@ -23351,7 +23890,14 @@ const btnClearCache=$("#btnClearCache");if(btnClearCache)btnClearCache.addEventL
 const btnCleanWorkDir=null;
 const btnGenerateTemplate=$("#btnGenerateTemplate");if(btnGenerateTemplate)btnGenerateTemplate.addEventListener("click",async()=>{try{await generateTemplateFile();}finally{toggleAdminMenu(false);}});
 
-const btnWorkDir=$("#btnWorkDir");if(btnWorkDir)btnWorkDir.addEventListener("click",chooseWorkDir);
+const btnSyncWork=$("#btnSyncWork");if(btnSyncWork)btnSyncWork.addEventListener("click",function(){syncWithWorkFile();});
+const btnWorkDir=$("#btnWorkDir");if(btnWorkDir)btnWorkDir.addEventListener("click",function(){
+  /* v742 — si un dossier a déjà été mémorisé, on le rouvre (autorisation) au lieu d'en redemander un */
+  if(pendingWorkDirHandle){reconnectWorkDir();return;}
+  chooseWorkDir();
+});
+/* v742 — tentative de reconnexion silencieuse au dossier mémorisé */
+try{ setTimeout(function(){ try{ if(!workDirHandle&&typeof tryRestoreWorkDir==="function")tryRestoreWorkDir(); }catch(e){} }, 400); }catch(e){}
 const btnImportWork=$("#btnImportWork");if(btnImportWork)btnImportWork.addEventListener("click",openWorkFile);
 const btnOpenWorkFile=$("#btnOpenWorkFile");if(btnOpenWorkFile)btnOpenWorkFile.addEventListener("click",openWorkFile);
 const importClose=$("#importClose");if(importClose)importClose.addEventListener("click",closeImportModal);

@@ -11932,27 +11932,48 @@ body.review-mode-global .breadcrumb{display:flex!important}
   .accept-status-pill .v,.accept-status-pill .d{white-space:normal}
 }
 
-/* v743 — pop-up d'arbitrage des conflits de synchronisation */
-.cfl-ov{position:fixed;inset:0;background:rgba(12,26,50,.55);z-index:9999;display:flex;align-items:flex-start;justify-content:center;padding:26px 14px;overflow:auto}
-.cfl-box{background:#fff;border-radius:12px;max-width:1080px;width:100%;box-shadow:0 20px 60px -20px rgba(10,30,70,.6);overflow:hidden}
-.cfl-head{background:#14366c;color:#fff;padding:14px 18px}
-.cfl-head h3{margin:0;font-size:16px}
-.cfl-head p{margin:4px 0 0;font-size:12.5px;opacity:.9}
-.cfl-body{padding:14px 18px;max-height:60vh;overflow:auto}
-.cfl-case{border:1px solid #d8e3f3;border-radius:9px;margin-bottom:14px}
-.cfl-case>h4{margin:0;padding:9px 12px;background:#eef4fc;color:#14366c;font-size:13.5px;border-bottom:1px solid #d8e3f3}
-.cfl-f{padding:10px 12px;border-bottom:1px solid #eef2f8}
+/* v744 — clôture de l'acceptabilité */
+.v744-close-btn{margin-left:auto;background:#14366c;color:#fff;border:1px solid #14366c;border-radius:7px;padding:6px 13px;font-size:12.5px;font-weight:600;cursor:pointer}
+.v744-close-btn:hover{background:#0f2a55}
+.v744-close-btn.ghost{background:#fff;color:#14366c;font-weight:500}
+.v744-closed{margin-left:auto;font-size:12.5px;color:#1c7a4a;font-weight:600}
+.v744-hint{margin-left:auto;font-size:12px;color:#5b7196;font-style:italic}
+.v276-table-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+/* v745 — pop-up d'arbitrage des conflits (ergonomie revue) */
+.cfl-ov{position:fixed;inset:0;background:rgba(12,26,50,.55);z-index:9999;display:flex;align-items:flex-start;justify-content:center;padding:24px 14px;overflow:auto}
+.cfl-box{background:#fff;border-radius:12px;max-width:1080px;width:100%;box-shadow:0 22px 64px -22px rgba(10,30,70,.65);overflow:hidden;display:flex;flex-direction:column;max-height:92vh}
+.cfl-head{background:#14366c;color:#fff;padding:15px 20px}
+.cfl-head h3{margin:0;font-size:16.5px}
+.cfl-head p{margin:5px 0 0;font-size:12.5px;opacity:.92;line-height:1.45}
+.cfl-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 20px;background:#f2f7fd;border-bottom:1px solid #dbe6f5}
+.cfl-bar-l{font-size:12.5px;color:#42597c;font-weight:600}
+.cfl-all{border:1px solid #c2d5ec;background:#fff;color:#14366c;border-radius:20px;padding:5px 13px;font-size:12.5px;cursor:pointer}
+.cfl-all:hover{background:#14366c;color:#fff;border-color:#14366c}
+.cfl-count{margin-left:auto;font-size:12.5px;color:#14366c;font-weight:700}
+.cfl-body{padding:14px 20px;overflow:auto;flex:1}
+.cfl-case{border:1px solid #d8e3f3;border-radius:9px;margin-bottom:14px;overflow:hidden}
+.cfl-case>summary{padding:10px 13px;background:#eef4fc;color:#14366c;font-size:13.5px;cursor:pointer;display:flex;align-items:center;gap:9px;list-style:none}
+.cfl-case>summary::-webkit-details-marker{display:none}
+.cfl-case>summary::before{content:"▸";font-size:11px;transition:transform .15s}
+.cfl-case[open]>summary::before{transform:rotate(90deg)}
+.cfl-badge{margin-left:auto;background:#14366c;color:#fff;border-radius:11px;padding:2px 9px;font-size:11px;font-weight:600}
+.cfl-sec{padding:7px 13px;background:#fafcfe;border-top:1px solid #eef2f8;border-bottom:1px solid #eef2f8;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#5b7196;font-weight:700}
+.cfl-f{padding:11px 13px;border-bottom:1px solid #f0f4fa}
 .cfl-f:last-child{border-bottom:none}
-.cfl-fl{font-weight:700;color:#14366c;font-size:12.5px;margin-bottom:6px}
-.cfl-cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:7px}
-.cfl-cmp>div{background:#f7fafd;border:1px solid #e2ebf6;border-radius:6px;padding:6px 8px;font-size:12px;white-space:pre-wrap;word-break:break-word;max-height:120px;overflow:auto}
-.cfl-cmp .t{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:#5b7196;margin-bottom:3px}
-.cfl-opts{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px}
-.cfl-opts label{display:inline-flex;align-items:center;gap:5px;cursor:pointer}
-.cfl-foot{padding:12px 18px;border-top:1px solid #e4ebf5;display:flex;gap:9px;justify-content:flex-end;align-items:center;background:#fbfdff}
+.cfl-fl{font-weight:700;color:#14366c;font-size:12.5px;margin-bottom:7px}
+.cfl-cmp{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:8px}
+.cfl-v{background:#f8fafd;border:1.5px solid #e4ebf6;border-radius:7px;padding:7px 9px;font-size:12px;white-space:pre-wrap;word-break:break-word;max-height:130px;overflow:auto;transition:border-color .12s,background .12s}
+.cfl-v.sel{border-color:#14366c;background:#fff;box-shadow:0 2px 8px -4px rgba(20,54,108,.5)}
+.cfl-v .t{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:#5b7196;margin-bottom:4px;font-weight:700}
+.cfl-v.sel .t{color:#14366c}
+.cfl-opts{display:flex;gap:15px;flex-wrap:wrap;font-size:12.5px}
+.cfl-opts label{display:inline-flex;align-items:center;gap:5px;cursor:pointer;color:#2c4468}
+.cfl-foot{padding:12px 20px;border-top:1px solid #e4ebf5;display:flex;gap:9px;justify-content:flex-end;align-items:center;background:#fbfdff}
 .cfl-foot .sp{margin-right:auto;font-size:12px;color:#5b7196}
-.cfl-foot button{border-radius:7px;padding:8px 14px;font-size:13px;cursor:pointer;border:1px solid #c9d8ec;background:#fff;color:#14366c}
+.cfl-foot button{border-radius:7px;padding:8px 15px;font-size:13px;cursor:pointer;border:1px solid #c9d8ec;background:#fff;color:#14366c}
 .cfl-foot button.main{background:#14366c;color:#fff;border-color:#14366c;font-weight:600}
+@media(max-width:720px){.cfl-cmp{grid-template-columns:1fr}}
 
 /* v728 — repli d’un composant IA (déplié par défaut) */
 .gs-comp.gs-comp-collapsed > *:not(.gs-comp-head){display:none!important}
@@ -14262,7 +14283,7 @@ var CRIT_LABEL=new Proxy({},{get:function(_,k){
   function level(c,id){return ((latestIter(c).levels||{})[id])||&quot;&quot;}
   function just(c,id){return (c&&c.comments&&c.comments[id])||&quot;&quot;}
   function summary(c,ids){return ids.map(function(id){return id+&quot; : niveau &quot;+(level(c,id)||&quot;—&quot;)+(just(c,id)?&quot; — &quot;+just(c,id):&quot;&quot;)}).join(&quot;\\n&quot;)}
-  function mods(c){var fams=(c&&c.v271&&c.v271.modifiedFamilies)||[]; return fams.length?fams.join(&quot;, &quot;):&quot;Aucune modification descriptive tracée dans cette itération.&quot;}
+  function mods(c){var fams=((c&&c.v271&&c.v271.modifiedFamilies)||[]).map(v744FamLabel); return fams.length?fams.join(&quot;, &quot;):&quot;Aucune modification descriptive tracée dans cette itération.&quot;}
   function cards(c){return [
     {key:&quot;context&quot;,title:&quot;Contexte métier&quot;,text:field(c,[&quot;contexteMetier&quot;,&quot;perimetre&quot;,&quot;perimetreFct&quot;])},
     {key:&quot;service&quot;,title:&quot;Service attendu / finalité&quot;,text:[field(c,&quot;service&quot;),field(c,&quot;finalite&quot;),field(c,&quot;mission&quot;)].filter(Boolean).join(&quot;\\n&quot;)},
@@ -16075,6 +16096,51 @@ function ensureV320(c){
   if(!Array.isArray(c.v320.history))c.v320.history=[];
 }
 function closureKindV320(c){c=c||activeCase(); try{if((c.v320&&c.v320.closure)==="closed")return c.v320.withReview?"reviewed":"no_review";}catch(e){} return "";}
+/* ===== v744 — clôture explicite de l'acceptabilité (remplace la notion d'alerte) ===== */
+/* libellé lisible d'une partie modifiée ("fiche" = les champs d'en-tête de la fiche) */
+function v744FamLabel(f){
+  try{
+    if(f==="fiche")return "Fiche descriptive (intitulé, description, contexte)";
+    if(typeof FAMBYKEY!=="undefined"&&FAMBYKEY[f]&&FAMBYKEY[f].title)return FAMBYKEY[f].title;
+  }catch(e){}
+  return String(f||"");
+}
+function v744AcceptClosed(c){try{return !!(c&&c.v271&&c.v271.acceptClosedAt);}catch(e){return false;}}
+function v744CloseBtnHtml(c){
+  try{
+    var it=(typeof safeActiveIter==="function")?(safeActiveIter(c)||{}):{};
+    var l3a=Number(((it.levels)||{})["3a"]||0);
+    if(v744AcceptClosed(c))
+      return '<span class="v744-closed">Acceptabilité clôturée — '+esc(String(c.v271.acceptClosedAt))+'</span>'+
+             '<button type="button" class="v744-close-btn ghost" data-v744-reopen>Rouvrir</button>';
+    if(!l3a) return '<span class="v744-hint">Renseignez le niveau d’acceptabilité pour pouvoir clôturer.</span>';
+    return '<button type="button" class="v744-close-btn" data-v744-close>Clôturer l’acceptabilité</button>';
+  }catch(e){return "";}
+}
+document.addEventListener("click",function(e){
+  var b=e.target&&e.target.closest?e.target.closest("[data-v744-close],[data-v744-reopen]"):null;
+  if(!b)return;
+  e.preventDefault(); e.stopPropagation();
+  var c=(typeof activeCase==="function")?activeCase():null; if(!c)return;
+  c.v271=c.v271||{};
+  if(b.hasAttribute("data-v744-reopen")){
+    c.v271.acceptClosedAt="";
+    try{markDirty();persist();}catch(x){}
+    try{loadCaseIntoTool();}catch(x){}
+    try{toast("Acceptabilité rouverte");}catch(x){}
+    return;
+  }
+  var it=(typeof safeActiveIter==="function")?(safeActiveIter(c)||{}):{};
+  var l3a=Number(((it.levels)||{})["3a"]||0);
+  if(!l3a){try{toast("Renseignez d’abord le niveau d’acceptabilité.");}catch(x){} return;}
+  c.v271.acceptClosedAt=(typeof nowStamp==="function")?nowStamp():new Date().toLocaleString("fr-FR");
+  c.v271.descriptionDirty=false;
+  c.v271.modifiedFamilies=[];
+  try{c.v271.descriptionHash=descriptionHash(c);}catch(x){}
+  try{markDirty();persist();}catch(x){}
+  try{loadCaseIntoTool();}catch(x){}
+  try{toast("Acceptabilité clôturée — itération actée");}catch(x){}
+},true);
 function ficheState(c){
   c=c||activeCase(); if(!c)return "draft";
   try{
@@ -16083,7 +16149,7 @@ function ficheState(c){
     var it=(typeof safeActiveIter==="function")?(safeActiveIter(c)||{}):{};
     var l3a=Number(((it.levels)||{})["3a"]||0);
     var dirty=!!(c.v271&&c.v271.descriptionDirty);
-    if(l3a>0 && !dirty){
+    if(l3a>0){
       /* modèle simple : une RC validée DÉFAVORABLE remet l'itération « En cours » (à reprendre) */
       try{ if(it.review && it.review.validated && it.review.globalStatus==="Défavorable") return "draft"; }catch(e){}
       return "acted";
@@ -16228,7 +16294,7 @@ function applyView(c,mode){
   if(ruban){
     let txt="";
     if(lockedEdit)txt="VERROUILLÉE — CRÉER UNE NOUVELLE ITÉRATION POUR MODIFIER";
-    else if(recheck)txt="À RÉEXAMINER — LA DESCRIPTION A CHANGÉ, L’ANALYSE DOIT ÊTRE REVUE";
+    
     else if(m==="edit")txt="MODIFICATION EN COURS";
     ruban.textContent=txt;
     ruban.classList.toggle("on",!!txt);
@@ -23159,6 +23225,27 @@ function applyFieldChoice(localCase,field,choice){
       cur=(typeof cur==="string")?cur.trim():cur;
       if(!_cflEmpty(cur))return false;   /* déjà renseigné localement : on ne touche pas */
     }
+    /* v745 — niveaux de cotation, justifications et décision */
+    if(field.path.indexOf("iter.levels.")===0){
+      var did=field.path.split(".")[2];
+      var arr=(localCase.iterations)||[]; var itl=arr.length?arr[arr.length-1]:null;
+      if(!itl)return false;
+      itl.levels=itl.levels||{};
+      if(inc==null||inc==="")delete itl.levels[did]; else itl.levels[did]=inc;
+      return true;
+    }
+    if(field.path.indexOf("comments.")===0){
+      var cid=field.path.split(".")[1];
+      localCase.comments=localCase.comments||{};
+      localCase.comments[cid]=(inc==null?"":inc);
+      return true;
+    }
+    if(field.path==="iter.decision"){
+      var arr2=(localCase.iterations)||[]; var it2=arr2.length?arr2[arr2.length-1]:null;
+      if(!it2)return false;
+      it2.decision=(inc==null?"":inc);
+      return true;
+    }
     if(field.path.indexOf("step0.")===0){
       var k=field.path.split(".")[1];
       localCase.step0=localCase.step0||{};
@@ -23186,60 +23273,97 @@ function openConflictModal(entries,mode,onDone){
   try{
     if(!entries||!entries.length){if(onDone)onDone({applied:0,cancelled:false});return;}
     var isSave=(mode==="save");
-    var LBL=isSave
-      ? {a:"Garder ma version (écrase le fichier)",b:"Prendre la version du fichier",c:"Ne rien faire"}
-      : {a:"Remplacer",b:"Compléter si vide",c:"Ne rien faire"};
-    var colL=isSave?"Ma version (en cours)":"Version locale", colR=isSave?"Version du fichier de sauvegarde":"Version proposée";
+    var colL=isSave?"Ma version (en cours)":"Ma version",
+        colR=isSave?"Version du fichier de sauvegarde":"Version proposée";
+    var OPT=isSave
+      ? [["rien","Garder la mienne"],["remplacer","Prendre celle du fichier"]]
+      : [["remplacer","Remplacer"],["completer","Compléter si vide"],["rien","Ne rien faire"]];
+    var DEFAULT=isSave?"rien":"remplacer";
+    var SECTIONS=["Description","Analyse — cotation","Position / acceptabilité"];
     var nb=entries.reduce(function(n,e){return n+e.diff.length;},0);
+
     var ov=document.createElement("div"); ov.className="cfl-ov";
-    var html='<div class="cfl-box"><div class="cfl-head"><h3>'+(isSave?"Modification concurrente détectée":"Synchronisation — champs en conflit")+'</h3>'+
-      '<p>'+nb+' champ(s) divergent(s) sur '+entries.length+' cas d’usage. '+
-      (isSave?'Le fichier de sauvegarde a été modifié pendant votre saisie.':'Par défaut, la valeur proposée remplace la vôtre.')+
-      ' Vous pouvez valider directement, ou arbitrer champ par champ.</p></div><div class="cfl-body">';
+    var h='<div class="cfl-box">';
+    h+='<div class="cfl-head"><h3>'+(isSave?"Modification concurrente":"Synchronisation")+'</h3>'+
+       '<p>'+nb+' champ'+(nb>1?'s':'')+' diffère'+(nb>1?'nt':'')+' sur '+entries.length+' cas d’usage. '+
+       (isSave?'Le fichier a été modifié pendant votre saisie — votre version est conservée par défaut.'
+              :'Par défaut, la version proposée remplace la vôtre.')+'</p></div>';
+    /* barre d'actions globales */
+    h+='<div class="cfl-bar"><span class="cfl-bar-l">Tout appliquer :</span>';
+    OPT.forEach(function(o){ h+='<button type="button" class="cfl-all" data-all="'+o[0]+'">'+o[1]+'</button>'; });
+    h+='<span class="cfl-count" id="cflCount"></span></div>';
+    h+='<div class="cfl-body">';
     entries.forEach(function(en,ei){
-      html+='<div class="cfl-case"><h4>'+esc(en.title||"Cas d’usage")+'</h4>';
-      en.diff.forEach(function(f,fi){
-        var nm="cfl_"+ei+"_"+fi;
-        var dft=isSave?"b":"remplacer";
-        html+='<div class="cfl-f"><div class="cfl-fl">'+esc(f.label||f.path)+'</div>'+
-          '<div class="cfl-cmp"><div><span class="t">'+colL+'</span>'+esc(_cflPreview(f.local))+'</div>'+
-          '<div><span class="t">'+colR+'</span>'+esc(_cflPreview(f.remote))+'</div></div>'+
-          '<div class="cfl-opts">'+
-            '<label><input type="radio" name="'+nm+'" value="remplacer"'+(isSave?'':' checked')+'> '+LBL[isSave?"b":"a"]+'</label>'+
-            (isSave
-              ? '<label><input type="radio" name="'+nm+'" value="rien" checked> '+LBL.a+'</label>'
-              : '<label><input type="radio" name="'+nm+'" value="completer"> '+LBL.b+'</label>')+
-            '<label><input type="radio" name="'+nm+'" value="rien2"> '+LBL.c+'</label>'+
-          '</div></div>';
+      h+='<details class="cfl-case" open><summary><b>'+esc(en.title||"Cas d’usage")+'</b>'+
+         '<span class="cfl-badge">'+en.diff.length+' champ'+(en.diff.length>1?'s':'')+'</span></summary>';
+      SECTIONS.forEach(function(sec){
+        var list=[];
+        en.diff.forEach(function(f,fi){ if((f.section||"Description")===sec) list.push([f,fi]); });
+        if(!list.length)return;
+        h+='<div class="cfl-sec">'+esc(sec)+'</div>';
+        list.forEach(function(pair){
+          var f=pair[0], fi=pair[1], nm="cfl_"+ei+"_"+fi;
+          h+='<div class="cfl-f"><div class="cfl-fl">'+esc(f.label||f.path)+'</div>'+
+             '<div class="cfl-cmp">'+
+               '<div class="cfl-v cfl-vl" data-for="'+nm+'" data-side="rien"><span class="t">'+colL+'</span>'+esc(_cflPreview(f.local))+'</div>'+
+               '<div class="cfl-v cfl-vr" data-for="'+nm+'" data-side="remplacer"><span class="t">'+colR+'</span>'+esc(_cflPreview(f.remote))+'</div>'+
+             '</div><div class="cfl-opts">';
+          OPT.forEach(function(o){
+            h+='<label><input type="radio" name="'+nm+'" value="'+o[0]+'"'+((o[0]===DEFAULT)?' checked':'')+'> '+o[1]+'</label>';
+          });
+          h+='</div></div>';
+        });
       });
-      html+='</div>';
+      h+='</details>';
     });
-    html+='</div><div class="cfl-foot"><span class="sp">'+(isSave?'« Ne rien faire » conserve les deux versions en l’état.':'Un simple OK applique le choix par défaut à tout.')+'</span>'+
-      '<button type="button" data-cfl="cancel">Annuler</button>'+
-      '<button type="button" class="main" data-cfl="ok">OK</button></div></div>';
-    ov.innerHTML=html;
+    h+='</div><div class="cfl-foot">'+
+       '<span class="sp">'+(isSave?'Aucune écriture tant que vous n’avez pas validé.':'Un simple OK applique le choix par défaut à tout.')+'</span>'+
+       '<button type="button" data-cfl="cancel">Annuler</button>'+
+       '<button type="button" class="main" data-cfl="ok">Valider</button></div></div>';
+    ov.innerHTML=h;
     document.body.appendChild(ov);
+
+    /* — mise en évidence du choix + compteur en direct — */
+    function refresh(){
+      var n=0;
+      ov.querySelectorAll('input[type=radio]:checked').forEach(function(r){
+        if(r.value==="remplacer"||r.value==="completer")n++;
+        ov.querySelectorAll('.cfl-v[data-for="'+r.name+'"]').forEach(function(v){
+          var side=v.getAttribute("data-side");
+          var on=(r.value==="rien")?(side==="rien"):(side==="remplacer");
+          v.classList.toggle("sel",!!on);
+        });
+      });
+      var el=ov.querySelector("#cflCount");
+      if(el)el.textContent=n?(n+" champ"+(n>1?"s":"")+" repris"):"aucun champ repris";
+    }
+    ov.addEventListener("change",refresh);
+    refresh();
+
     ov.addEventListener("click",function(e){
+      var all=e.target&&e.target.closest?e.target.closest("[data-all]"):null;
+      if(all){
+        var v=all.getAttribute("data-all");
+        ov.querySelectorAll('input[type=radio][value="'+v+'"]').forEach(function(r){r.checked=true;});
+        refresh(); return;
+      }
       var b=e.target&&e.target.closest?e.target.closest("[data-cfl]"):null;
       if(!b)return;
-      var act=b.getAttribute("data-cfl");
-      if(act==="cancel"){ov.remove(); if(onDone)onDone({applied:0,cancelled:true}); return;}
+      if(b.getAttribute("data-cfl")==="cancel"){ov.remove(); if(onDone)onDone({applied:0,cancelled:true}); return;}
       var applied=0, details=[];
       entries.forEach(function(en,ei){
         en.diff.forEach(function(f,fi){
           var sel=ov.querySelector('input[name="cfl_'+ei+'_'+fi+'"]:checked');
-          var v=sel?sel.value:"rien";
-          var choice=(v==="remplacer")?"remplacer":(v==="completer"?"completer":"rien");
-          if(isSave&&v==="rien"){ choice="rien"; }        /* garder ma version */
+          var choice=sel?sel.value:"rien";
           if(choice!=="rien"&&en.local){
             if(applyFieldChoice(en.local,f,choice)){applied++;details.push((en.title||"")+" › "+(f.label||f.path));}
           }
         });
       });
       ov.remove();
-      try{persist();}catch(e){}
-      try{if(typeof refreshCaseSelect==="function")refreshCaseSelect();if(typeof loadCaseIntoTool==="function")loadCaseIntoTool();}catch(e){}
-      try{logAppend("Arbitrage de conflits — "+applied+" champ(s) repris"+(details.length?" ("+details.slice(0,6).join(" ; ")+(details.length>6?"…":"")+")":"")+".");}catch(e){}
+      try{persist();}catch(e2){}
+      try{if(typeof refreshCaseSelect==="function")refreshCaseSelect();if(typeof loadCaseIntoTool==="function")loadCaseIntoTool();}catch(e2){}
+      try{logAppend("Arbitrage de conflits — "+applied+" champ(s) repris"+(details.length?" ("+details.slice(0,6).join(" ; ")+(details.length>6?"…":"")+")":"")+".");}catch(e2){}
       if(onDone)onDone({applied:applied,cancelled:false});
     });
   }catch(e){ if(onDone)onDone({applied:0,cancelled:true}); }
@@ -23314,6 +23438,7 @@ function diffCaseFields(local,remote){
       var a=String(L[k]||"").trim(), b=String(R[k]||"").trim();
       /* v743 — valeurs sérialisées comme pour les autres champs, pour un traitement uniforme */
       if(a!==b)out.push({path:"step0."+k,label:(k==="title"?"Intitulé":"Description courte"),
+                         section:"Description",
                          local:JSON.stringify(a),remote:JSON.stringify(b)});
     });
     /* v742 — appariement par NOTION (defId + rang), jamais par iid : les iid sont regénérés
@@ -23347,10 +23472,42 @@ function diffCaseFields(local,remote){
         var a=JSON.stringify(lv==null?null:lv), b=JSON.stringify(rv==null?null:rv);
         if(a===b)return;
         out.push({path:fk+"."+key,label:(li&&li.defId)||(ri&&ri.defId)||key.split("#")[0],
+                  section:"Description",
                   local:a,remote:b,fam:fk,defKey:key,
                   onlyRemote:!li||isEmptyVal(lv), onlyLocal:!ri||isEmptyVal(rv)});
       });
     });
+
+    /* v745 — étapes d'analyse et de position : niveaux, justifications et décision */
+    var DIMS=["1a","1b","1c","2a","2b","2c","2d","3a","3b"];
+    var secOf=function(id){return (id.charAt(0)==="3")?"Position / acceptabilité":"Analyse — cotation";};
+    var dimLabel=function(id){
+      try{ if(typeof CRIT!=="undefined"&&CRIT[id]&&CRIT[id].nm) return id+" — "+CRIT[id].nm; }catch(e){}
+      return "Dimension "+id;
+    };
+    var lastIter=function(x){
+      try{var a=(x&&x.iterations)||[]; return a.length?a[a.length-1]:null;}catch(e){return null;}
+    };
+    var li2=lastIter(local), ri2=lastIter(remote);
+    var lL=((li2&&li2.levels)||{}), rL=((ri2&&ri2.levels)||{});
+    var lC=((local&&local.comments)||{}), rC=((remote&&remote.comments)||{});
+    DIMS.forEach(function(id){
+      var a=String(lL[id]||""), b=String(rL[id]||"");
+      if(a!==b&&!(!a&&!b))
+        out.push({path:"iter.levels."+id,label:"Niveau retenu — "+dimLabel(id),section:secOf(id),dim:id,
+                  local:JSON.stringify(a),remote:JSON.stringify(b),
+                  onlyRemote:!a,onlyLocal:!b});
+      var ja=String(lC[id]||"").trim(), jb=String(rC[id]||"").trim();
+      if(ja!==jb)
+        out.push({path:"comments."+id,label:"Justification — "+dimLabel(id),section:secOf(id),dim:id,
+                  local:JSON.stringify(ja),remote:JSON.stringify(jb),
+                  onlyRemote:!ja,onlyLocal:!jb});
+    });
+    var dA=String((li2&&li2.decision)||"").trim(), dB=String((ri2&&ri2.decision)||"").trim();
+    if(dA!==dB)
+      out.push({path:"iter.decision",label:"Décision de l’itération",section:"Position / acceptabilité",
+                local:JSON.stringify(dA),remote:JSON.stringify(dB),
+                onlyRemote:!dA,onlyLocal:!dB});
   }catch(e){}
   return out;
 }
@@ -24255,7 +24412,8 @@ document.addEventListener("click",e=>{
   function caseStatus(c){
     ensureV271(c); const dirty=!!(c.v271&&c.v271.descriptionDirty); const desc=descriptionComplete(c);
     const st={desc:desc?"complete":"todo",benefit:"locked",confidence:"locked",accept:"locked",dirty};
-    if(dirty){st.desc="todo"; st.benefit="recheck"; st.confidence="recheck"; st.accept="recheck"; return st;}
+    /* v744 — une modification de la description ne met plus l’analyse « à réexaminer » :
+       elle n’interrompt plus le parcours. La clôture de l’acceptabilité est explicite. */
     st.benefit=!desc?"locked":(groupComplete(c,["1a","1b","1c"])?"complete":"todo");
     st.confidence=st.benefit!=="complete"?"locked":(groupComplete(c,["2a","2b","2c","2d"])?"complete":"todo");
     st.accept=st.confidence!=="complete"?"locked":(accComplete(c)?"complete":"todo");
@@ -24449,8 +24607,8 @@ document.addEventListener("click",e=>{
      itération N » des familles, elles, restent — elles décrivent un fait, pas une obligation. */
   var _analyse=false;
   try{ _analyse=(typeof window!=="undefined"&&typeof window.analysisPerformed==="function")?!!window.analysisPerformed(c):false; }catch(e){}
-  const area=_analyse?document.getElementById("famArea"):null; if(area){const labels=fams.map(f=>FAMBYKEY[f]?FAMBYKEY[f].title:f).join(", "); area.insertAdjacentHTML("afterbegin",`<div class="v271-mod-summary"><b>Modifications de l’itération ${iterNumber(c)} :</b> ${esc(labels)}. L’analyse et l’acceptabilité doivent être réexaminées avant clôture.</div>`);}
-  }
+  /* v744 — plus de résumé « à réexaminer » : la notion d’alerte est supprimée. */
+    }
   const oldRenderStep0=renderStep0;
   window.renderStep0=function(){oldRenderStep0(); bindModeButtons(); ensureActionButtons(); refreshCaseSelectNative(); updateBreadcrumb(); markModifiedBlocksV271();};
   const oldRenderAll=renderAll;
@@ -25381,7 +25539,7 @@ body.analyse-mode-global #workBody tr.v276-hidden{display:none!important}body.an
   function statusClass(s,k){var map={benefit:'benefit',confidence:'confidence',position:'accept'}; return s[map[k]]||'locked'}
   function stageHint(st){if(st==='benefit')return 'Sélectionner les niveaux 1a, 1b, 1c et saisir les justifications.'; if(st==='confidence')return 'Sélectionner les niveaux 2a, 2b, 2c, 2d et saisir les justifications.'; return 'Renseigner la position 3a, les conditions éventuelles 3b et la décision finale.'}
   var oldBuild=window.buildAnalysis;
-  window.buildAnalysis=function(c){ensure276(c); var st=c.v276.stage||'benefit'; var s=status(c); var tabs=''; ['benefit','confidence','position'].forEach(function(k){var num=k==='benefit'?'1. ':k==='confidence'?'2. ':'3. '; var cls=(k===st?'active ':statusClass(s,k)); tabs+='<button type="button" class="'+cls+'" data-v276-stage="'+k+'">'+num+esc2(STAGE_LABEL[k])+'</button>'}); var dirty=c.v271&&c.v271.descriptionDirty && (typeof window.analysisPerformed==="function"?window.analysisPerformed(c):true); var h='<div class="v276-analysis-shell"><div class="v276-analysis-head"><div><div class="ttl">Analyse / cotation — parcours guidé</div><p>Le tableau de l’étape courante est l’espace principal de travail. La description complète est masquée ; le schéma sous le tableau ne sert que d’appui contextuel.</p></div><div class="v276-stage-badge">Itération '+iterNo(c)+' · '+esc2(STAGE_LABEL[st])+'</div></div></div>'; if(dirty)h+='<div class="v276-mod-note">Fiche descriptive modifiée dans l’itération '+iterNo(c)+' : l’analyse est à réexaminer. Les cartes modifiées sont signalées sous le tableau.</div>'; h+='<div class="v276-table-title"><b>Tableau de cotation — '+esc2(STAGE_LABEL[st])+'</b><span>'+esc2(stageHint(st))+'</span></div>'; return h};
+  window.buildAnalysis=function(c){ensure276(c); var st=c.v276.stage||'benefit'; var s=status(c); var tabs=''; ['benefit','confidence','position'].forEach(function(k){var num=k==='benefit'?'1. ':k==='confidence'?'2. ':'3. '; var cls=(k===st?'active ':statusClass(s,k)); tabs+='<button type="button" class="'+cls+'" data-v276-stage="'+k+'">'+num+esc2(STAGE_LABEL[k])+'</button>'}); var dirty=c.v271&&c.v271.descriptionDirty && (typeof window.analysisPerformed==="function"?window.analysisPerformed(c):true); var h='<div class="v276-analysis-shell"><div class="v276-analysis-head"><div><div class="ttl">Analyse / cotation — parcours guidé</div><p>Le tableau de l’étape courante est l’espace principal de travail. La description complète est masquée ; le schéma sous le tableau ne sert que d’appui contextuel.</p></div><div class="v276-stage-badge">Itération '+iterNo(c)+' · '+esc2(STAGE_LABEL[st])+'</div></div></div>';  h+='<div class="v276-table-title"><b>Tableau de cotation — '+esc2(STAGE_LABEL[st])+'</b><span>'+esc2(stageHint(st))+'</span>'+((st==='position')?v744CloseBtnHtml(c):'')+'</div>'; return h};
   function s0text(c,fam,def){try{return s0sum(c,fam,def)||''}catch(e){return ''}}
   function cards(c){return [
     {key:'service',fam:'ia',title:'Service attendu / finalité',text:[s0text(c,'ia','service'),s0text(c,'ia','finalite'),s0text(c,'ia','mission'),s0text(c,'ia','objectifs')].filter(Boolean).join(' · ')},
@@ -25398,7 +25556,7 @@ body.analyse-mode-global #workBody tr.v276-hidden{display:none!important}body.an
     {key:'iteration',fam:'iteration',title:'Modifications de l’itération',text:mods(c)}
   ]}
   function summary(c,ids){return ids.map(function(id){return id+' : '+(level(c,id)||'—')+(just(c,id)?' — '+just(c,id):'')}).join(' | ')}
-  function mods(c){try{var fams=(c.v271&&c.v271.modifiedFamilies)||[]; return fams.length?fams.join(', '):'Aucune modification descriptive tracée dans cette itération.'}catch(e){return ''}}
+  function mods(c){try{var fams=((c.v271&&c.v271.modifiedFamilies)||[]).map(v744FamLabel); return fams.length?fams.join(', '):'Aucune modification descriptive tracée dans cette itération.'}catch(e){return ''}}
   function activeKeys(stage){if(stage==='benefit')return ['service','contexte','role','conditions','surete']; if(stage==='confidence')return ['data','component','chain','si','role']; return ['synthBenefit','synthConfidence','conditions','surete','role','iteration']}
   function contextHtml(c){ensure276(c); var stage=c.v276.stage||'benefit'; var active=activeKeys(stage); var detail=!!c.v276.detailMode; var modified=(c.v271&&c.v271.modifiedFamilies)||[]; var body=''; var all=cards(c); if(detail){body='<div class="v276-linear"><h4>Informations utiles — '+esc2(STAGE_LABEL[stage])+'</h4>'; all.filter(function(d){return active.indexOf(d.key)>=0}).forEach(function(d){var miss=!d.text; body+='<div class="row '+(miss?'missing':'')+'"><div class="lab">'+esc2(d.title)+(modified.indexOf(d.fam)>=0?' · modifié itération '+iterNo(c):'')+'</div><div class="txt">'+esc2(d.text||'Information utile non renseignée ou à préciser pour cette cotation.')+'</div></div>'}); body+='</div>'} else {body='<div class="v276-card-grid">'; all.forEach(function(d){var isA=active.indexOf(d.key)>=0; var miss=isA&&!d.text; var mod=modified.indexOf(d.fam)>=0; var cls=(isA?'active':'secondary')+(miss?' missing':'')+(mod?' modified':''); body+='<article class="v276-card '+cls+'"><div class="k">'+esc2(d.title)+'</div><div class="v">'+esc2(d.text||(isA?'Information utile non renseignée ou à préciser.':'Carte non prioritaire pour cette étape.'))+'</div>'+(mod?'<span class="badge">Modifié en itération '+iterNo(c)+'</span>':'')+(miss?'<span class="miss">utile à compléter</span>':'')+'</article>'}); body+='</div>'}
     var btn=detail?'Retour au schéma':'Mode détaillé'; return '<section id="v276Context" class="v276-context"><div class="v276-context-head"><div><div class="h">Schéma d’appui à la cotation — '+esc2(STAGE_LABEL[stage])+'</div><div class="s">Les cartes utiles sont mises en avant ; les autres restent visibles en retrait grisé.</div></div><button type="button" class="v276-detail-btn" id="btnV276Detail">'+btn+'</button></div>'+body+actionsHtml(stage)+'</section>'}
@@ -25920,7 +26078,7 @@ body.read-mode-global .vvt-read-edit,
   function latestLevel(c,id){var it=latestIter(c)||{}; return Number((it.levels||{})[id]||0)}
   function comment(c,id){return (c&&c.comments&&c.comments[id])?String(c.comments[id]):''}
   function summary(c,ids){return ids.map(function(id){return id+' : niveau '+(latestLevel(c,id)||'—')+(comment(c,id)?' — '+comment(c,id):'')}).join('\n')}
-  function mods(c){var logs=(c&&c.v271&&c.v271.modificationLog)||[]; if(logs.length)return logs.slice(-8).map(function(x){return (x.field||'Champ')+' : '+(x.oldValue||'—')+' → '+(x.newValue||'—')}).join('\n'); var fams=(c&&c.v271&&c.v271.modifiedFamilies)||[]; return fams.length?fams.join(', '):''}
+  function mods(c){var logs=(c&&c.v271&&c.v271.modificationLog)||[]; if(logs.length)return logs.slice(-8).map(function(x){return (x.field||'Champ')+' : '+(x.oldValue||'—')+' → '+(x.newValue||'—')}).join('\n'); var fams=((c&&c.v271&&c.v271.modifiedFamilies)||[]).map(v744FamLabel); return fams.length?fams.join(', '):''}
   function cards(c){return [
     {key:'context',fam:'socio',title:'Contexte métier',text:findField(c,['contexteMetier','perimetre','perimetreFct'])},
     {key:'service',fam:'ia',title:'Service attendu / finalité',text:[findField(c,'service'),findField(c,'finalite'),findField(c,'mission')].filter(Boolean).join('\n')},
